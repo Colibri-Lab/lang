@@ -1,0 +1,1 @@
+App.Modules.Commerce.Templates = class {};
