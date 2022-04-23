@@ -70,6 +70,12 @@ class Installer
         }
         self::_copyOrSymlink($mode, $configPath, $configDir, 'module-'.$mode.'.yaml', 'lang.yaml');
 
+        if(file_exists($configDir.'lang-texts.yaml')) {
+            print_r('Файл конфигурации найден, пропускаем настройку'."\n");
+            return;
+        }
+        self::_copyOrSymlink($mode, $configPath, $configDir, 'lang-texts.yaml', 'lang-texts.yaml');
+
         // нужно прописать в модули
         $modulesTargetPath = $configDir.'modules.yaml';
         $modulesConfigContent = file_get_contents($modulesTargetPath);

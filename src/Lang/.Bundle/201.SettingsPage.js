@@ -1,7 +1,7 @@
-App.Modules.Commerce.SettingsPage = class extends Colibri.UI.Component {
+App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
 
     constructor(name, container) {
-        super(name, container, Colibri.UI.Templates['App.Modules.Commerce.SettingsPage']);
+        super(name, container, Colibri.UI.Templates['App.Modules.Lang.SettingsPage']);
 
     }
 

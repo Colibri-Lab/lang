@@ -48,12 +48,8 @@ class Module extends BaseModule
     public function GetTopmostMenu(bool $hideExecuteCommand = true): Item|array
     {
         return [
-            Item::Create('struct', 'Структура', '', 'App.Modules.MainFrame.Icons.StructureIcon', '')->Add([
-                Item::Create('lang-catalogue', 'Каталог', 'Список категорий, торговые марки', 'App.Modules.Lang.Icons.CatalogueIcon', 'App.Modules.Lang.CataloguePage'),
-                Item::Create('lang-products', 'Товары/Предложения', 'Предложения магазинов', 'App.Modules.Lang.Icons.ProductsIcon', 'App.Modules.Lang.ProductsPage'),
-            ]),
             Item::Create('more', 'Инструменты', '', 'App.Modules.MainFrame.Icons.MoreIcon', '')->Add([
-                Item::Create('lang', 'Настройки магаина', 'Настройки системы оплаты', 'App.Modules.Lang.Icons.LangSettingsIcon', 'App.Modules.Lang.SettingsPage'),
+                Item::Create('lang', 'Настройки языков', 'Настройки языков, интерфейсные тексты', 'App.Modules.Lang.Icons.LangSettingsIcon', 'App.Modules.Lang.SettingsPage'),
             ])
         ];
 

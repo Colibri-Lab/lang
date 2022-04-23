@@ -1,33 +1,3 @@
 
 
-databases:
-
-  access-points: 
-
-    drivers:
-      mysql:
-        connection: Colibri\Data\MySql\Connection
-        command: Colibri\Data\MySql\Command
-        reader: Colibri\Data\MySql\DataReader
-        querybuilder: Colibri\Data\MySql\QueryBuilder
-
-    connections:
-      commerce:
-        # драйвер, который существует в секции access-points.drivers
-        type: mysql
-        # адрес подключения
-        host: localhost
-        # порт подключения
-        port: 3306
-        # пользователь
-        user: web
-        # пароль
-        password: 123456
-
-    points:
-      commerce: 
-        connection: commerce
-        database: products
-
-  storages: include(commerce-storages.yaml)
-      
+texts: include(lang-texts.yaml)
