@@ -1,3 +1,43 @@
 <div ComponentName="App.Modules.Lang.SettingsPage">
+
+    <Split name="split" shown="true" hasHandle="false" orientation="vertical">
     
+        <Pane name="ttl-pane" shown="true">
+            <H2 name="ttl" shown="true">Языки</H2>
+            <App.Modules.Lang.LangToolBar name="toolbar" shown="true" orientation="horizontal" binding="app.lang.langs" />
+        </Pane>
+        <Pane name="texts-pane" shown="true">
+            <H2 name="ttl" shown="true">Тексты</H2>
+            <Pane name="search-pane" shown="true">
+                <Input name="search-input" enabled="false" shown="true" placeholder="Поиск" />
+            </Pane>
+            <App.Modules.Lang.TextsGrid name="texts" shown="true" enabled="false" hasContextMenu="true" selectionMode="fullrow" showCheckboxes="true" binding="app.sites.pubs" emptyMessage="Публикаций не найдено">
+                <component-header>
+                    <component-columns>
+                        <Grid.Column name="domain" shown="true" value="Домен" width="15%" resizable="true">
+                            <params>
+                                {
+                                    render: (cell, row) => {
+                                        return cell.value?.description ?? "Все домены";
+                                    }
+                                }
+                            </params>
+                        </Grid.Column>
+                        <Grid.Column name="page" shown="true" value="Страница" width="15%" resizable="true">
+                            <params>
+                                {
+                                    render: (cell, row) => {
+                                        return cell.value?.description ?? "Все страницы";
+                                    }
+                                }
+                            </params>
+                        </Grid.Column>
+                        <Grid.Column name="key" shown="true" value="Ключ" width="15%" resizable="true" />
+                        <Grid.Column name="texts" shown="true" value="Строка" width="5%" resizable="false" viewer="App.Modules.Lang.LangTextsViewer" />
+                    </component-columns>
+                </component-header>
+            </App.Modules.Lang.TextsGrid>
+        </Pane>
+    </Split>
+
 </div>

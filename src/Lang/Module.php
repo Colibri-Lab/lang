@@ -14,6 +14,9 @@ namespace App\Modules\Lang;
 
 use Colibri\Modules\Module as BaseModule;
 use Colibri\Utils\Menu\Item;
+use Colibri\IO\FileSystem\Finder;
+use Colibri\IO\FileSystem\File;
+use Colibri\Utils\Debug;
 
 
 /**
@@ -39,7 +42,6 @@ class Module extends BaseModule
     public function InitializeModule(): void
     {
         self::$instance = $this;
-
     }
 
     /**

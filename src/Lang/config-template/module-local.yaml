@@ -1,3 +1,4 @@
 
 
+langs: include(lang-langs.yaml)
 texts: include(lang-texts.yaml)

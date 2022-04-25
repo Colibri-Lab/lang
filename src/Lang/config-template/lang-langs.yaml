@@ -1,0 +1,12 @@
+ru: 
+  default: true
+  desc: Русский
+  icon: App.Modules.Lang.Icons.Countries.RU
+en: 
+  default: false
+  desc: English
+  icon: App.Modules.Lang.Icons.Countries.US
+am:
+  default: false
+  desc: Հհայերեն
+  icon: App.Modules.Lang.Icons.Countries.AM

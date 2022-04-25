@@ -1,0 +1,23 @@
+.app-langtoolbar-component {
+
+    button {
+        padding-right: 10px;
+    }
+ 
+    .app-toolbar-lang-button {
+        margin-right: 10px;
+        .app-component-icon {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    .app-toolbar-add-button {
+        margin-left: 40px;
+        .app-component-icon {
+            width: 18px;
+            height: 18px;
+        }
+    }
+    
+}
