@@ -3,20 +3,20 @@
     <Split name="split" shown="true" hasHandle="true" orientation="horizontal">
     
         <Pane name="ttl-pane" shown="true">
-            <H2 name="ttl" shown="true">Языки</H2>
+            <H2 name="ttl" shown="true">#{lang-titles-langs;Языки}</H2>
             <App.Modules.Lang.LangTree name="langtree" shown="true" hasContextMenu="true" hasTreeContextMenu="true" binding="app.lang.langs" />
         </Pane>
         <Pane name="texts-pane" shown="true">
-            <H2 name="ttl" shown="true">Тексты</H2>
+            <H2 name="ttl" shown="true">#{lang-titles-texts;Тексты}</H2>
             <Pane name="search-pane" shown="true">
-                <Input name="search-input" enabled="true" shown="true" placeholder="Поиск" />
+                <Input name="search-input" enabled="true" shown="true" placeholder="#{lang-search-placeholder;Поиск}" />
             </Pane>
             <App.Modules.Lang.TextsGrid name="texts" shown="true" enabled="true" hasContextMenu="true" selectionMode="fullrow" showCheckboxes="true" binding="app.lang.langs;app.lang.texts" emptyMessage="Список текстов пуст" />
             <FlexBox name="buttons-pane" shown="true">
-                <SuccessButton name="add-text" shown="true" enabled="true" icon="Colibri.UI.ContextMenuAddIcon">Создать</SuccessButton>
-                <SuccessButton name="edit-text" shown="true" enabled="false" icon="Colibri.UI.ContextMenuEditIcon">Редактировать</SuccessButton>
-                <SuccessButton name="delete-text" shown="true" enabled="false" icon="Colibri.UI.ContextMenuRemoveIcon">Удалить</SuccessButton>
-                <SuccessButton name="translate-text" shown="true" enabled="false" icon="App.Modules.Lang.Icons.ContextMenuTranslateIcon">Перевести</SuccessButton>
+                <SuccessButton name="add-text" shown="true" enabled="true" icon="Colibri.UI.ContextMenuAddIcon">#{lang-buttons-create;Создать}</SuccessButton>
+                <SuccessButton name="edit-text" shown="true" enabled="false" icon="Colibri.UI.ContextMenuEditIcon">#{lang-buttons-edit;Редактировать}</SuccessButton>
+                <SuccessButton name="delete-text" shown="true" enabled="false" icon="Colibri.UI.ContextMenuRemoveIcon">#{lang-buttons-delete;Удалить}</SuccessButton>
+                <SuccessButton name="translate-text" shown="true" enabled="false" icon="App.Modules.Lang.Icons.ContextMenuTranslateIcon">#{lang-buttons-translate;Перевести}</SuccessButton>
             </FlexBox>
         </Pane>
         

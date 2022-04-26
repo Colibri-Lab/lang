@@ -43,7 +43,7 @@ class LangController extends WebController
             return $this->Finish(403, 'Permission denied');
         }
 
-        return $this->Finish(200, 'ok', ['cloud' => !!Module::$instance->cloud]);
+        return $this->Finish(200, 'ok', ['cloud' => !!Module::$instance->cloudEnabled]);
 
     }
 
@@ -213,7 +213,7 @@ class LangController extends WebController
             return $this->Finish(403, 'Permission denied');
         }
 
-        if(!Module::$instance->cloud) {
+        if(!Module::$instance->cloudEnabled) {
             return $this->Finish(400, 'Bad request');
         }
 
@@ -222,13 +222,15 @@ class LangController extends WebController
             return $this->Finish(400, 'Bad request');
         }
 
-        if(!SecurityModule::$instance->current->IsCommandAllowed('lang.texts.' . (!!$texts ? '.edit' : '.add'))) {
+        if(!SecurityModule::$instance->current->IsCommandAllowed('lang.texts.' . ((bool)$texts ? '.edit' : '.add'))) {
             return $this->Finish(403, 'Permission denied');
         }
 
 
         $langFrom = $post->langFrom;
         $langTo = $post->langTo;
+
+        Module::$instance->InitApis();
 
         $langConfig = Module::$instance->Config()->Query('config.texts');
 

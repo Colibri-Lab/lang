@@ -50,15 +50,19 @@ class Module extends BaseModule
     {
         self::$instance = $this;
 
-        $this->InitApis();
+        $this->_claudApi = null;
+
         $this->InitCurrent();
         $this->InitHandlers();
 
     }
 
     public function InitApis() {
-        $this->_claudApi = null;
-        if($this->Config()->Query('config.yandex-api.enabled')->GetValue()) {
+        if($this->_claudApi) {
+            return $this->_claudApi;
+        }
+        
+        if($this->cloudEnabled) {
             try {
                 $this->_claudApi = new TranslateSdk\Cloud($this->Config()->Query('config.yandex-api.token')->GetValue(), $this->Config()->Query('config.yandex-api.catalogue')->GetValue());
             } catch (TranslateSdk\Exception\ClientException | \TypeError $e) {
@@ -74,6 +78,9 @@ class Module extends BaseModule
         }
         if(strtolower($prop) === 'cloud') {
             return $this->_claudApi;
+        }
+        else if(strtolower($prop) === 'cloudenabled') {
+            return (bool)$this->Config()->Query('config.yandex-api.enabled')->GetValue();
         }
         else {
             return parent::__get($prop);

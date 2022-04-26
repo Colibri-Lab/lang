@@ -3,12 +3,15 @@ ru:
   default: true
   desc: Русский
   icon: App.Modules.Lang.Icons.Countries.RU
+  dateformat: 'ru-RU'
 en:
   default: false
   desc: English
   icon: App.Modules.Lang.Icons.Countries.US
+  dateformat: 'en-US'
 hy:
   default: false
   desc: Հհայերեն
   icon: App.Modules.Lang.Icons.Countries.AM
+  dateformat: 'ru-RU'
 ...

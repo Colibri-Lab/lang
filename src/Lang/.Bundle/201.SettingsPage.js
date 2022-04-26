@@ -206,7 +206,7 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
                     .catch(() => {});
             }
             else {
-                App.Notices.Add(new Colibri.UI.Notice('Действие запрещено', Colibri.UI.Notice.Error, 5000));
+                App.Notices.Add(new Colibri.UI.Notice('#{security-global-notallowed;Действие запрещено}', Colibri.UI.Notice.Error, 5000));
             }
         }
         else if(menuData.name == 'edit-lang') {
@@ -219,12 +219,12 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
                     .catch(() => {});
             }
             else {
-                App.Notices.Add(new Colibri.UI.Notice('Действие запрещено', Colibri.UI.Notice.Error, 5000));
+                App.Notices.Add(new Colibri.UI.Notice('#{security-global-notallowed;Действие запрещено}', Colibri.UI.Notice.Error, 5000));
             }
 
         }
         else if(menuData.name == 'remove-lang') {
-            App.Confirm.Show('Удаление языка', 'Вы уверены, что хотите удалить язык? Все текстовые данные, которые были заполнены будут безвозвратно удалены!', 'Удалить!').then(() => {
+            App.Confirm.Show('Удаление языка', 'Вы уверены, что хотите удалить язык? Все текстовые данные, которые были заполнены будут безвозвратно удалены!', '#{app-confirm-buttons-delete;Удалить!}').then(() => {
                 Lang.DeleteLang(item.tag.key);
             });
         }
@@ -282,11 +282,11 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
                     .catch(() => {});
             }
             else {
-                App.Notices.Add(new Colibri.UI.Notice('Действие запрещено', Colibri.UI.Notice.Error, 5000));
+                App.Notices.Add(new Colibri.UI.Notice('#{security-global-notallowed;Действие запрещено}', Colibri.UI.Notice.Error, 5000));
             }
         }
         else if(menuData.name == 'remove-text') {
-            App.Confirm.Show('Удаление текстов', 'Вы уверены, что хотите удалить текст?', 'Удалить!').then(() => {
+            App.Confirm.Show('Удаление текстов', 'Вы уверены, что хотите удалить текст?', '#{app-confirm-buttons-delete;Удалить!}').then(() => {
                 Lang.DeleteText(item.value.key);
             });
         }
@@ -304,18 +304,18 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
             const textSelected = this._texts.selected;
             const textChecked = this._texts.checked;
             if(textChecked.length > 0) {
-                App.Confirm.Show('Удаление текстов', 'Вы уверены, что хотите удалить выбранные тексты?', 'Удалить!').then(() => {
+                App.Confirm.Show('Удаление текстов', 'Вы уверены, что хотите удалить выбранные тексты?', '#{app-confirm-buttons-delete;Удалить!}').then(() => {
                     Lang.DeleteText(textChecked.map((v) => v.value.key));
                 });    
             }
             else  {
-                App.Confirm.Show('Удаление текстов', 'Вы уверены, что хотите удалить текст?', 'Удалить!').then(() => {
+                App.Confirm.Show('Удаление текстов', 'Вы уверены, что хотите удалить текст?', '#{app-confirm-buttons-delete;Удалить!}').then(() => {
                     Lang.DeleteText([textSelected.value.key]);
                 });    
             }
         }
         else {
-            App.Notices.Add(new Colibri.UI.Notice('Действие запрещено', Colibri.UI.Notice.Error, 5000));
+            App.Notices.Add(new Colibri.UI.Notice('#{security-global-notallowed;Действие запрещено}', Colibri.UI.Notice.Error, 5000));
         }
         
     }
@@ -329,7 +329,7 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
                 .catch(() => {});
         }
         else {
-            App.Notices.Add(new Colibri.UI.Notice('Действие запрещено', Colibri.UI.Notice.Error, 5000));
+            App.Notices.Add(new Colibri.UI.Notice('#{security-global-notallowed;Действие запрещено}', Colibri.UI.Notice.Error, 5000));
         }
         
     }
@@ -346,7 +346,7 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
                 .catch(() => {});
         }
         else {
-            App.Notices.Add(new Colibri.UI.Notice('Действие запрещено', Colibri.UI.Notice.Error, 5000));
+            App.Notices.Add(new Colibri.UI.Notice('#{security-global-notallowed;Действие запрещено}', Colibri.UI.Notice.Error, 5000));
         }
         
     }
