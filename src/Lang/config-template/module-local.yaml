@@ -2,3 +2,10 @@
 
 langs: include(lang-langs.yaml)
 texts: include(lang-texts.yaml)
+
+yandex-api:
+  enabled: true
+  id: b1gin1ljbi61qm692lim
+  name: cloud-vahangrigoryan
+  token: AQAAAAACA0ugAATuwYVMPDUL1U39kx5i9GUKAw8
+  catalogue: b1guhgpiofeoaian3m2u

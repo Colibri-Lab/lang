@@ -8,7 +8,8 @@
     "require": {
         "php": ">=8.0.0",
         "colibri/core": "dev-master",
-        "colibri/ui": "dev-master"
+        "colibri/ui": "dev-master",
+        "itpanda-llc/yandex-translate-sdk": "dev-master"
     },
     "autoload": {
         "psr-4": {

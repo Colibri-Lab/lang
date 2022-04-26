@@ -1,12 +1,14 @@
-ru: 
+---
+ru:
   default: true
   desc: Русский
   icon: App.Modules.Lang.Icons.Countries.RU
-en: 
+en:
   default: false
   desc: English
   icon: App.Modules.Lang.Icons.Countries.US
-am:
+hy:
   default: false
   desc: Հհայերեն
   icon: App.Modules.Lang.Icons.Countries.AM
+...
