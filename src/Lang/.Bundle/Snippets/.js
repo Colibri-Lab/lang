@@ -1,1 +1,1 @@
-App.Modules.Commerce.Snippets = class {};
+App.Modules.Lang.Snippets = class {};

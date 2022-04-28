@@ -1,1 +1,1 @@
-App.Modules.Commerce.Templates = class {};
+App.Modules.Lang.Templates = class {};
