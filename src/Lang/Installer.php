@@ -5,7 +5,45 @@ namespace App\Modules\Lang;
  
 class Installer
 {
+    private static function _loadConfig($file): array
+    {
+        return yaml_parse_file($file);
+    }
 
+    private static function _saveConfig($file, $config): void
+    {
+        yaml_emit_file($file, $config, \YAML_UTF8_ENCODING, \YAML_ANY_BREAK);
+    }
+
+    private static function _getMode($file): string
+    {
+        $appConfig = self::_loadConfig($file);
+        return $appConfig['mode'];
+    }
+
+    private static function _injectIntoModuleConfig($file): void
+    {
+
+        $modules = self::_loadConfig($file);
+        foreach($modules['entries'] as $entry) {
+            if($entry['name'] === 'Lang') {
+                return;
+            }
+        }
+
+        $modules['entries'][] = [
+            'name' => 'Lang',
+            'entry' => '\Lang\Module',
+            'desc' => 'Языковая поддержка',
+            'enabled' => true,
+            'visible' => false,
+            'for' => ['manage'],
+            'config' => 'include(/config/lang.yaml)'
+        ];
+
+        self::_saveConfig($file, $modules);
+
+    }
     private static function _copyOrSymlink($mode, $pathFrom, $pathTo, $fileFrom, $fileTo): void 
     {
         print_r('Копируем '.$mode.' '.$pathFrom.' '.$pathTo.' '.$fileFrom.' '.$fileTo."\n");
@@ -43,6 +81,11 @@ class Installer
         print_r('Установка и настройка модуля Tunnel Lang'."\n");
  
         $vendorDir = $event->getComposer()->getConfig()->get('vendor-dir').'/';
+        $operation = $event->getOperation();
+        $installedPackage = $operation->getPackage();
+        $targetDir = $installedPackage->getName();
+        $path = $vendorDir.$targetDir;
+        $configPath = $path.'/src/Lang/config-template/';
         $configDir = './config/';
  
         if(!file_exists($configDir.'app.yaml')) {
@@ -50,68 +93,23 @@ class Installer
             return;
         }
  
-        $mode = 'dev';
-        $appYamlContent = file_get_contents($configDir.'app.yaml');
-        if(preg_match('/mode: (\w+)/', $appYamlContent, $matches) >=0 ) {
-            $mode = $matches[1];
-        }
- 
-        $operation = $event->getOperation();
-        $installedPackage = $operation->getPackage();
-        $targetDir = $installedPackage->getName();
-        $path = $vendorDir.$targetDir;
-        $configPath = $path.'/src/Lang/config-template/';
- 
+        $mode = self::_getMode($configDir.'app.yaml');
+
         // копируем конфиг
-        print_r('Копируем файл конфигурации'."\n");
-        if(file_exists($configDir.'lang.yaml')) {
-            print_r('Файл конфигурации найден, пропускаем настройку'."\n");
-            return;
-        }
+        print_r('Копируем файлы конфигурации'."\n");
         self::_copyOrSymlink($mode, $configPath, $configDir, 'module-'.$mode.'.yaml', 'lang.yaml');
-
-        if(file_exists($configDir.'lang-texts.yaml')) {
-            print_r('Файл конфигурации найден, пропускаем настройку'."\n");
-            return;
-        }
         self::_copyOrSymlink($mode, $configPath, $configDir, 'lang-texts.yaml', 'lang-texts.yaml');
-
-        if(file_exists($configDir.'lang-langs.yaml')) {
-            print_r('Файл конфигурации найден, пропускаем настройку'."\n");
-            return;
-        }
         self::_copyOrSymlink($mode, $configPath, $configDir, 'lang-langs.yaml', 'lang-langs.yaml');
 
-        // нужно прописать в модули
-        $modulesTargetPath = $configDir.'modules.yaml';
-        $modulesConfigContent = file_get_contents($modulesTargetPath);
-        if(strstr($modulesConfigContent, '- name: Lang') !== false) {
-            print_r('Модуль сконфигурирован, пропускаем'."\n");
-            return;
-        }
- 
-        $modulesConfigContent = $modulesConfigContent.'
-  - name: Lang
-    entry: \Lang\Module
-    enabled: true
-    desc: Языковая поддержка
-    visible: true
-    for:
-      - manage    
-    config: include(/config/lang.yaml)';
-        file_put_contents($modulesTargetPath, $modulesConfigContent);
- 
-        print_r('Установка скриптов'."\n");
-        $scriptsPath = $path.'/src/Lang/bin/';
-        $binDir = './bin/';
- 
-        self::_copyOrSymlink($mode, $scriptsPath, $binDir, 'lang-migrate.sh', 'lang-migrate.sh');
-        self::_copyOrSymlink($mode, $scriptsPath, $binDir, 'lang-models-generate.sh', 'lang-models-generate.sh');
-        print_r('Копирование изображений'."\n");
+        print_r('Встраиваем модуль'."\n");
+        self::_injectIntoModuleConfig($configDir.'modules.yaml');
 
-        $sourcePath = $path.'/src/Lang/web/res/img/';
-        $targetDir = './web/res/img/';
-        self::_copyOrSymlink($mode, $sourcePath, $targetDir, 'loading-icon.svg', 'loading-icon.svg');
+        print_r('Установка скриптов'."\n");
+        self::_copyOrSymlink($mode, $path.'/src/Lang/bin/', './bin/', 'lang-migrate.sh', 'lang-migrate.sh');
+        self::_copyOrSymlink($mode, $path.'/src/Lang/bin/', './bin/', 'lang-models-generate.sh', 'lang-models-generate.sh');
+        
+        print_r('Копирование изображений'."\n");
+        self::_copyOrSymlink($mode, $path.'/src/Lang/web/res/img/', './web/res/img/', 'loading-icon.svg', 'loading-icon.svg');
 
         print_r('Установка завершена'."\n");
 
