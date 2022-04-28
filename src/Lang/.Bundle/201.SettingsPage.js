@@ -17,7 +17,7 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
         this._langs.AddHandler('ContextMenuItemClicked', (event, args) => this.__clickOnFoldersContextMenu(event, args));        
         this._langs.AddHandler('SelectionChanged', (event, args) => this.__langsSelectionChanged(event, args));
 
-        this._texts.AddHandler('SelectionChanged', (event, args) => this.__textsSelectionChanged(event, args));
+        this._texts.AddHandler(['SelectionChanged', 'CheckChanged'], (event, args) => this.__textsSelectionChanged(event, args));
         this._texts.AddHandler('ScrolledToBottom', (event, args) => this.__textsScrolledToBottom(event, args));
         this._texts.AddHandler('ContextMenuIconClicked', (event, args) => this.__renderTextsContextMenu(event, args));
         this._texts.AddHandler('ContextMenuItemClicked', (event, args) => this.__clickOnTextsContextMenu(event, args));        
@@ -174,7 +174,7 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
             contextmenu.push({name: 'new-lang', title: 'Новый язык', icon: Colibri.UI.ContextMenuAddIcon});
 
             this._langs.contextmenu = contextmenu;
-            this._langs.ShowContextMenu(args.isContextMenuEvent ? 'right bottom' : 'left top', '', args.isContextMenuEvent ? {left: args.domEvent.clientX, top: args.domEvent.clientY} : null);
+            this._langs.ShowContextMenu(args.isContextMenuEvent ? [Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.RB] : [Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.LB], '', args.isContextMenuEvent ? {left: args.domEvent.clientX, top: args.domEvent.clientY} : null);
 
         }
         else {
@@ -183,7 +183,7 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
             contextmenu.push({name: 'remove-lang', title: 'Удалить язык', icon: Colibri.UI.ContextMenuRemoveIcon});
 
             args.item.contextmenu = contextmenu;
-            args.item.ShowContextMenu(args.isContextMenuEvent ? 'right bottom' : 'left bottom', '', args.isContextMenuEvent ? {left: args.domEvent.clientX, top: args.domEvent.clientY} : null);
+            args.item.ShowContextMenu(args.isContextMenuEvent ? [Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.RB] : [Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.LB], '', args.isContextMenuEvent ? {left: args.domEvent.clientX, top: args.domEvent.clientY} : null);
         }
         
 
@@ -258,7 +258,7 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
             contextmenu.push({name: 'remove-text', title: 'Удалить тексты', icon: Colibri.UI.ContextMenuRemoveIcon});
     
             args.item.contextmenu = contextmenu;
-            args.item.ShowContextMenu(args.isContextMenuEvent ? 'right bottom' : 'left bottom', '', args.isContextMenuEvent ? {left: args.domEvent.clientX, top: args.domEvent.clientY} : null);
+            args.item.ShowContextMenu(args.isContextMenuEvent ? [Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.RB] : [Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.LB], '', args.isContextMenuEvent ? {left: args.domEvent.clientX, top: args.domEvent.clientY} : null);
     
         });
 
@@ -372,11 +372,15 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
                     });                    
                 });
 
-                const contextMenuObject = new Colibri.UI.ContextMenu('translate-menu', document.body, 'right top');
+                const contextMenuObject = new Colibri.UI.ContextMenu('translate-menu', document.body, [Colibri.UI.ContextMenu.LT, Colibri.UI.ContextMenu.RT]);
                 contextMenuObject.Show(contextmenu, this._translateText);
                 contextMenuObject.AddHandler('Clicked', (event, args) => {
                     contextMenuObject.Hide();
                     const menuData = args.menuData;
+                    if(!menuData) {
+                        return;
+                    }
+                    
                     const langs = menuData.name.split('-');
 
                     const textSelected = this._texts.selected;

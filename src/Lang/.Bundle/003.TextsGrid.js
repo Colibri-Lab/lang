@@ -8,7 +8,6 @@ App.Modules.Lang.TextsGrid = class extends Colibri.UI.Grid {
         if(!data) {
             return;
         }
-        console.log(property, data);
 
         if(property.indexOf('lang.langs') !== -1) {
             let column = this.header.columns.Children('key');

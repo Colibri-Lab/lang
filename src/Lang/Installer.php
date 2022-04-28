@@ -111,11 +111,11 @@ class Installer
 
         print_r('Установка завершена'."\n");
 
-        $mode = $event->getIO()->ask('Установить Yandex.Claud CLI? (y/n)', 'n');
-        if($mode && strtolower($mode) === 'y') {
-            print_r('Установка Yandex Claud (CLI)'."\n");
-            shell_exec('curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash');
-        }
+        // $mode = $event->getIO()->ask('Установить Yandex.Claud CLI? (y/n)', 'n');
+        // if($mode && strtolower($mode) === 'y') {
+        //     print_r('Установка Yandex Claud (CLI)'."\n");
+        //     shell_exec('curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash');
+        // }
         
 
  

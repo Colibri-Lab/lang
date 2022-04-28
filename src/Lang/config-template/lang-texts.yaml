@@ -824,535 +824,1069 @@ manage-filemanager-folders:
   hy: Կառուցվածքը
 manage-filemanager-files:
   ru: Файлы
+  en: Files
+  hy: Ֆայլեր
 manage-filemanager-search:
   ru: Поиск
   en: Search
   hy: Որոնել
 manage-filemanager-filesempty:
   ru: Файлов не найдено
+  en: No files found
+  hy: Ֆայլեր չեն գտնվել
 manage-filemanager-files-file:
   ru: Файл
+  en: File
+  hy: Ֆայլ
 manage-filemanager-files-type:
   ru: Тип
+  en: Type
+  hy: Տիպ
 manage-filemanager-files-size:
   ru: Размер
+  en: Size
+  hy: Չափ
 manage-filemanager-files-created:
   ru: Создан
+  en: Generated
+  hy: Ստեղծվել է
 manage-filemanager-files-changed:
   ru: Изменен
+  en: Changed
+  hy: Փոփոխված
 manage-filemanager-buttons-upload:
   ru: Загрузить файлы
+  en: Upload files
+  hy: Բեռնել ֆայլեր
 manage-filemanager-buttons-editname:
   ru: Редактировать название
+  en: Edit the name
+  hy: Խմբագրել անունը
 manage-filemanager-buttons-delete:
   ru: Удалить файлы
+  en: Delete Files
+  hy: Ջնջել ֆայլեր
 manage-filemanager-remote-buckets:
   ru: Корзины
+  en: Baskets
+  hy: Զամբյուղներ
 manage-filemanager-remote-files:
   ru: Файлы
+  en: Files
+  hy: Ֆայլեր
 manage-filemanager-remote-search:
   ru: Поиск
+  en: Search
+  hy: '"ՍԻՍ" ՍՊԸ'
 manage-filemanager-remote-filesempty:
   ru: Файлов в корзине не найдено
+  en: No files found in the trash
+  hy: Զամբյուղում ֆայլեր չեն հայտնաբերվել
 manage-filemanager-remote-created:
   ru: Создана
+  en: Created
+  hy: Ստեղծվել է
 manage-filemanager-remote-key:
   ru: Ключ
+  en: Key
+  hy: Բանալին
 manage-filemanager-remote-file:
   ru: Файл
+  en: File
+  hy: Ֆայլ
 manage-filemanager-remote-type:
   ru: Тип
+  en: Type
+  hy: Տիպ
 manage-filemanager-remote-size:
   ru: Размер
+  en: Size
+  hy: Չափ
 manage-filemanager-remote-hash:
   ru: Хэш
+  en: Hash
+  hy: Հաշ
 manage-filemanager-remote-path:
   ru: Путь
+  en: Way
+  hy: Ճանապարհ
 manage-filemanager-remote-buttons-upload:
   ru: Загрузить файлы
+  en: Upload files
+  hy: Բեռնել ֆայլեր
 manage-filemanager-remote-buttons-remove:
   ru: Удалить
+  en: Remove
+  hy: Ջնջել
 app-buttons-save:
   ru: Сохранить
+  en: Save
+  hy: Պահպանել
 app-buttons-cancel:
   ru: Отмена
+  en: Cancel
+  hy: Չեղյալ
 manage-tabs-resources:
   ru: Ресурсы
+  en: Resources
+  hy: Ռեսուրսներ
 manage-tabs-remote:
   ru: Удаленная медиатека
+  en: Remote Media Library
+  hy: Հեռավոր Մեդիա
 app-buttons-choose:
   ru: Выбрать
+  en: Choose
+  hy: Ընտրել
 lang-titles-langs:
   ru: Языки
+  en: Languages
+  hy: Լեզուներ
 lang-titles-texts:
   ru: Тексты
+  en: Texts
+  hy: Տեքստեր
 lang-search-placeholder:
   ru: Поиск
+  en: Search
+  hy: '"ՍԻՍ" ՍՊԸ'
 lang-buttons-create:
   ru: Создать
+  en: To create
+  hy: Ստեղծել
 lang-buttons-edit:
   ru: Редактировать
+  en: Edit
+  hy: Խմբագրել
 lang-buttons-delete:
   ru: Удалить
+  en: Remove
+  hy: Ջնջել
 lang-buttons-translate:
   ru: Перевести
+  en: Translate
+  hy: Թարգմանել
 app-validation-bik-error1:
   ru: БИК может состоять только из цифр
+  en: The BIC can consist only of digits
+  hy: BIC-ը կարող է բաղկացած լինել միայն թվերից
 app-validation-bik-error2:
   ru: БИК может состоять только из 9 цифр
+  en: The BIC can consist of only 9 digits
+  hy: BIC-ը կարող է բաղկացած լինել միայն 9 թվից
 app-validation-inn-error1:
   ru: ИНН пуст
+  en: INN is empty
+  hy: Inn դատարկ
 app-validation-inn-error2:
   ru: ИНН может состоять только из цифр
+  en: INN can consist only of digits
+  hy: Հվհհ - ն կարող է բաղկացած լինել միայն թվերից
 app-validation-inn-error3:
   ru: ИНН может состоять только из 10 или 12 цифр
+  en: TIN can consist of only 10 or 12 digits
+  hy: Հվհհ-ն կարող է բաղկացած լինել միայն 10 կամ 12 թվերից
 app-validation-inn-error4:
   ru: Неправильное контрольное число
+  en: Incorrect control number
+  hy: Սխալ հսկիչ համարը
 app-validation-kpp-error1:
   ru: КПП пуст
+  en: The checkpoint is empty
+  hy: PPC դատարկ
 app-validation-kpp-error2:
   ru: КПП может состоять только из 9 знаков (цифр или заглавных букв латинского алфавита
     от A до Z)
+  en: The checkpoint can consist of only 9 characters (digits or capital letters of
+    the Latin alphabet from A to Z)
+  hy: PPC-ն կարող է բաղկացած լինել միայն 9 նիշերից (թվերից կամ լատինական այբուբենի
+    տառերից A-ից մինչեւ Z)
 app-validation-kpp-error3:
   ru: Неправильный формат КПП
+  en: Incorrect checkpoint format
+  hy: PPC-ի սխալ ձեւաչափը
 app-validation-ks-error1:
   ru: К/С может состоять только из цифр
+  en: The K/S can consist only of digits
+  hy: K / C-ը կարող է բաղկացած լինել միայն թվերից
 app-validation-ks-error2:
   ru: К/С может состоять только из 20 цифр
+  en: The K/S can consist of only 20 digits
+  hy: K / C-ն կարող է բաղկացած լինել միայն 20 թվերից
 app-validation-ks-error3:
   ru: Неправильное контрольное число
+  en: Incorrect control number
+  hy: Սխալ հսկիչ համարը
 app-validation-ogrn-error1:
   ru: ОГРН пуст
+  en: OGRN is empty
+  hy: OGRN դատարկ
 app-validation-ogrn-error2:
   ru: ОГРН может состоять только из цифр
+  en: The OGRN can consist only of digits
+  hy: OGRN-ը կարող է բաղկացած լինել միայն թվերից
 app-validation-ogrn-error3:
   ru: ОГРН может состоять только из 13 цифр
+  en: The OGRN can consist of only 13 digits
+  hy: OGRN-ը կարող է բաղկացած լինել միայն 13 թվերից
 app-validation-ogrn-error4:
   ru: Неправильное контрольное число
+  en: Incorrect control number
+  hy: Սխալ հսկիչ համարը
 app-validation-ogrnip-error1:
   ru: ОГРНИП пуст
+  en: OGRNIP is empty
+  hy: OGRNIP դատարկ
 app-validation-ogrnip-error2:
   ru: ОГРНИП может состоять только из цифр
+  en: An OGRNIP can consist only of digits
+  hy: OGRNIP-ը կարող է բաղկացած լինել միայն թվերից
 app-validation-ogrnip-error3:
   ru: ОГРНИП может состоять только из 15 цифр
+  en: The OGRNIP can consist of only 15 digits
+  hy: OGRNIP-ը կարող է բաղկացած լինել միայն 15 թվերից
 app-validation-ogrnip-error4:
   ru: Неправильное контрольное число
+  en: Incorrect control number
+  hy: Սխալ հսկիչ համարը
 app-validation-rs-error1:
   ru: Р/С пуст
+  en: P/S is empty
+  hy: P / Վ դատարկ
 app-validation-rs-error2:
   ru: Р/С может состоять только из цифр
+  en: P/S can consist only of digits
+  hy: P / C-ը կարող է բաղկացած լինել միայն թվերից
 app-validation-rs-error3:
   ru: Р/С может состоять только из 20 цифр
+  en: The P/S can consist of only 20 digits
+  hy: P / C-ը կարող է բաղկացած լինել միայն 20 թվից
 app-validation-rs-error4:
   ru: Неправильное контрольное число
+  en: Incorrect control number
+  hy: Սխալ հսկիչ համարը
 app-validation-snils-error1:
   ru: СНИЛС пуст
+  en: SNILS is empty
+  hy: SNILS դատարկ
 app-validation-snils-error2:
   ru: СНИЛС может состоять только из цифр
+  en: SNILS can consist only of numbers
+  hy: SNILS-ը կարող է բաղկացած լինել միայն թվերից
 app-validation-snils-error3:
   ru: СНИЛС может состоять только из 11 цифр
+  en: SNILS can consist of only 11 digits
+  hy: SNILS-ը կարող է բաղկացած լինել միայն 11 թվերից
 app-validation-snils-error4:
   ru: Неправильное контрольное число
+  en: Incorrect control number
+  hy: Սխալ հսկիչ համարը
 app-renderer-error1:
   ru: Передайте в конструктор обьект для рендеринга
+  en: Pass the object for rendering to the constructor
+  hy: Փոխանցել Objekt կոնստրուկտոր մատուցման համար
 app-renderer-error2:
   ru: Передайнный обьект не компонент
+  en: The transferred object is not a component
+  hy: Փոփոխական օբյեկտը բաղադրիչ չէ
 app-renderer-error3:
   ru: Передайте данные для отображения
+  en: Transmit the data to display
+  hy: Փոխանցել տվյալները Ցուցադրել
 app-renderer-error4:
   ru: Необходимо переопределить этот метод
+  en: You need to redefine this method
+  hy: Անհրաժեշտ է վերասահմանել այս մեթոդը
 app-filedropmanager-message:
   ru: Пожалуйста, отпустите файлы в этой области. Загрузка будет произведена в выбранную
     папку
+  en: Please release the files in this area. The download will be made to the selected
+    folder
+  hy: Խնդրում ենք ազատ արձակել ֆայլերը այս ոլորտում. Ներբեռնումը կկատարվի ընտրված
+    թղթապանակում
 app-filedropmanager-error1:
   ru: Файл слишком большой или не подходящего типа.
+  en: The file is too large or of the wrong type.
+  hy: Ֆայլը չափազանց մեծ է, թե ոչ հարմար տեսակի.
 app-renderer-allowed:
   ru: Разрешено
+  en: Allowed
+  hy: Թույլատրվում է
 app-renderer-max:
   ru: максимум
+  en: maximum
+  hy: Max
 app-select-emptyresult:
   ru: Нет подходящих вариантов
+  en: There are no suitable options
+  hy: Ոչ հարմար տարբերակներ
 app-files-choosefiles:
   ru: Выбрать файлы
+  en: Select Files
+  hy: Ընտրել ֆայլեր
 app-files-choosefile:
   ru: Выбрать файл
+  en: Select a file
+  hy: Ընտրել ֆայլը
 app-selector-nothingchoosed:
   ru: Ничего не выбрано
+  en: Nothing is selected
+  hy: Ոչինչ չի ընտրված
 app-selector-choosed:
   ru: Выбрано
+  en: Selected
+  hy: Ընտրել
 app-monthselector-yanuary:
   ru: Январь
+  en: January
+  hy: Հունվար
 app-monthselector-february:
   ru: Февраль
+  en: February
+  hy: Փետրվար
 app-monthselector-march:
   ru: Март
+  en: March
+  hy: Մարտ
 app-monthselector-april:
   ru: Апрель
+  en: April
+  hy: Ապրիլ
 app-monthselector-may:
   ru: Май
+  en: May
+  hy: Մայիս
 app-monthselector-jun:
   ru: Июнь
+  en: June
+  hy: Հունիս
 app-monthselector-july:
   ru: Июль
+  en: July
+  hy: Հուլիս
 app-monthselector-august:
   ru: Август
+  en: August
+  hy: Օգոստոս
 app-monthselector-september:
   ru: Сентябрь
+  en: September
+  hy: Սեպտեմբեր
 app-monthselector-october:
   ru: Октябрь
+  en: October
+  hy: Հոկտեմբեր
 app-monthselector-november:
   ru: Ноябрь
+  en: November
+  hy: Նոյեմբեր
 app-monthselector-december:
   ru: Декабрь
+  en: December
+  hy: Դեկտեմբեր
 app-filesdragdrop-choosefiles:
   ru: Выберите или перетащите файлы
+  en: Select or drag files
+  hy: Ընտրեք կամ քաշել ֆայլեր
 app-filesdragdrop-choosefile:
   ru: Выберите или перетащите файл
+  en: Select or drag a file
+  hy: Ընտրեք կամ քաշել ֆայլը
 app-massactions-choosed:
   ru: Выбрано
+  en: Selected
+  hy: Ընտրել
 app-field-needtooverload-error:
   ru: Нужно переопределить
+  en: Need to redefine
+  hy: Պետք է անտեսեն
 app-fields-text:
   ru: Текст
+  en: Text
+  hy: Տեքստը
 app-fields-textarea:
   ru: Большой текст
+  en: Large text
+  hy: Մեծ տեքստ
 app-fields-bool:
   ru: Да/Нет
+  en: Yes/No
+  hy: Այո / Ոչ
 app-fields-date:
   ru: Поле Дата
+  en: Date field
+  hy: Ամսաթիվ Դաշտ
 app-fields-number:
   ru: Число
+  en: Number
+  hy: Թիվ
 app-email-validation-message:
   ru: Пожалуйста, введите корректный email
+  en: Please enter a valid email
+  hy: Խնդրում ենք մուտքագրել ճիշտ email
 app-fields-email:
   ru: Эл. адрес
+  en: Email address
+  hy: Էլ. հասցե
 app-fields-select:
   ru: Выборка
+  en: Selection
+  hy: Նմուշառում
 app-fields-label:
   ru: Кусок текста
+  en: A piece of text
+  hy: Մի կտոր տեքստի
 app-files-error-max:
   ru: Можно выбрать не более
+  en: You can choose no more than
+  hy: Կարելի է ընտրել ոչ ավելի
 app-files-error-format:
   ru: Недопустимый формат файла
+  en: Invalid file format
+  hy: Անթույլատրելի ֆայլի ֆորմատ
 app-files-error-size:
   ru: Выбранный файл слишком большой
+  en: The selected file is too large
+  hy: Ընտրված ֆայլը չափազանց մեծ է
 app-fields-file:
   ru: Файл
+  en: File
+  hy: Ֆայլ
 app-files-sign:
   ru: Подписать
+  en: Signed by
+  hy: Ստորագրել
 app-files-about:
   ru: до
+  en: before
+  hy: մինչեւ
 app-files-files:
   ru: файлов
+  en: files
+  hy: ֆայլեր
 app-files-more:
   ru: не больше
+  en: no more
+  hy: այլեւս
 app-files-everyone:
   ru: каждый
+  en: each
+  hy: յուրաքանչյուր
 app-files-choosenomore:
   ru: Можно выбрать не более
+  en: You can choose no more than
+  hy: Կարելի է ընտրել ոչ ավելի
 app-files-file:
   ru: Файл
+  en: File
+  hy: Ֆայլ
 app-files-verybig:
   ru: слишком большой
+  en: too big
+  hy: չափազանց մեծ
 app-files-format:
   ru: Недопустимый формат файла
+  en: Invalid file format
+  hy: Անթույլատրելի ֆայլի ֆորմատ
 app-fields-files:
   ru: Список файлов
+  en: List of files
+  hy: Ֆայլի ցանկ
 app-fields-year:
   ru: Выбор года
+  en: Choosing the year
+  hy: Տարվա ընտրությունը
 app-fields-monthyear:
   ru: Выбор года и месяца
+  en: Choosing the year and month
+  hy: Տարվա և ամսվա ընտրությունը
 app-fields-link:
   ru: Ссылка
+  en: Link
+  hy: Ուղեցույց
 app-fields-list:
   ru: Список
+  en: List
+  hy: Ցանկ
 app-fields-password:
   ru: Пароль
+  en: Password
+  hy: Գաղտնաբառ
 app-fields-radio:
   ru: Радио кнопки
+  en: Radio buttons
+  hy: Ռադիո կոճակը
 app-period-day1:
   ru: день
+  en: day
+  hy: օր
 app-period-day2:
   ru: дня
+  en: day
+  hy: օր
 app-period-day3:
   ru: дней
+  en: days
+  hy: օր
 app-fields-period:
   ru: Период
+  en: Period
+  hy: Ժամկետը
 app-fields-checkbox:
   ru: Чекбокс
+  en: The checkbox
+  hy: Չեկբոքս
 app-fields-passport:
   ru: Паспорт
+  en: Passport
+  hy: Անձնագիր
 app-filelabel-download:
   ru: Скачать
+  en: Download
+  hy: Բեռնել
 app-fields-filelabel:
   ru: Ссылка на файл
+  en: Link to the file
+  hy: Ֆայլի հղում
 app-fields-datetime:
   ru: Поле дата и время
+  en: Date and time field
+  hy: Ամսաթիվ եւ ժամանակ դաշտ
 app-fields-object:
   ru: Обьект с полями
+  en: Object with fields
+  hy: Օբեկտ դաշտերով
 app-array-add:
   ru: Добавить еще
+  en: Add more
+  hy: Ավելացնել ավելին
 app-fields-array:
   ru: Массив обьектов
+  en: Array of objects
+  hy: Օբեկտների զանգված
 app-fields-tabs:
   ru: Вкладки
+  en: Tabs
+  hy: Էջանիշերն
 app-arraygrid-add:
   ru: Добавить
+  en: Add
+  hy: Ավելացնել
 app-arraygrid-contextmenu-edit:
   ru: Редактировать
+  en: Edit
+  hy: Խմբագրել
 app-arraygrid-contextmenu-remove:
   ru: Удалить
+  en: Remove
+  hy: Ջնջել
 app-arraygrid-massactions-remove:
   ru: удалить
+  en: delete
+  hy: ջնջել
 app-arraygrid-errors:
   ru: Передайте массив
+  en: Pass the array
+  hy: Փոխանցել զանգված
 app-arraygrid-save:
   ru: Сохранить
+  en: Save
+  hy: Պահպանել
 app-fields-arraygrid:
   ru: Массив в виде грида
+  en: Array in the form of a grid
+  hy: Զանգված ' գրիդի տեսքով
 app-uploadbutton-error1:
   ru: Файл слишком большой или не подходящего типа.
+  en: The file is too large or of the wrong type.
+  hy: Ֆայլը չափազանց մեծ է, թե ոչ հարմար տեսակի.
 app-uploadbutton-allow:
   ru: Разрешено
+  en: Allowed
+  hy: Թույլատրվում է
 app-uploadbutton-max:
   ru: максимум
+  en: maximum
+  hy: Max
 app-confirm-ok:
   ru: Продолжить
+  en: Continue
+  hy: Շարունակել
 app-confirm-cancel:
   ru: Отмена
+  en: Cancel
+  hy: Չեղյալ
 app-alert-close:
   ru: Закрыть
+  en: To close
+  hy: Փակել
 app-prompt-ok:
   ru: Продолжить
+  en: Continue
+  hy: Շարունակել
 app-prompt-cancel:
   ru: Отмена
+  en: Cancel
+  hy: Չեղյալ
 app-viewers-badge:
   ru: Отображение Да/Нет
+  en: Yes/No Display
+  hy: Ցուցադրում Այո / Ոչ
 app-viewers-date:
   ru: Дата
+  en: Date
+  hy: Ամսաթիվ
 app-viewers-file:
   ru: Файл
+  en: File
+  hy: Ֆայլ
 app-viewers-files:
   ru: Файлы
+  en: Files
+  hy: Ֆայլեր
 app-viewers-link:
   ru: Ссылка
+  en: Link
+  hy: Ուղեցույց
 app-viewers-select:
   ru: Выборка
+  en: Selection
+  hy: Նմուշառում
 app-viewers-fields:
   ru: Поля (JSON)
+  en: Fields (JSON)
+  hy: Դաշտեր (JSON)
 app-viewers-text:
   ru: Текст
+  en: Text
+  hy: Տեքստը
 app-viewers-textarea:
   ru: Большой текст
+  en: Large text
+  hy: Մեծ տեքստ
 app-viewers-bool:
   ru: Логическое
+  en: Logical
+  hy: Տրամաբանական
 app-viewers-object:
   ru: Обьект
+  en: Object
+  hy: Օբյեկտ
 app-viewers-monthyear:
   ru: Месяц/Год
+  en: Month/Year
+  hy: Ամիս / Տարի
 app-viewers-year:
   ru: Год
+  en: Year
+  hy: Տարի
 app-viewers-period:
   ru: Период
+  en: Period
+  hy: Ժամկետը
 app-viewers-radio:
   ru: Переключатель
+  en: Switch
+  hy: Անջատիչ
 app-viewers-checkbox:
   ru: Чекбокс
+  en: The checkbox
+  hy: Չեկբոքս
 app-viewers-datetime:
   ru: Дата и время
+  en: Date and time
+  hy: Ամսաթիվը եւ ժամանակը
 app-viewers-filesize:
   ru: Отображение размера файла
+  en: File size display
+  hy: Ցուցադրել ֆայլի չափը
 app-viewers-htmldata:
   ru: HTML код
+  en: HTML code
+  hy: HTML կոդը
 app-editors-email-message:
   ru: Пожалуйста, введите корректный email
+  en: Please enter a valid email
+  hy: Խնդրում ենք մուտքագրել ճիշտ email
 app-editors-files-message1:
   ru: Можно выбрать не более
+  en: You can choose no more than
+  hy: Կարելի է ընտրել ոչ ավելի
 app-editors-files-message2:
   ru: файлов
+  en: files
+  hy: ֆայլեր
 app-editors-files-message3:
   ru: Файл
+  en: File
+  hy: Ֆայլ
 app-editors-files-message4:
   ru: слишком большой
+  en: too big
+  hy: չափազանց մեծ
 app-editors-files-message5:
   ru: Недопустимый формат файла
+  en: Invalid file format
+  hy: Անթույլատրելի ֆայլի ֆորմատ
 app-editors-link-download:
   ru: (скачать)
+  en: (download)
+  hy: (բեռնել)
 sites-structure-datagrid-created:
   ru: Дата создания
+  en: Date of creation
+  hy: Ստեղծման Ամսաթիվ
 sites-structure-folders-title:
   ru: Разделы сайта
+  en: Site Sections
+  hy: Կայքի բաժիններ
 sites-structure-publications-title:
   ru: Публикации
+  en: Publications
+  hy: Հրապարակումներ
 sites-structure-search-placeholder:
   ru: Поиск
+  en: Search
+  hy: '"ՍԻՍ" ՍՊԸ'
 sites-structure-publicationsempty:
   ru: Публикаций не найдено
+  en: No publications found
+  hy: '© 2005-2017 ԱՄԻ "Նովոստի-Արմենիա" ։ '
 sites-structure-publications-created:
   ru: Создана
+  en: Created
+  hy: Ստեղծվել է
 sites-structure-publications-page:
   ru: Страница
+  en: Page
+  hy: Էջ
 sites-structure-publications-mainpage:
   ru: Главная страница
+  en: Home page
+  hy: Գլխավոր էջ
 sites-structure-publications-storage:
   ru: Хранилище
+  en: Storage
+  hy: Պահեստ
 sites-structure-publications-row:
   ru: Строка
+  en: Line
+  hy: Տող
 sites-structure-publications-data:
   ru: Данные
+  en: Data
+  hy: Տվյալները
 sites-structure-buttons-publish:
   ru: Публикация
+  en: Publication
+  hy: Հրապարակումը
 sites-structure-buttons-adddata:
   ru: Данные
+  en: Data
+  hy: Տվյալները
 sites-structure-buttons-editdata:
   ru: Редактировать
+  en: Edit
+  hy: Խմբագրել
 sites-structure-buttons-deletedata:
   ru: Удалить
+  en: Remove
+  hy: Ջնջել
 sites-structure-contextmenu-newdomain:
   ru: Новый домен
+  en: New domain
+  hy: Նոր դոմեն
 sites-structure-contextmenu-newchild:
   ru: Новый дочерний раздел
+  en: New child section
+  hy: Նոր դուստր բաժին
 sites-structure-contextmenu-editdomain:
   ru: Редактировать домен
+  en: Edit Domain
+  hy: Խմբագրել տիրույթը
 sites-structure-contextmenu-editprops:
   ru: Редактировать доп. свойства
+  en: Edit add. features
+  hy: Խմբագրել լրացուցիչ. հատկություններ
 sites-structure-contextmenu-deletedomain:
   ru: Удалить домен
+  en: Delete a domain
+  hy: Հեռացնել տիրույթը
 sites-structure-contextmenu-editpage:
   ru: Редактировать раздел
+  en: Edit a section
+  hy: Խմբագրել բաժինը
 sites-structure-contextmenu-deletepage:
   ru: Удалить раздел
+  en: Delete a section
+  hy: Ջնջել բաժինը
 sites-structure-windowtitle-newdomain:
   ru: Новый домен
+  en: New domain
+  hy: Նոր դոմեն
 sites-structure-windowtitle-editdomain:
   ru: Редактировать домен
+  en: Edit Domain
+  hy: Խմբագրել տիրույթը
 sites-structure-windowtitle-editdomainprops:
   ru: Редактировать доп. свойства домена
+  en: Edit add. domain properties
+  hy: Խմբագրել լրացուցիչ.
 sites-structure-deletedomain:
   ru: Удаление домена
+  en: Deleting a domain
+  hy: Դոմենի հեռացում
 sites-structure-deletedomainmessage:
   ru: Вы уверены, что хотите удалить домен? Все папки и публикации будут удалены безвозвратно
+  en: Are you sure you want to delete the domain? All folders and publications will
+    be permanently deleted
+  hy: Վստահ եք, որ ցանկանում եք հեռացնել տիրույթը? Բոլոր թղթապանակները եւ հրապարակումները
+    կհեռացվեն անվերադարձ
 sites-structure-windowtitle-newchildpage:
   ru: Новый дочерний раздел
+  en: New child section
+  hy: Նոր դուստր բաժին
 sites-structure-windowtitle-editpage:
   ru: Редактировать раздел
+  en: Edit a section
+  hy: Խմբագրել բաժինը
 sites-structure-windowtitle-editpageprops:
   ru: Редактировать доп. свойства страницы
+  en: Edit add. page properties
+  hy: Խմբագրել լրացուցիչ.
 sites-structure-deletepage:
   ru: Удаление папки
+  en: Deleting a folder
+  hy: Ջնջել թղթապանակը
 sites-structure-deletepagemessage:
   ru: Вы уверены, что хотите удалить папку?
+  en: Are you sure you want to delete the folder?
+  hy: 'Համոզված եք, որ ցանկանում եք ջնջել թղթապանակը:'
 sites-structure-contextmenu-editpub:
   ru: Редактировать данные публикации
+  en: Edit publication data
+  hy: Խմբագրել հրատարակչական տվյալները
 sites-structure-windowtitle-deletepub:
   ru: Удалить публикацию
+  en: Delete a post
+  hy: Ջնջել Հրապարակումը
 sites-structure-windowtitle-newpage:
   ru: Новый раздел
+  en: New section
+  hy: Նոր բաժին
 sites-structure-messages-removepublication:
   ru: Удаление публикации
+  en: Deleting a post
+  hy: Հրապարակման հեռացում
 sites-structure-messages-removepublicationmessage:
   ru: Вы уверены, что хотите удалить выбранную публикацию?
+  en: Are you sure you want to delete the selected post?
+  hy: 'Համոզված եք, որ ցանկանում եք ջնջել ընտրված Հրապարակումը:'
 sites-structure-messages-removepublications:
   ru: Удаление публикаций
+  en: Deleting publications
+  hy: Հրատարակությունների հեռացում
 sites-structure-messages-removepublicationsmessage:
   ru: Вы уверены, что хотите удалить выбранные публикации?
+  en: Are you sure you want to delete the selected posts?
+  hy: 'Համոզված եք, որ ցանկանում եք ջնջել ընտրված հրապարակումները:'
 sites-structure-windowtitle-newrow:
   ru: Новая строка
+  en: New line
+  hy: Նոր տող
 sites-structure-windowtitle-publish:
   ru: Публикация данных
+  en: Publishing data
+  hy: Տվյալների հրապարակումը
 sites-storages-storages-title:
   ru: Хранилища
+  en: Storage facilities
+  hy: Պահեստարաններ
 sites-storages-data-title:
   ru: Данные
+  en: Data
+  hy: Տվյալները
 sites-storages-search-placeholder:
   ru: Поиск
+  en: Search
+  hy: '"ՍԻՍ" ՍՊԸ'
 sites-storages-dataempty:
   ru: Данные не найдены
+  en: No data found
+  hy: Տվյալները չեն հայտնաբերվել
 sites-storages-buttons-adddata:
   ru: Добавить
+  en: Add
+  hy: Ավելացնել
 sites-storages-buttons-dublicatedata:
   ru: Дублировать
+  en: Duplicate
+  hy: Կրկնօրինակել
 sites-storages-buttons-editdata:
   ru: Редактировать
+  en: Edit
+  hy: Խմբագրել
 sites-storages-buttons-deletedata:
   ru: Удалить
+  en: Remove
+  hy: Ջնջել
 sites-structure-deletedata1:
   ru: Удаление данных
+  en: Deleting data
+  hy: Տվյալների ջնջում
 sites-structure-deletedata1message:
   ru: Вы уверены, что хотите удалить выбранную строку?
+  en: Are you sure you want to delete the selected row?
+  hy: 'Վստահ եք, որ ցանկանում եք ջնջել ընտրված գիծը:'
 sites-structure-deletedata:
   ru: Удаление данных
+  en: Deleting data
+  hy: Տվյալների ջնջում
 sites-structure-deletedatamessage:
   ru: Вы уверены, что хотите удалить выбранные строки?
+  en: Are you sure you want to delete the selected rows?
+  hy: 'Վստահ եք, որ ցանկանում եք ջնջել ընտրված տողերը:'
 sites-structure-newrow:
   ru: Новая строка
+  en: New line
+  hy: Նոր տող
 sites-structure-contextmenu-dublicate:
   ru: Дублировать данные
+  en: Duplicate data
+  hy: Կրկնօրինակել տվյալները
 sites-structure-contextmenu-edit:
   ru: Редактировать данные
+  en: Edit Data
+  hy: Խմբագրել տվյալներ
 sites-structure-contextmenu-delete:
   ru: Удалить
+  en: Remove
+  hy: Ջնջել
 sites-storagesmanager-title:
   ru: Хранилища материалов
+  en: Storage of materials
+  hy: Նյութերի պահեստավորում
 sites-storages-values-binary:
   ru: Бинарное дерево
+  en: Binary tree
+  hy: Երկուական ծառ
 sites-storages-values-hash:
   ru: Хэш функция
+  en: Hash function
+  hy: Հաշ ֆունկցիա
 sites-datawindow-search-placeholder:
   ru: Поиск
+  en: Search
+  hy: '"ՍԻՍ" ՍՊԸ'
 sites-datawindow-dataempty:
   ru: Данные не найдены
+  en: No data found
+  hy: Տվյալները չեն հայտնաբերվել
 sites-datawindow-buttons-publish:
   ru: Опубликовать выбранное
+  en: Publish the selected
+  hy: Հրապարակել ընտրված
 sites-datawindow-buttons-close:
   ru: Закрыть
+  en: To close
+  hy: Փակել
 tools-settings-tree-root:
   ru: Настройки сайта
+  en: Site Settings
+  hy: Կայքի կարգավորումները
 tools-settings-settings-title:
   ru: Настройки
+  en: Settings
+  hy: Կարգավորումներ
 tools-settings-data-title:
   ru: Редактор
+  en: Editor
+  hy: Խմբագիր
 tools-settings-buttons-save:
   ru: Сохранить
+  en: Save
+  hy: Պահպանել
 tools-settings-contextmenu-delete:
   ru: Удалить настройку
+  en: Delete a setting
+  hy: Ջնջել կարգավորումը
 tools-settings-description-title:
   ru: Описание настройки
+  en: Description of the setting
+  hy: Customization Նկարագրություն
 tools-settings-value-title:
   ru: Значение
+  en: Meaning
+  hy: Արժեք
 tools-settingsdata-settings-title:
   ru: Настройки
+  en: Settings
+  hy: Կարգավորումներ
 tools-settingsdata-data-title:
   ru: Редактор
+  en: Editor
+  hy: Խմբագիր
 tools-settingsdata-buttons-save:
   ru: Сохранить
+  en: Save
+  hy: Պահպանել
 tools-settingsdata-title-nodesc:
   ru: Без описания
+  en: Without description
+  hy: Առանց նկարագրության
 tools-settingsdata-value-title:
   ru: Значение
+  en: Meaning
+  hy: Արժեք
 tools-notices-notices-title:
   ru: Сообщения
+  en: Messages
+  hy: Գրառումներ
 tools-notices-date-title:
   ru: Редактор
+  en: Editor
+  hy: Խմբագիր
 tools-notices-buttons-save:
   ru: Сохранить
+  en: Save
+  hy: Պահպանել
 tools-notices-fields-nodesc:
   ru: Без темы
+  en: Without a topic
+  hy: Առանց թեմայի
 tools-notices-fields-desc:
   ru: Наименование
+  en: Name
+  hy: Անվանում
 tools-notices-fields-desc-note:
   ru: Введите наименование темы. Латинские буквы без спец-символов
+  en: Enter the name of the topic. Latin letters without special characters
+  hy: 'Մուտքագրեք թեմայի անվանումը: Լատինական տառեր առանց հատուկ նիշերի'
 tools-notices-fields-subject:
   ru: Тема письма
+  en: Subject of the letter
+  hy: Նամակի թեման
 tools-notices-fields-subject-note:
   ru: Введите тему письма
+  en: Enter the subject of the email
+  hy: Մուտքագրեք նամակի թեման
 tools-notices-fields-body:
   ru: Тело письма
+  en: The body of the letter
+  hy: Նամակի մարմինը
 tools-notices-fields-body-note:
   ru: Введите тело письма. Допускаются вставки вида [[name]] в качестве переменных
     шаблона
+  en: Enter the body of the email. Inserts of the form [[name]] as template variables
+    are allowed
+  hy: 'Մուտքագրեք նամակի մարմինը: Թույլատրվում է տեղադրել տեսակի [[name]] որպես Կաղապար
+    փոփոխականների'
 tools-notices-contextmenu-newnotice:
   ru: Создать шаблон
+  en: Create a template
+  hy: Ստեղծել ձեւանմուշ
 tools-notices-contextmenu-deletenotice:
   ru: Удалить шаблон
+  en: Delete a template
+  hy: Հեռացնել Կաղապար
 ...
