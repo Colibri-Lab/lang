@@ -94,6 +94,10 @@ class Installer
   - name: Lang
     entry: \Lang\Module
     enabled: true
+    desc: Языковая поддержка
+    visible: true
+    for:
+      - manage    
     config: include(/config/lang.yaml)';
         file_put_contents($modulesTargetPath, $modulesConfigContent);
  
