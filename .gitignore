@@ -7,3 +7,5 @@
  
 # Vendor
 /vendor
+
+composer.lock
