@@ -1889,4 +1889,6 @@ tools-notices-contextmenu-deletenotice:
   ru: Удалить шаблон
   en: Delete a template
   hy: Հեռացնել Կաղապար
+sites-storages-fieldselector-ondemand:
+  ru: Загружать при запросе
 ...
