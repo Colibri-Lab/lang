@@ -5,7 +5,7 @@ namespace App\Modules\Lang;
  
 class Installer
 {
-    private static function _loadConfig($file): array
+    private static function _loadConfig($file): ?array
     {
         return yaml_parse_file($file);
     }
