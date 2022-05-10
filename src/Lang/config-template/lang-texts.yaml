@@ -1891,6 +1891,10 @@ tools-notices-contextmenu-deletenotice:
   hy: Հեռացնել Կաղապար
 sites-storages-fieldselector-ondemand:
   ru: Загружать при запросе
+  en: Upload when requested
+  hy: Վերբեռնեք հարցման ժամանակ
 sites-storages-fieldsetdefault:
   ru: Указать значение по умолчанию
+  en: Specify the default value
+  hy: Նշեք լռելյայն արժեքը
 ...
