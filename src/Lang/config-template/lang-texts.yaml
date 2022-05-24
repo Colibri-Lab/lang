@@ -1897,4 +1897,35 @@ sites-storages-fieldsetdefault:
   ru: Указать значение по умолчанию
   en: Specify the default value
   hy: Նշեք լռելյայն արժեքը
+app-viewers-array:
+  ru: Массив
+  en: Array
+  hy: Զանգված
+sites-structure-windowtitle-noeditdomainprops:
+  ru: Свойства не найдены
+  en: Properties not found
+  hy: Հատկություններ չեն հայտնաբերվել
+sites-structure-windowtitle-noeditpageprops:
+  ru: Свойства не найдены
+  hy: Հատկություններ չեն հայտնաբերվել
+  en: Properties not found
+sites-storages-storagetemplates:
+  ru: Шаблоны
+sites-storages-storagetemplates-note:
+  ru: Шаблоны для отображения, если проект в режиме «Вебсайт»
+sites-storages-storagetemplates-default:
+  ru: Шаблон по умолчанию
+sites-storages-storagetemplates-list:
+  ru: Шаблон в списке
+sites-storages-storagetemplates-item:
+  ru: Шаблон карточка
+sites-storages-contextmenu-newvirtualfield:
+  ru: Новое виртуальное свойство
+sites-storages-fieldexpression:
+  ru: Выражение
+sites-storages-fieldexpression-note:
+  ru: Введите выражение для создания поля. Внимание! Предполагается что вы знаете
+    что делаете
+sites-storages-windowtitle-newvirtualproperty:
+  ru: Новое виртуальное свойство
 ...

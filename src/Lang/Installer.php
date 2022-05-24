@@ -42,7 +42,7 @@ class Installer
             'desc' => 'Языковая поддержка',
             'enabled' => true,
             'visible' => false,
-            'for' => ['manage'],
+            'for' => [],
             'config' => 'include(/config/lang.yaml)'
         ];
 

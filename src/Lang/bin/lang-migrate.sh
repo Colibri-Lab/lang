@@ -6,4 +6,4 @@ then
     CURDIR=`pwd`
 fi
 cd $CURDIR
-cd ../web && /usr/bin/php index.php localhost / command=migrate
+cd ../web && /usr/bin/php index.php localhost / command=migrate log=$1
