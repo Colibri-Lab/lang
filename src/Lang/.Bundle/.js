@@ -12,6 +12,7 @@ App.Modules.Lang = class extends Colibri.Modules.Module {
     }
 
     InitializeModule() {
+        super.InitializeModule();
         console.log('Initializing module Lang');
         
         this._store = App.Store.AddChild('app.lang', {});
