@@ -1911,6 +1911,8 @@ sites-structure-windowtitle-noeditpageprops:
   en: Properties not found
 sites-storages-storagetemplates:
   ru: Шаблоны
+  en: Templates
+  hy: Կաղապարներ
 sites-storages-storagetemplates-note:
   ru: Шаблоны для отображения, если проект в режиме «Вебсайт»
 sites-storages-storagetemplates-default:
@@ -1928,4 +1930,50 @@ sites-storages-fieldexpression-note:
     что делаете
 sites-storages-windowtitle-newvirtualproperty:
   ru: Новое виртуальное свойство
+pravosudie-cases-created:
+  ru: Создана
+  en: Created
+  hy: Ստեղծվել է
+pravosudie-cases-number:
+  ru: Номер дела
+  en: Case number
+  hy: Գործի համարը
+pravosudie-cases-court:
+  ru: Суд
+  en: Court
+  hy: Դատարան
+pravosudie-cases-claimant:
+  ru: Истец
+  en: Plaintiff
+  hy: Հայցվորը
+pravosudie-cases-respondent:
+  ru: Ответчик
+  en: The defendant
+  hy: Պատասխանող
+pravosudie-cases-judge:
+  ru: Судья
+  en: Judge
+  hy: Դատավոր
+pravosudie-cases-status:
+  ru: Статус
+  en: Status
+  hy: Կարգավիճակ
+pravosudie-cases-status_date:
+  ru: Дата статуса
+  en: Status date
+  hy: Կարգավիճակի ամսաթիվը
+pravosudie-cases-search:
+  ru: Введите часть наименования дела
+  en: Enter part of the case name
+  hy: Մուտքագրեք մասը գործի անվանման
+pravosudie-cases-empty:
+  ru: По вашему запросу дел не найдено
+  en: No cases found for your request
+  hy: Ձեր հարցումով ոչինչ չի գտնվել
+pravosudie-buttons-save:
+  ru: Сохранить
+pravosudie-buttons-cancel:
+  ru: Отменить изменения
+pravosudie-cases-saved:
+  ru: Дело сохранено
 ...
