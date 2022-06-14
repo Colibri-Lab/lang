@@ -22,6 +22,7 @@ use Colibri\Events\EventsContainer;
 use Colibri\Utils\Config\ConfigException;
 use Panda\Yandex\TranslateSdk;
 use Colibri\AppException;
+use Colibri\Utils\Cache\Mem;
 
 
 /**
@@ -41,6 +42,8 @@ class Module extends BaseModule
     public static ?Module $instance = null;
 
     private static ?string $current = null;
+
+    private array $_texts;
 
     /**
      * Инициализация модуля
@@ -107,35 +110,157 @@ class Module extends BaseModule
         App::$instance->HandleEvent(EventsContainer::BundleFile, function ($event, $args) {
             $file = new File($args->file);
             if (in_array($file->extension, ['html', 'js'])) {
-                // компилируем html в javascript
-                $res = preg_match_all('/#\{(.*?)\}/i', $args->content, $matches, PREG_SET_ORDER);
-                if($res > 0) {
-                    foreach($matches as $match) {
-                        $parts = explode(';', $match[1]);
-                        $lang = $parts[0];
-                        $default = $parts[1] ?? '';
-                        $replaceWith = Module::$instance->Get($lang, $default);
-                        $args->content = str_replace($match[0], $replaceWith, $args->content);
-                    }
-                }
+                // компилируем html в javascript\
+                $args->content = App::$moduleManager->lang->ParseString($args->content);
             }
             return true;
         });
     }
 
-    public function Get($text, $default) {
-        try {
-
-            $text = $this->Config()->Query('config.texts.'.$text);
-            $value = $text->Query(self::$current, $default)->GetValue();
-        }
-        catch(ConfigException $e) {
-            $langConfig = Module::$instance->Config()->Query('config.texts');
-            $langConfig->Set($text, [self::$current => $default]);
-            $langConfig->Save();
-            $value = $default;
+    public function ParseString(string $value): string
+    {
+        $res = preg_match_all('/#\{(.*?)\}/i', $value, $matches, PREG_SET_ORDER);
+        if($res > 0) {
+            foreach($matches as $match) {
+                $parts = explode(';', $match[1]);
+                $lang = $parts[0];
+                $default = $parts[1] ?? '';
+                $replaceWith = Module::$instance->Get($lang, $default);
+                $value = str_replace($match[0], str_replace('"', '&quot;', str_replace('\'', '`', $replaceWith)), $value);
+            }
         }
         return $value;
+    }
+
+    public function ParseArray(array|object $array): array
+    {
+        $ret = [];
+        foreach($array as $key => $value) {
+            if(is_array($value)) {
+                $ret[$key] = $this->ParseArray($value);
+            }
+            else if(is_object($value)) {
+                if(method_exists($value, 'ToArray')) {
+                    $value = $value->ToArray();
+                }
+                $ret[$key] = $this->ParseArray($value);
+            }
+            else {
+                if(is_string($value)) {
+                    $value = $this->ParseString($value);
+                }
+                $ret[$key] = $value;
+            }
+        }
+        return $ret;
+    }
+
+    public function LoadTexts($reload = false) {
+
+        $cached = Mem::Exists('languages-texts');
+        if($cached && !$reload) {
+            $this->_texts = Mem::Read('languages-texts');
+        }
+
+        if(!empty($this->_texts)) {
+            return $this->_texts;
+        }
+
+        $this->_texts = [];
+        $modules = App::$moduleManager->list;
+        foreach($modules as $module) {
+            try {
+                $langConfig = $module->Config()->Query('config.texts')->AsArray();
+                $this->_texts = array_merge($this->_texts, $langConfig);
+            }
+            catch(ConfigException $e) {
+            }
+        }
+
+        Mem::Write('languages-texts', $this->_texts);
+        return $this->_texts;
+    }
+
+    public function Get($text, $default) {
+        $langs = $this->LoadTexts();
+        if(isset($langs[$text])) {
+            return $langs[$text][self::$current] ?? $default;
+        }
+
+        $split = explode('-', $text);
+        $module = reset($split);
+        if($module == 'app') {
+            $moduleObject = $this;
+        }
+        else {
+            $moduleObject = App::$moduleManager->$module;
+        }
+        if(!$moduleObject) {
+            return $default;
+        }
+
+        $moduleConfig = $moduleObject->Config();
+        $langConfig = $moduleConfig->Query('config.texts');
+        $langConfig->Set($text, [self::$current => $default]);
+        $langConfig->Save();
+
+        $this->_texts = array_merge($this->_texts, [$text => [self::$current => $default]]);
+        Mem::Write('languages-texts', $this->_texts);
+        
+        return $default;
+    }
+
+    public function Save($key, $data): object|array
+    {
+
+        $split = explode('-', $key);
+        $module = reset($split);
+        if($module == 'app') {
+            $moduleObject = $this;
+        }
+        else {
+            $moduleObject = App::$moduleManager->$module;
+        }
+        if(!$moduleObject) {
+            $moduleObject = $this;
+        }
+        
+        $moduleConfig = $moduleObject->Config();
+        $langConfig = $moduleConfig->Query('config.texts');
+        $langConfig->Set($key, $data);
+        $langConfig->Save();
+
+        $this->LoadTexts(true);
+
+        return $moduleConfig->Query('config.texts.' . $key)->AsObject();
+
+    }
+
+    public function Delete(array $keys): bool
+    {
+        foreach($keys as $key) {
+            
+            $split = explode('-', $key);
+            $module = reset($split);
+            if($module == 'app') {
+                $moduleObject = $this;
+            }
+            else {
+                $moduleObject = App::$moduleManager->$module;
+            }
+            if(!$moduleObject) {
+                return false;
+            }
+            
+            $moduleConfig = $moduleObject->Config();
+            $langConfig = $moduleConfig->Query('config.texts');
+            $langConfig->Set($key, null);
+            $langConfig->Save();
+        }
+        
+        $this->LoadTexts(true);
+
+        return true;
     }
 
     /**
@@ -144,8 +269,8 @@ class Module extends BaseModule
     public function GetTopmostMenu(bool $hideExecuteCommand = true): Item|array
     {
         return [
-            Item::Create('more', 'Инструменты', '', 'App.Modules.MainFrame.Icons.MoreIcon', '')->Add([
-                Item::Create('lang', 'Настройки языков', 'Настройки языков, интерфейсные тексты', 'App.Modules.Lang.Icons.LangSettingsIcon', 'App.Modules.Lang.SettingsPage'),
+            Item::Create('more', '#{mainframe-menu-more;Инструменты}', '', 'App.Modules.MainFrame.Icons.MoreIcon', '')->Add([
+                Item::Create('lang', '#{lang-menu-settings;Настройки языков}', '#{lang-menu-settings-desc;Настройки языков, интерфейсные тексты}', 'App.Modules.Lang.Icons.LangSettingsIcon', 'App.Modules.Lang.SettingsPage'),
             ])
         ];
 

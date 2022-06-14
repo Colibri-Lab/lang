@@ -67,8 +67,7 @@ class LangController extends WebController
             return $this->Finish(403, 'Permission denied');
         }
 
-        $config = Module::$instance->Config();
-        $texts = $config->Query('config.texts')->AsObject();
+        $texts = Module::$instance->LoadTexts();
 
         $term = $post->term ?: '';
         $page = $post->page ?: 1;
@@ -167,11 +166,7 @@ class LangController extends WebController
             return $this->Finish(403, 'Permission denied');
         }
 
-        $langConfig = Module::$instance->Config()->Query('config.texts');
-        foreach($texts as $text) {
-            $langConfig->Set($text, null);
-        }
-        $langConfig->Save();
+        Module::$instance->Delete($texts);
 
         return $this->Finish(200, 'ok');
 
@@ -196,11 +191,7 @@ class LangController extends WebController
         $textKey = $text['key'];
         unset($text['key']);
 
-        $langConfig = Module::$instance->Config()->Query('config.texts');
-        $langConfig->Set($textKey, $text);
-        $langConfig->Save();
-
-        $newText = Module::$instance->Config()->Query('config.texts.' . $textKey)->AsObject();
+        $newText = Module::$instance->Save($textKey, $text);
 
         return $this->Finish(200, 'ok', $newText);
 
@@ -232,9 +223,8 @@ class LangController extends WebController
 
         Module::$instance->InitApis();
 
-        $langConfig = Module::$instance->Config()->Query('config.texts');
-
         $keys = [];
+        $ret = [];
         foreach($texts as $text) {
 
             $textKey = $text['key'];
@@ -245,15 +235,7 @@ class LangController extends WebController
             $translated = Module::$instance->CloudTranslate($langFrom, $langTo, $text[$langFrom]);
             $text[$langTo] = $translated;
             
-            $langConfig->Set($textKey, $text);
-        }
-
-
-        $langConfig->Save();
-
-        $ret = [];
-        foreach($keys as $textKey) {
-            $ret[$textKey] = Module::$instance->Config()->Query('config.texts.' . $textKey)->AsObject();
+            $ret[$textKey] = Module::$instance->Save($textKey, $text);
         }
 
         return $this->Finish(200, 'ok', $ret);
