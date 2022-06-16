@@ -200,7 +200,7 @@ class Module extends BaseModule
         }
 
         $moduleConfig = $moduleObject->Config();
-        $langConfig = $moduleConfig->Query('config.texts');
+        $langConfig = $moduleConfig->Query('config.texts', []);
         $langConfig->Set($text, [self::$current => $default]);
         $langConfig->Save();
 
