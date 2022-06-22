@@ -181,7 +181,8 @@ class Module extends BaseModule
         return $this->_texts;
     }
 
-    public function Get($text, $default) {
+    public function Get($text, $default): ?string 
+    {
         $langs = $this->LoadTexts();
         if(isset($langs[$text])) {
             return $langs[$text][self::$current] ?? $default;
@@ -210,7 +211,19 @@ class Module extends BaseModule
         return $default;
     }
 
-    public function Save($key, $data): object|array
+    public function GetAsObject($text): ?object 
+    {
+        
+        $langs = $this->LoadTexts();
+        if(!isset($langs[$text])) {
+            return null;
+        }
+
+        return $langs[$text];
+
+    }
+
+    public function Save($key, $data): object|array|string
     {
 
         $split = explode('-', $key);
