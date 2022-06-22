@@ -663,4 +663,126 @@ app-comet-messages-empty:
   hy: Հաղորդագրություններ չկան
 lang-textgrid-key:
   ru: Ключ
+  en: Key
+  hy: Բանալին
+lang-langform-key:
+  ru: Ключ языка
+  en: Language key
+  hy: Լեզվի բանալին
+lang-langform-key-desc:
+  ru: Пожалуйста, введите ключ. Внимание! должно содержать только латинские буквы
+    и цифры без тире, дефисов и пробелов.
+  en: Please enter the key. Attention! it should contain only Latin letters and numbers
+    without dashes, hyphens and spaces.
+  hy: 'Խնդրում ենք մուտքագրել բանալին. Ուշադրություն! պետք է պարունակի միայն լատինական
+    տառեր եւ թվեր, առանց dashes, գծանկարներ եւ բացթողումներ:'
+lang-langform-key-validation-message1:
+  ru: Пожалуйста, введите ключ языка
+  en: Please enter the language key
+  hy: Խնդրում ենք մուտքագրել լեզվի բանալին
+lang-langform-key-validation-message2:
+  ru: Введенный текст не соответствует требованиям
+  en: The entered text does not meet the requirements
+  hy: Ներկայացված տեքստը չի համապատասխանում պահանջներին
+lang-langform-desc:
+  ru: Описание языка
+  en: Language description
+  hy: Լեզվի նկարագրությունը
+lang-langform-desc-desc:
+  ru: Введите описание языка так, как вы хотите видеть язык на сайте
+  en: Enter the language description the way you want to see the language on the site
+  hy: Մուտքագրեք լեզվի նկարագրությունը, ինչպես ցանկանում եք տեսնել լեզուն կայքում
+lang-langform-default:
+  ru: Язык по умолчанию
+  en: Default language
+  hy: Լռելյայն լեզու
+lang-langform-icon:
+  ru: Выберите иконку
+  en: Select an icon
+  hy: Ընտրեք պատկերակը
+lang-langform-icon-desc:
+  ru: Выберите иконку, которая будет отображаться при выборе языка
+  en: Select the icon that will be displayed when you select a language
+  hy: Ընտրեք պատկերակը, որը կցուցադրվի լեզվի ընտրության ժամանակ
+lang-textform-key:
+  ru: Ключ текста
+  en: Text Key
+  hy: Տեքստի բանալին
+lang-textform-key-desc:
+  ru: Пожалуйста, введите ключ. Внимание! содержит только латинские буквы, цифры и
+    тире
+  en: Please enter the key. Attention! contains only Latin letters, numbers and dashes
+  hy: Խնդրում ենք մուտքագրել բանալին. Ուշադրություն! պարունակում է միայն լատինական
+    տառեր, թվեր եւ dash
+lang-textform-key-validation-message1:
+  ru: Пожалуйста, введите ключ языка
+  en: Please enter the language key
+  hy: Խնդրում ենք մուտքագրել լեզվի բանալին
+lang-textform-key-validation-message2:
+  ru: Введенный текст не соответствует требованиям
+  en: The entered text does not meet the requirements
+  hy: Ներկայացված տեքստը չի համապատասխանում պահանջներին
+lang-contextmenu-newlang:
+  ru: Новый язык
+  en: New language
+  hy: Նոր լեզու
+lang-contextmenu-editlang:
+  ru: Редактировать язык
+  en: Edit Language
+  hy: Խմբագրել լեզուն
+lang-contextmenu-deletelang:
+  ru: Удалить язык
+  en: Delete a language
+  hy: Հեռացնել լեզուն
+lang-forms-newlang:
+  ru: Новый язык
+  en: New language
+  hy: Նոր լեզու
+lang-forms-editlang:
+  ru: Редактировать язык
+  en: Edit Language
+  hy: Խմբագրել լեզուն
+lang-forms-deletelang:
+  ru: Удаление языка
+  en: Language Removal
+  hy: Լեզվի հեռացում
+lang-forms-deletelang-message:
+  ru: Вы уверены, что хотите удалить язык? Все текстовые данные, которые были заполнены
+    будут безвозвратно удалены!
+  en: Are you sure you want to delete the language? All text data that has been filled
+    in will be permanently deleted!
+  hy: 'Վստահ եք, որ ցանկանում եք ջնջել լեզուն: Բոլոր տեքստային տվյալները, որոնք լրացվել
+    են անվերադարձ ջնջվել!'
+lang-contextmenu-translate:
+  ru: Перевести с помощью облака
+  en: Translate using the cloud
+  hy: Թարգմանել միջոցով ամպի
+lang-contextmenu-edittext:
+  ru: Редактировать тексты
+  en: Edit texts
+  hy: Խմբագրել տեքստերը
+lang-contextmenu-deletetext:
+  ru: Удалить тексты
+  en: Delete Texts
+  hy: Ջնջել տեքստերը
+lang-forms-edittext:
+  ru: Редактировать текст
+  en: Edit Text
+  hy: Խմբագրել տեքստը
+lang-forms-deletetext:
+  ru: Удаление текстов
+  en: Deleting texts
+  hy: Տեքստերի հեռացում
+lang-forms-deletetext-message:
+  ru: Вы уверены, что хотите удалить текст?
+  en: Are you sure you want to delete the text?
+  hy: 'Վստահ եք, որ ցանկանում եք ջնջել տեքստը:'
+lang-forms-deletetexts:
+  ru: Удаление текстов
+  en: Deleting texts
+  hy: Տեքստերի հեռացում
+lang-forms-newtext:
+  ru: Новый текст
+  en: New text
+  hy: Նոր տեքստ
 ...
