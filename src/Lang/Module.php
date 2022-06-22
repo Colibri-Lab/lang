@@ -213,7 +213,7 @@ class Module extends BaseModule
 
     public function GetAsObject($text): ?object 
     {
-        
+
         $langs = $this->LoadTexts();
         if(!isset($langs[$text])) {
             return null;
@@ -223,7 +223,7 @@ class Module extends BaseModule
 
     }
 
-    public function Save($key, $data): object|array|string
+    public function Save($key, $data): object|array|string|null
     {
 
         $split = explode('-', $key);
