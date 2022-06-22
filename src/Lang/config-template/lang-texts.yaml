@@ -647,10 +647,18 @@ lang-menu-settings-desc:
   hy: Լեզուների կարգավորումներ, ինտերֆեյսային տեքստեր
 app-comet-connection-error:
   ru: Ошибка подключения
+  en: Connection error
+  hy: Միացման սխալ
 app-comet-nomessages:
   ru: Нет сообщений
+  en: No messages
+  hy: Ոչ հաղորդագրություններ
 app-list-group-empty:
   ru: Записей нет
+  en: There are no records
+  hy: Գրառումներ չկան
 app-comet-messages-empty:
   ru: Сообщений нет
+  en: There are no messages
+  hy: Հաղորդագրություններ չկան
 ...
