@@ -645,4 +645,12 @@ lang-menu-settings-desc:
   ru: Настройки языков, интерфейсные тексты
   en: Language settings, interface texts
   hy: Լեզուների կարգավորումներ, ինտերֆեյսային տեքստեր
+app-comet-connection-error:
+  ru: Ошибка подключения
+app-comet-nomessages:
+  ru: Нет сообщений
+app-list-group-empty:
+  ru: Записей нет
+app-comet-messages-empty:
+  ru: Сообщений нет
 ...
