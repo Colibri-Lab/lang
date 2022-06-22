@@ -661,4 +661,6 @@ app-comet-messages-empty:
   ru: Сообщений нет
   en: There are no messages
   hy: Հաղորդագրություններ չկան
+lang-textgrid-key:
+  ru: Ключ
 ...
