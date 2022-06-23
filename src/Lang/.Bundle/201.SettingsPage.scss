@@ -26,6 +26,14 @@
             }
         }
 
+        [data-object-name="flex"] {
+            flex-wrap: nowrap;
+            [data-object-name="fullfilled"] {
+                white-space: nowrap;
+                margin-left: 20px;
+            }
+        }
+
         .app-component-split-left {
             flex: 0 0 20%;
         }

@@ -18,7 +18,7 @@ App.Modules.Lang = class extends Colibri.Modules.Module {
         this._store = App.Store.AddChild('app.lang', {});
         this._store.AddPathLoader('lang.settings', 'Lang:Lang.Settings');
         this._store.AddPathLoader('lang.langs', 'Lang:Lang.Langs');
-        this._store.AddPathLoader('lang.texts', () => this.Texts('', 1, 50, true));
+        this._store.AddPathLoader('lang.texts', () => this.Texts('', false, 1, 50, true));
         
     }
 
@@ -38,9 +38,9 @@ App.Modules.Lang = class extends Colibri.Modules.Module {
         console.log('Registering event handlers for Lang');
     }
 
-    Texts(term, page, pagesize, returnPromise) {
+    Texts(term, notfilled, page, pagesize, returnPromise) {
 
-        const promise = this.Call('Lang', 'Texts', {term: term, page: page, pagesize: pagesize});
+        const promise = this.Call('Lang', 'Texts', {term: term, notfilled: notfilled, page: page, pagesize: pagesize});
         if(returnPromise) {
             return promise;
         }

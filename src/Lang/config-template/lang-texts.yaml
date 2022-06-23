@@ -787,4 +787,10 @@ lang-forms-newtext:
   hy: Նոր տեքստ
 lang-fields-text:
   ru: Текст (мультиязычный)
+  en: Text (multilingual)
+  hy: Տեքստը (բազմալեզու)
+lang-search-fullfilled-placeholder:
+  ru: Только не заполненные
+  en: Only not filled in
+  hy: Միայն ոչ լրացված
 ...

@@ -4,9 +4,10 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
         super(name, container, Colibri.UI.Templates['App.Modules.Lang.SettingsPage']);
         this.AddClass('app-langspage-component');
 
-        this._langs = this.Children('split/ttl-pane/langtree');
+        this._langs = this.Children('split/ttl-pane/langtree'); 
         this._texts = this.Children('split/texts-pane/texts');
-        this._searchInput = this.Children('split/texts-pane/search-pane/search-input');
+        this._searchInput = this.Children('split/texts-pane/search-pane/flex/search-input');
+        this._fullfiledCheckbox = this.Children('split/texts-pane/search-pane/flex/fullfilled');
 
         this._addText = this.Children('split/texts-pane/buttons-pane/add-text');
         this._editText = this.Children('split/texts-pane/buttons-pane/edit-text');
@@ -29,6 +30,7 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
         this._translateText.AddHandler('Clicked', (event, args) => this.__translateTextClicked(event, args));
 
         this._searchInput.AddHandler(['Filled', 'Cleared'], (event, args) => this.__searchInputFilled(event, args));
+        this._fullfiledCheckbox.AddHandler('Changed', (event, args) => this.__fullfilledChanged(event, args));
 
         this._dataCurrentPage = 1;
 
@@ -144,17 +146,21 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
 
     }
 
-    _loadDataPage(searchTerm, page) {
+    _loadDataPage(searchTerm, notfilled, page) {
         this._dataCurrentPage = page;
-        Lang.Texts(searchTerm, page);
+        Lang.Texts(searchTerm, notfilled, page);
     }
 
     __searchInputFilled(event, args) {
-        this._loadDataPage(this._searchInput.value, 1);
+        this._loadDataPage(this._searchInput.value, this._fullfiledCheckbox.checked, 1);
+    }
+
+    __fullfilledChanged(event, args) {
+        this._loadDataPage(this._searchInput.value, this._fullfiledCheckbox.checked, 1);
     }
 
     __textsScrolledToBottom(event, args) {
-        this._loadDataPage(this._searchInput.value, this._dataCurrentPage + 1);
+        this._loadDataPage(this._searchInput.value, this._fullfiledCheckbox.checked, this._dataCurrentPage + 1);
     }
 
     __langsSelectionChanged(event, args) {

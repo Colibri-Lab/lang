@@ -9,7 +9,10 @@
         <Pane name="texts-pane" shown="true">
             <H2 name="ttl" shown="true">#{lang-titles-texts;Тексты}</H2>
             <Pane name="search-pane" shown="true">
-                <Input name="search-input" enabled="true" shown="true" placeholder="#{lang-search-placeholder;Поиск}" />
+                <FlexBox name="flex" shown="true">
+                    <Input name="search-input" enabled="true" shown="true" placeholder="#{lang-search-placeholder;Поиск}" />
+                    <Checkbox name="fullfilled" enabled="true" shown="true" placeholder="#{lang-search-fullfilled-placeholder;Только не заполненные}"  />
+                </FlexBox>
             </Pane>
             <App.Modules.Lang.TextsGrid name="texts" shown="true" enabled="true" hasContextMenu="true" selectionMode="fullrow" showCheckboxes="true" binding="app.lang.langs;app.lang.texts" emptyMessage="Список текстов пуст" />
             <FlexBox name="buttons-pane" shown="true">

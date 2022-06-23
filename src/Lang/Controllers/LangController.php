@@ -67,9 +67,11 @@ class LangController extends WebController
             return $this->Finish(403, 'Permission denied');
         }
 
+        $langs = Module::$instance->Config()->Query('config.langs')->AsObject();
         $texts = Module::$instance->LoadTexts();
 
         $term = $post->term ?: '';
+        $notfilled = $post->notfilled ?: false;
         $page = $post->page ?: 1;
         $pagesize = $post->pagesize ?: 50;
 
@@ -87,6 +89,24 @@ class LangController extends WebController
                     }
                 }
             });
+        }
+
+        if($notfilled) {
+
+            $collection = $collection->Filter(function($key, $value) use ($langs) {
+                $keys = [];
+                foreach($value as $lang => $v) {
+                    if($v) {
+                        $keys[] = $lang;
+                    }
+                }
+
+                $ks = array_keys((array)$langs);
+                $intersect = array_intersect($keys, $ks);
+                if(count($intersect) != count($ks)) {
+                    return true;
+                }
+            });            
         }
 
         if($page) {
