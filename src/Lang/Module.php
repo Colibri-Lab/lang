@@ -110,7 +110,7 @@ class Module extends BaseModule
         App::$instance->HandleEvent(EventsContainer::BundleFile, function ($event, $args) {
             $file = new File($args->file);
             if (in_array($file->extension, ['html', 'js'])) {
-                // компилируем html в javascript\
+                // компилируем html в javascript
                 $args->content = App::$moduleManager->lang->ParseString($args->content);
             }
             return true;
