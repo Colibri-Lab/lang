@@ -140,6 +140,8 @@ class LangController extends WebController
         $langConfig->Set($langKey, $lang);
         $langConfig->Save();
 
+        Module::$instance->LoadTexts(true);
+
         $newLang = Module::$instance->Config()->Query('config.langs.' . $langKey)->AsObject();
 
         return $this->Finish(200, 'ok', $newLang);
@@ -165,6 +167,8 @@ class LangController extends WebController
         $langConfig = Module::$instance->Config()->Query('config.langs');
         $langConfig->Set($lang, null);
         $langConfig->Save();
+
+        Module::$instance->LoadTexts(true);
 
         return $this->Finish(200, 'ok');
 

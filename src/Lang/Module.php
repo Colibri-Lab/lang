@@ -23,6 +23,7 @@ use Colibri\Utils\Config\ConfigException;
 use Panda\Yandex\TranslateSdk;
 use Colibri\AppException;
 use Colibri\Utils\Cache\Mem;
+use DateTime;
 
 
 /**
@@ -136,6 +137,10 @@ class Module extends BaseModule
     {
         $ret = [];
         foreach($array as $key => $value) {
+            if($value instanceof DateTime) {
+                $ret[$key] = $value;
+                continue;
+            }
             if(is_array($value)) {
                 $ret[$key] = $this->ParseArray($value);
             }
