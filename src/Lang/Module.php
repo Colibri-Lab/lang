@@ -254,8 +254,12 @@ class Module extends BaseModule
 
     }
 
-    public function Delete(array $keys): bool
+    public function Delete(string|array $keys): bool
     {
+        if(is_string($keys)) {
+            $keys = [$keys];
+        }
+
         foreach($keys as $key) {
             
             $split = explode('-', $key);
@@ -267,7 +271,7 @@ class Module extends BaseModule
                 $moduleObject = App::$moduleManager->$module;
             }
             if(!$moduleObject) {
-                return false;
+                $moduleObject = $this;
             }
             
             $moduleConfig = $moduleObject->Config();
@@ -307,7 +311,7 @@ class Module extends BaseModule
             try {
                 $translate = new TranslateSdk\Translate($text, $translateLang);
                 $translate->setSourceLang($originalLang);
-                $translate->setFormat(TranslateSdk\Format::PLAIN_TEXT);
+                $translate->setFormat(TranslateSdk\Format::HTML);
                 $result = $this->_claudApi->request($translate);
                 $result = json_decode($result);
                 if($result && $result?->translations[0]?->text) {
