@@ -43,7 +43,7 @@ class LangController extends WebController
             return $this->Finish(403, 'Permission denied');
         }
 
-        return $this->Finish(200, 'ok', ['cloud' => !!Module::$instance->cloudEnabled]);
+        return $this->Finish(200, 'ok', ['cloud' => !!Module::$instance->claudName]);
 
     }
 
@@ -228,7 +228,7 @@ class LangController extends WebController
             return $this->Finish(403, 'Permission denied');
         }
 
-        if(!Module::$instance->cloudEnabled) {
+        if(!Module::$instance->claudName) {
             return $this->Finish(400, 'Bad request');
         }
 

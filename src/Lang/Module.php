@@ -24,6 +24,8 @@ use Panda\Yandex\TranslateSdk;
 use Colibri\AppException;
 use Colibri\Utils\Cache\Mem;
 use DateTime;
+use Google\Cloud\Translate\V2\TranslateClient;
+use Throwable;
 
 
 /**
@@ -46,6 +48,8 @@ class Module extends BaseModule
 
     private array $_texts;
 
+    private $_claudApi;
+
     /**
      * Инициализация модуля
      * @return void
@@ -61,18 +65,34 @@ class Module extends BaseModule
 
     }
 
-    public function InitApis() {
+    public function InitApis()
+    {
         if($this->_claudApi) {
             return $this->_claudApi;
         }
-        
-        if($this->cloudEnabled) {
-            try {
-                $this->_claudApi = new TranslateSdk\Cloud($this->Config()->Query('config.yandex-api.token')->GetValue(), $this->Config()->Query('config.yandex-api.catalogue')->GetValue());
-            } catch (TranslateSdk\Exception\ClientException | \TypeError $e) {
-                
-            }
+
+        $claudName = $this->claudName;
+        if($claudName == 'yandex-api') {
+            if((bool)$this->Config()->Query('config.yandex-api.enabled')->GetValue()) {
+                try {
+                    $this->_claudApi = new TranslateSdk\Cloud($this->Config()->Query('config.yandex-api.token')->GetValue(), $this->Config()->Query('config.yandex-api.catalogue')->GetValue());
+                } catch (TranslateSdk\Exception\ClientException | \TypeError $e) {
+                    
+                }
+            }    
         }
+        else if($claudName == 'google-api') {
+            if((bool)$this->Config()->Query('config.google-api.enabled')->GetValue()) {
+                try {
+                    $this->_claudApi = new TranslateClient([
+                        'key' => $this->Config()->Query('config.google-api.token')->GetValue()
+                    ]);
+                } catch (Throwable $e) {
+                    
+                }
+            }    
+        }
+        
     }
 
     public function __get(string $prop): mixed
@@ -83,18 +103,23 @@ class Module extends BaseModule
         if(strtolower($prop) === 'cloud') {
             return $this->_claudApi;
         }
-        else if(strtolower($prop) === 'cloudenabled') {
-            return (bool)$this->Config()->Query('config.yandex-api.enabled')->GetValue();
+        else if(strtolower($prop) === 'claudname') {
+            return (string)$this->Config()->Query('config.use')->GetValue();
         }
         else {
             return parent::__get($prop);
         }
     }
 
+    public function Langs(): object
+    {
+        return $this->Config()->Query('config.langs')->AsObject();
+    }
+
     public function InitCurrent() {
 
         $default = '';
-        $langs = $this->Config()->Query('config.langs')->AsObject();
+        $langs = $this->Langs();
         foreach($langs as $key => $lang) {
             if($lang->default) {
                 $default = $key;
@@ -309,14 +334,27 @@ class Module extends BaseModule
 
         if($this->_claudApi) {
             try {
-                $translate = new TranslateSdk\Translate($text, $translateLang);
-                $translate->setSourceLang($originalLang);
-                $translate->setFormat(TranslateSdk\Format::HTML);
-                $result = $this->_claudApi->request($translate);
-                $result = json_decode($result);
-                if($result && $result?->translations[0]?->text) {
-                    return $result?->translations[0]?->text;
+
+                if($this->claudName === 'yandex-api') {
+                    $translate = new TranslateSdk\Translate($text, $translateLang);
+                    $translate->setSourceLang($originalLang);
+                    $translate->setFormat(TranslateSdk\Format::HTML);
+                    $result = $this->_claudApi->request($translate);
+                    $result = json_decode($result);
+                    if($result && ($result?->translations[0]?->text ?? null)) {
+                        return $result?->translations[0]?->text;
+                    }    
                 }
+                else if($this->claudName === 'google-api') {
+                    $result = $this->_claudApi->translate($text, [
+                        'source' => $originalLang,
+                        'target' => $translateLang
+                    ]);
+                    if($result && ($result['text'] ?? null)) {
+                        return $result['text'];
+                    }
+                }
+
             } catch (TranslateSdk\Exception\ClientException $e) {
                 throw new AppException($e->getMessage(), $e->getCode(), $e);
             }
