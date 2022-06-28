@@ -100,7 +100,7 @@ class Module extends BaseModule
         if(strtolower($prop) === 'current') {
             return self::$current;
         }
-        if(strtolower($prop) === 'cloud') {
+        else if(strtolower($prop) === 'cloud') {
             return $this->_claudApi;
         }
         else if(strtolower($prop) === 'claudname') {
@@ -116,7 +116,12 @@ class Module extends BaseModule
         return $this->Config()->Query('config.langs')->AsObject();
     }
 
-    public function InitCurrent() {
+    public function InitCurrent(?string $lang = null) 
+    {
+        if($lang) {
+            self::$current = $lang;
+            return;
+        }
 
         $default = '';
         $langs = $this->Langs();
@@ -141,6 +146,12 @@ class Module extends BaseModule
             }
             return true;
         });
+
+        App::$instance->HandleEvent(EventsContainer::TemplateRendered, function($event, $args) {
+            $args->content = App::$moduleManager->lang->ParseString($args->content);
+            return true;
+        });
+
     }
 
     public function ParseString(string $value): string

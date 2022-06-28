@@ -3,7 +3,7 @@
 langs: include(lang-langs.yaml)
 texts: include(lang-texts.yaml)
 
-use: google-api
+use: yandex-api
 
 yandex-api:
   enabled: true
