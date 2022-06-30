@@ -26,6 +26,7 @@ use Colibri\Utils\Cache\Mem;
 use DateTime;
 use Google\Cloud\Translate\V2\TranslateClient;
 use Throwable;
+use Colibri\Utils\Logs\Logger;
 
 
 /**
@@ -376,6 +377,9 @@ class Module extends BaseModule
     }
 
 
+    public function Backup(Logger $logger, string $path) {
+        // Do nothing        
 
+    }
 
 }
