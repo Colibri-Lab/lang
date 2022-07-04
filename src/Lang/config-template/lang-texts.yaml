@@ -793,4 +793,18 @@ lang-search-fullfilled-placeholder:
   ru: Только не заполненные
   en: Only not filled in
   hy: Միայն ոչ լրացված
+app-viewers-color:
+  ru: Цвет
+app-viewers-border:
+  ru: Рамка
+app-viewers-image:
+  ru: Изображение
+app-viewers-shadow:
+  ru: Тень
+app-viewers-font-family:
+  ru: Шрифт
+app-fields-color:
+  ru: Цвет
+app-fields-fontfamily:
+  ru: Шрифт
 ...
