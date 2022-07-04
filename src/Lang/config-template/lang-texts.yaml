@@ -795,16 +795,30 @@ lang-search-fullfilled-placeholder:
   hy: Միայն ոչ լրացված
 app-viewers-color:
   ru: Цвет
+  en: Colour
+  hy: Գույն
 app-viewers-border:
   ru: Рамка
+  en: Frame
+  hy: Շրջանակ
 app-viewers-image:
   ru: Изображение
+  en: Image
+  hy: Նկար
 app-viewers-shadow:
   ru: Тень
+  en: Shadow
+  hy: Ստվեր
 app-viewers-font-family:
   ru: Шрифт
+  en: Font
+  hy: Տառատեսակ
 app-fields-color:
   ru: Цвет
+  en: Colour
+  hy: Գույն
 app-fields-fontfamily:
   ru: Шрифт
+  en: Font
+  hy: Տառատեսակ
 ...
