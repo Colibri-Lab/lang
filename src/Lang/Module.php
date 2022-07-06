@@ -342,19 +342,34 @@ class Module extends BaseModule
         return $permissions;
     }
 
-    public function CloudTranslate(string $originalLang, string $translateLang, string $text): ?string {
+    public function CloudTranslate(string $originalLang, string $translateLang, string|array $text): string|array|null {
 
         if($this->_claudApi) {
             try {
 
                 if($this->claudName === 'yandex-api') {
-                    $translate = new TranslateSdk\Translate($text, $translateLang);
+
+                    $translate = new TranslateSdk\Translate('', $translateLang);
                     $translate->setSourceLang($originalLang);
                     $translate->setFormat(TranslateSdk\Format::HTML);
+                    if(is_array($text)) {
+                        foreach($text as $t) {
+                            $translate->addText($t);
+                        }
+                    }
+                    else {
+                        $translate->addText($text);
+                    }
                     $result = $this->_claudApi->request($translate);
                     $result = json_decode($result);
-                    if($result && ($result?->translations[0]?->text ?? null)) {
-                        return $result?->translations[0]?->text;
+                    if($result && count($result?->translations) > 0) {
+                        $res = [];
+                        foreach($result?->translations as $trans) {
+                            if($trans?->text ?? false) {
+                                $res[] = $trans?->text;
+                            }
+                        }
+                        return count($res) === 1 ? $res[0] : $res;
                     }    
                 }
                 else if($this->claudName === 'google-api') {

@@ -247,20 +247,25 @@ class LangController extends WebController
 
         Module::$instance->InitApis();
 
-        $keys = [];
-        $ret = [];
+        $totranslate = [];
         foreach($texts as $text) {
+            $totranslate[] = $text[$langFrom];
+        }
+
+        $translated = Module::$instance->CloudTranslate($langFrom, $langTo, $totranslate);
+
+        $ret = [];
+        foreach($texts as $index => $text) {
 
             $textKey = $text['key'];
             unset($text['key']);
     
-            $keys[] = $textKey;
-
-            $translated = Module::$instance->CloudTranslate($langFrom, $langTo, $text[$langFrom]);
-            $text[$langTo] = $translated;
+            $text[$langTo] = $translated[$index];
             
             $ret[$textKey] = Module::$instance->Save($textKey, $text);
         }
+
+        Module::$instance->LoadTexts(true);
 
         return $this->Finish(200, 'ok', $ret);
 
