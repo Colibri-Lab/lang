@@ -823,4 +823,16 @@ app-fields-fontfamily:
   hy: Տառատեսակ
 app-viewers-multilang:
   ru: Мультиязычные данные
+app-fields-localfile:
+  ru: Поле типа Файл
+app-fields-localfiles:
+  ru: Поле типа Список Файлов
+app-fields-remotefile:
+  ru: Файл из удаленного хранилища
+app-fields-remotefiles:
+  ru: Файлы из удаленного хранилища
+app-viewers-remotefile:
+  ru: Удаленный файл
+app-viewers-remotefilelist:
+  ru: Удаленные файлы
 ...
