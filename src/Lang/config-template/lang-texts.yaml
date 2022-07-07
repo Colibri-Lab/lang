@@ -823,16 +823,30 @@ app-fields-fontfamily:
   hy: Տառատեսակ
 app-viewers-multilang:
   ru: Мультиязычные данные
+  en: Multilingual data
+  hy: Բազմալեզու տվյալներ
 app-fields-localfile:
   ru: Поле типа Файл
+  en: File type field
+  hy: Ֆայլի տեսակը դաշտ
 app-fields-localfiles:
   ru: Поле типа Список Файлов
+  en: File List Type Field
+  hy: Դաշտ ֆայլի ցուցակ տեսակը
 app-fields-remotefile:
   ru: Файл из удаленного хранилища
+  en: File from remote storage
+  hy: Ֆայլ հեռավոր պահեստից
 app-fields-remotefiles:
   ru: Файлы из удаленного хранилища
+  en: Files from remote storage
+  hy: Ֆայլեր հեռավոր պահեստից
 app-viewers-remotefile:
   ru: Удаленный файл
+  en: Deleted file
+  hy: Հեռավոր ֆայլ
 app-viewers-remotefilelist:
   ru: Удаленные файлы
+  en: Deleted files
+  hy: Ջնջված Ֆայլեր
 ...
