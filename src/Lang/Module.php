@@ -199,10 +199,10 @@ class Module extends BaseModule
 
     public function LoadTexts($reload = false) {
 
-        $cached = Mem::Exists('languages-texts');
-        if($cached && !$reload) {
-            $this->_texts = Mem::Read('languages-texts');
-        }
+        // $cached = Mem::Exists('languages-texts');
+        // if($cached && !$reload) {
+        //     $this->_texts = Mem::Read('languages-texts');
+        // }
 
         if(!empty($this->_texts)) {
             return $this->_texts;
@@ -219,7 +219,7 @@ class Module extends BaseModule
             }
         }
 
-        Mem::Write('languages-texts', $this->_texts);
+        // Mem::Write('languages-texts', $this->_texts);
         return $this->_texts;
     }
 
