@@ -98,6 +98,11 @@ class Installer
             return;
         }
  
+        // берем точку входа
+        $webRoot = \getenv('COLIBRI_WEBROOT');
+        if(!$webRoot) {
+            $webRoot = 'web'; 
+        }
         $mode = self::_getMode($configDir.'app.yaml');
 
         // копируем конфиг
@@ -114,8 +119,8 @@ class Installer
         self::_copyOrSymlink($mode, $path.'/src/Lang/bin/', './bin/', 'lang-models-generate.sh', 'lang-models-generate.sh');
         
         print_r('Копирование изображений'."\n");
-        self::_copyOrSymlink($mode, $path.'/src/Lang/web/res/img/', './web/res/img/', 'loading-icon.svg', 'loading-icon.svg');
-        self::_copyOrSymlink($mode, $path.'/src/Lang/web/res/fonts/', './web/res/fonts/', 'Mardoto/', 'Mardoto/');
+        self::_copyOrSymlink($mode, $path.'/src/Lang/web/res/img/', './'.$webRoot.'/res/img/', 'loading-icon.svg', 'loading-icon.svg');
+        self::_copyOrSymlink($mode, $path.'/src/Lang/web/res/fonts/', './'.$webRoot.'/res/fonts/', 'Mardoto/', 'Mardoto/');
 
         print_r('Установка завершена'."\n");
 
