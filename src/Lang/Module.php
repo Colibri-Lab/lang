@@ -157,7 +157,7 @@ class Module extends BaseModule
 
     public function ParseString(string $value): string
     {
-        $res = preg_match_all('/#\{(.*?)\}/i', $value, $matches, PREG_SET_ORDER);
+        $res = preg_match_all('/#\{(.*?)\}/sm', $value, $matches, PREG_SET_ORDER);
         if($res > 0) {
             foreach($matches as $match) {
                 $parts = explode(';', $match[1]);
