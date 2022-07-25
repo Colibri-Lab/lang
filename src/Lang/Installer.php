@@ -103,6 +103,10 @@ class Installer
         if(!$webRoot) {
             $webRoot = 'web'; 
         }
+        $permanent = \getenv('COLIBRI_PERMANENT');
+        if(!$permanent) {
+            $permanent = 'res/'; 
+        }
         $mode = self::_getMode($configDir.'app.yaml');
 
         // копируем конфиг
