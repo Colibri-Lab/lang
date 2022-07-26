@@ -116,10 +116,10 @@ class Controller extends WebController
 
         });
 
-        $jsBundle = Bundle::Automate('assets.bundle.js', 'js', [
+        $jsBundle = Bundle::Automate(App::$domainKey, 'assets.bundle.js', 'js', [
             ['path' => App::$moduleManager->commerce->modulePath . '.Bundle/', ['exts' => ['js', 'html']]],
         ]);
-        $cssBundle = Bundle::Automate('assets.bundle.css', 'scss', array(
+        $cssBundle = Bundle::Automate(App::$domainKey, 'assets.bundle.css', 'scss', array(
             ['path' => App::$moduleManager->commerce->modulePath . '.Bundle/'],
         ));
 
