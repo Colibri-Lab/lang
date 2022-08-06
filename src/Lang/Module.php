@@ -153,6 +153,12 @@ class Module extends BaseModule
             return true;
         });
 
+        App::$instance->HandleEvent(EventsContainer::RpcRequestProcessed, function($event, $args) {
+            $args->result = App::$moduleManager->lang->ParseArray($args->result);
+            return true;
+        });
+
+
     }
 
     public function ParseString(string $value): string
