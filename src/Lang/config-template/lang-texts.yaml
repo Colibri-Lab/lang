@@ -849,4 +849,8 @@ app-viewers-remotefilelist:
   ru: Удаленные файлы
   en: Deleted files
   hy: Ջնջված Ֆայլեր
+app-component-download:
+  ru: Скачать
+app-component-clear:
+  ru: Удалить
 ...
