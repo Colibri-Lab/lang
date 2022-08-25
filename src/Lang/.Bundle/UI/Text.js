@@ -9,4 +9,4 @@ App.Modules.Lang.UI.Text = class extends Colibri.UI.Forms.Text {
 
 }
 
-Colibri.UI.Forms.Field.RegisterFieldComponent('LangText', 'App.Modules.Lang.UI.Text', '#{lang-fields-text;Текст (мультиязычный)}');
+Colibri.UI.Forms.Field.RegisterFieldComponent('Lang.UI.Text', 'App.Modules.Lang.UI.Text', '#{lang-fields-text;Текст (мультиязычный)}', App.Modules.Lang.Icons.Text);

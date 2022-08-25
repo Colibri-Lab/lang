@@ -853,4 +853,10 @@ app-component-download:
   ru: Скачать
 app-component-clear:
   ru: Удалить
+app-fields-ecoloplace-files:
+  ru: Файлы
+app-fields-ecoloplace-numberpicker-text:
+  ru: Текст
+app-viewers-numberpicker:
+  ru: Число со слайдером
 ...
