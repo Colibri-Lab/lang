@@ -105,7 +105,7 @@ class Module extends BaseModule
             return $this->_claudApi;
         }
         else if(strtolower($prop) === 'claudname') {
-            return (string)$this->Config()->Query('config.use')->GetValue();
+            return (string)$this->Config()->Query('config.use', 'yandex-api')->GetValue();
         }
         else {
             return parent::__get($prop);

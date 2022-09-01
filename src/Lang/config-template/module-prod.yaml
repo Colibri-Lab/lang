@@ -11,3 +11,7 @@ yandex-api:
   name: cloud-vahangrigoryan
   token: AQAAAAACA0ugAATuwYVMPDUL1U39kx5i9GUKAw8
   catalogue: b1guhgpiofeoaian3m2u
+
+google-api:
+  enabled: true
+  token: AIzaSyAW7D_oIgh9iKTQR0qoyUcnnBsaO2AuyMk
