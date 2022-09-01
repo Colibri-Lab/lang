@@ -368,7 +368,7 @@ class Module extends BaseModule
                     }
                     $result = $this->_claudApi->request($translate);
                     $result = json_decode($result);
-                    if($result && count($result?->translations) > 0) {
+                    if($result && count($result?->translations ?? []) > 0) {
                         $res = [];
                         foreach($result?->translations as $trans) {
                             if($trans?->text ?? false) {
