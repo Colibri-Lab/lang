@@ -253,6 +253,9 @@ class LangController extends WebController
         }
 
         $translated = Module::$instance->CloudTranslate($langFrom, $langTo, $totranslate);
+        if(!is_array($translated)) {
+            $translated = [$translated];
+        }
 
         $ret = [];
         foreach($texts as $index => $text) {
