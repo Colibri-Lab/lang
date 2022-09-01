@@ -3,6 +3,8 @@
 langs: include(lang-langs.yaml)
 texts: include(lang-texts.yaml)
 
+use: yandex-api
+
 yandex-api:
   enabled: true
   id: b1gin1ljbi61qm692lim

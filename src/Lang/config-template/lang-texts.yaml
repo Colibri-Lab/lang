@@ -859,4 +859,8 @@ app-fields-ecoloplace-numberpicker-text:
   ru: Текст
 app-viewers-numberpicker:
   ru: Число со слайдером
+app-confirm-buttons-complete-complete:
+  ru: Завершить!
+app-confirm-buttons-delete-delete:
+  ru: Удалить!
 ...
