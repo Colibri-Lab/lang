@@ -375,7 +375,7 @@ class Module extends BaseModule
                                 $res[] = $trans?->text;
                             }
                         }
-                        return $res;
+                        return count($res) == 1 ? reset($res) : $res;
                     }    
                 }
                 else if($this->claudName === 'google-api') {
