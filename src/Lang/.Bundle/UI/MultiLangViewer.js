@@ -10,15 +10,32 @@ Colibri.UI.MultiLangViewer = class extends Colibri.UI.ArrayViewer {
         
         Lang.Store.AsyncQuery('lang.langs').then(langs => {
 
-            let ret = [];
-            this._value.forEach(v => {
-                let lang = [];
-                lang.push('<strong>' + langs[v.lang].desc + '</strong>: ');
-                lang.push('<span>' + v.value.ellipsis(100) + '</span>: ');
-                ret.push(lang.join(''));
-            });
-    
-            this._element.html(ret.join('<br />'));
+            console.log(this._value)
+            if(Array.isArray(this._value)) {
+                let ret = [];
+                this._value.forEach(v => {
+                    let lang = ['<div>'];
+                    lang.push('<strong>' + langs[v.lang].desc + ':</strong>');
+                    lang.push('<span>' + v.value.ellipsis(100) + '</span>');
+                    lang.push('</div>');
+                    ret.push(lang.join(''));
+                });
+                this._element.html(ret.join('<br />'));
+            }
+            else if(this._value instanceof Object) {
+                let ret = [];
+                Object.forEach(this._value, (n, v) => {
+                    if(v) {
+                        let lang = ['<div>'];
+                        lang.push('<strong>' + langs[n].desc + ':</strong>');
+                        lang.push('<span>' + v.ellipsis(100) + '</span>');
+                        lang.push('</div>');
+                        ret.push(lang.join(''));
+                    }
+                });
+                this._element.html(ret.join('<br />'));
+            }
+
     
 
         });

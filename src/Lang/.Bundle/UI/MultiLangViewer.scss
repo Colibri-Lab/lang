@@ -1,0 +1,13 @@
+.app-multilang-viewer-component {
+    >div {
+        display: flex;
+        align-items: stretch;
+        justify-content: flex-start;
+        strong {
+            flex: 0 0 80px;
+        }
+        span {
+
+        }
+    }
+}

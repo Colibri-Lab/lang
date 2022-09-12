@@ -863,4 +863,8 @@ app-confirm-buttons-complete-complete:
   ru: Завершить!
 app-confirm-buttons-delete-delete:
   ru: Удалить!
+app-confirm-choose:
+  ru: Выбрать
+app-confirm-close:
+  ru: Закрыть
 ...
