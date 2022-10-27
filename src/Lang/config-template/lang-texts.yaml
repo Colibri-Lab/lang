@@ -851,20 +851,44 @@ app-viewers-remotefilelist:
   hy: Ջնջված Ֆայլեր
 app-component-download:
   ru: Скачать
+  en: Download
+  hy: Ներբեռնել
 app-component-clear:
   ru: Удалить
+  en: Remove
+  hy: Հեռացնել
 app-fields-ecoloplace-files:
   ru: Файлы
+  en: Files
+  hy: Ֆայլեր
 app-fields-ecoloplace-numberpicker-text:
   ru: Текст
+  en: Text
+  hy: Տեքստ
 app-viewers-numberpicker:
   ru: Число со слайдером
+  en: A number with a slider
+  hy: Slider-ի համարը
 app-confirm-buttons-complete-complete:
   ru: Завершить!
+  en: Complete!
+  hy: Ավարտել!
 app-confirm-buttons-delete-delete:
   ru: Удалить!
+  en: Delete!
+  hy: Ջնջել!
 app-confirm-choose:
   ru: Выбрать
+  en: Choose
+  hy: Ընտրել
 app-confirm-close:
   ru: Закрыть
+  en: To close
+  hy: Փակել
+app-viewers-number:
+  ru: Цифра
+  en: Number
+  hy: Թվանշան
+app-viewers-document:
+  ru: Документ
 ...
