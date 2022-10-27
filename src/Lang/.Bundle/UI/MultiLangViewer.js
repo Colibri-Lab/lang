@@ -10,7 +10,6 @@ Colibri.UI.MultiLangViewer = class extends Colibri.UI.ArrayViewer {
         
         Lang.Store.AsyncQuery('lang.langs').then(langs => {
 
-            console.log(this._value)
             if(Array.isArray(this._value)) {
                 let ret = [];
                 this._value.forEach(v => {
