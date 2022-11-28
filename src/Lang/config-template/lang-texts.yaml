@@ -891,4 +891,10 @@ app-viewers-number:
   hy: Թվանշան
 app-viewers-document:
   ru: Документ
+app-fields-ecoloplace-numberrangeinput-text:
+  ru: Выбор периода чисел (ввод)
+app-fields-ecoloplace-numberrangepicker-text:
+  ru: Выбор периода чисел (слайдер)
+app-fields-simplearray:
+  ru: Массив данных
 ...
