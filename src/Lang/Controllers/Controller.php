@@ -1,10 +1,6 @@
 <?php
 
-
-
 namespace App\Modules\Lang\Controllers;
-
-
 
 use Colibri\App;
 use Colibri\Events\EventsContainer;
@@ -19,7 +15,6 @@ use Colibri\Web\View;
 use ScssPhp\ScssPhp\Compiler;
 use ScssPhp\ScssPhp\OutputStyle;
 use Colibri\Web\PayloadCopy;
-
 
 class Controller extends WebController
 {

@@ -14,9 +14,7 @@ namespace App\Modules\Lang;
 
 use Colibri\Modules\Module as BaseModule;
 use Colibri\Utils\Menu\Item;
-use Colibri\IO\FileSystem\Finder;
 use Colibri\IO\FileSystem\File;
-use Colibri\Utils\Debug;
 use Colibri\App;
 use Colibri\Events\EventsContainer;
 use Colibri\Utils\Config\ConfigException;
@@ -43,7 +41,7 @@ class Module extends BaseModule
      *
      * @var Module
      */
-    public static ?Module $instance = null;
+    public static ? Module $instance = null;
 
     private static ?string $current = null;
 
@@ -68,46 +66,42 @@ class Module extends BaseModule
 
     public function InitApis()
     {
-        if($this->_claudApi) {
+        if ($this->_claudApi) {
             return $this->_claudApi;
         }
 
         $claudName = $this->claudName;
-        if($claudName == 'yandex-api') {
-            if((bool)$this->Config()->Query('config.yandex-api.enabled')->GetValue()) {
+        if ($claudName == 'yandex-api') {
+            if ((bool) $this->Config()->Query('config.yandex-api.enabled')->GetValue()) {
                 try {
                     $this->_claudApi = new TranslateSdk\Cloud($this->Config()->Query('config.yandex-api.token')->GetValue(), $this->Config()->Query('config.yandex-api.catalogue')->GetValue());
                 } catch (TranslateSdk\Exception\ClientException | \TypeError $e) {
-                    
+
                 }
-            }    
-        }
-        else if($claudName == 'google-api') {
-            if((bool)$this->Config()->Query('config.google-api.enabled')->GetValue()) {
+            }
+        } else if ($claudName == 'google-api') {
+            if ((bool) $this->Config()->Query('config.google-api.enabled')->GetValue()) {
                 try {
                     $this->_claudApi = new TranslateClient([
                         'key' => $this->Config()->Query('config.google-api.token')->GetValue()
                     ]);
                 } catch (Throwable $e) {
-                    
+
                 }
-            }    
+            }
         }
-        
+
     }
 
     public function __get(string $prop): mixed
     {
-        if(strtolower($prop) === 'current') {
+        if (strtolower($prop) === 'current') {
             return self::$current;
-        }
-        else if(strtolower($prop) === 'cloud') {
+        } else if (strtolower($prop) === 'cloud') {
             return $this->_claudApi;
-        }
-        else if(strtolower($prop) === 'claudname') {
-            return (string)$this->Config()->Query('config.use', 'yandex-api')->GetValue();
-        }
-        else {
+        } else if (strtolower($prop) === 'claudname') {
+            return (string) $this->Config()->Query('config.use', 'yandex-api')->GetValue();
+        } else {
             return parent::__get($prop);
         }
     }
@@ -117,17 +111,17 @@ class Module extends BaseModule
         return $this->Config()->Query('config.langs')->AsObject();
     }
 
-    public function InitCurrent(?string $lang = null) 
+    public function InitCurrent(?string $lang = null)
     {
-        if($lang) {
+        if ($lang) {
             self::$current = $lang;
             return;
         }
 
         $default = '';
         $langs = $this->Langs();
-        foreach($langs as $key => $lang) {
-            if($lang->default) {
+        foreach ($langs as $key => $lang) {
+            if ($lang->default) {
                 $default = $key;
                 break;
             }
@@ -137,7 +131,8 @@ class Module extends BaseModule
 
     }
 
-    public function InitHandlers() {
+    public function InitHandlers()
+    {
 
         App::$instance->HandleEvent(EventsContainer::BundleFile, function ($event, $args) {
             $file = new File($args->file);
@@ -148,12 +143,12 @@ class Module extends BaseModule
             return true;
         });
 
-        App::$instance->HandleEvent(EventsContainer::TemplateRendered, function($event, $args) {
+        App::$instance->HandleEvent(EventsContainer::TemplateRendered, function ($event, $args) {
             $args->content = App::$moduleManager->lang->ParseString($args->content);
             return true;
         });
 
-        App::$instance->HandleEvent(EventsContainer::RpcRequestProcessed, function($event, $args) {
+        App::$instance->HandleEvent(EventsContainer::RpcRequestProcessed, function ($event, $args) {
             $args->result = App::$moduleManager->lang->ParseArray($args->result);
             return true;
         });
@@ -164,8 +159,8 @@ class Module extends BaseModule
     public function ParseString(string $value): string
     {
         $res = preg_match_all('/#\{(.*?)\}/sm', $value, $matches, PREG_SET_ORDER);
-        if($res > 0) {
-            foreach($matches as $match) {
+        if ($res > 0) {
+            foreach ($matches as $match) {
                 $parts = explode(';', $match[1]);
                 $lang = $parts[0];
                 $default = $parts[1] ?? '';
@@ -176,25 +171,23 @@ class Module extends BaseModule
         return $value;
     }
 
-    public function ParseArray(array|object $array): array
+    public function ParseArray(array |object $array): array
     {
         $ret = [];
-        foreach($array as $key => $value) {
-            if($value instanceof DateTime) {
+        foreach ($array as $key => $value) {
+            if ($value instanceof DateTime) {
                 $ret[$key] = $value;
                 continue;
             }
-            if(is_array($value)) {
+            if (is_array($value)) {
                 $ret[$key] = $this->ParseArray($value);
-            }
-            else if(is_object($value)) {
-                if(method_exists($value, 'ToArray')) {
+            } else if (is_object($value)) {
+                if (method_exists($value, 'ToArray')) {
                     $value = $value->ToArray();
                 }
                 $ret[$key] = $this->ParseArray($value);
-            }
-            else {
-                if(is_string($value)) {
+            } else {
+                if (is_string($value)) {
                     $value = $this->ParseString($value);
                 }
                 $ret[$key] = $value;
@@ -203,25 +196,25 @@ class Module extends BaseModule
         return $ret;
     }
 
-    public function LoadTexts($reload = false) {
+    public function LoadTexts($reload = false)
+    {
 
         // $cached = Mem::Exists('languages-texts');
         // if($cached && !$reload) {
         //     $this->_texts = Mem::Read('languages-texts');
         // }
 
-        if(!empty($this->_texts)) {
+        if (!empty($this->_texts)) {
             return $this->_texts;
         }
 
         $this->_texts = [];
         $modules = App::$moduleManager->list;
-        foreach($modules as $module) {
+        foreach ($modules as $module) {
             try {
                 $langConfig = $module->Config()->Query('config.texts')->AsArray();
                 $this->_texts = array_merge($this->_texts, $langConfig);
-            }
-            catch(ConfigException $e) {
+            } catch (ConfigException $e) {
             }
         }
 
@@ -229,22 +222,21 @@ class Module extends BaseModule
         return $this->_texts;
     }
 
-    public function Get($text, $default): ?string 
+    public function Get($text, $default): ?string
     {
         $langs = $this->LoadTexts();
-        if(isset($langs[$text])) {
+        if (isset($langs[$text])) {
             return $langs[$text][self::$current] ?? $default;
         }
 
         $split = explode('-', $text);
         $module = reset($split);
-        if($module == 'app') {
+        if ($module == 'app') {
             $moduleObject = $this;
-        }
-        else {
+        } else {
             $moduleObject = App::$moduleManager->$module;
         }
-        if(!$moduleObject) {
+        if (!$moduleObject) {
             return $default;
         }
 
@@ -255,15 +247,15 @@ class Module extends BaseModule
 
         $this->_texts = array_merge($this->_texts, [$text => [self::$current => $default]]);
         Mem::Write('languages-texts', $this->_texts);
-        
+
         return $default;
     }
 
-    public function GetAsObject($text): ?object 
+    public function GetAsObject($text): ?object
     {
 
         $langs = $this->LoadTexts();
-        if(!isset($langs[$text])) {
+        if (!isset($langs[$text])) {
             return null;
         }
 
@@ -271,21 +263,20 @@ class Module extends BaseModule
 
     }
 
-    public function Save($key, $data): object|array|string|null
+    public function Save($key, $data): object|array |string|null
     {
 
         $split = explode('-', $key);
         $module = reset($split);
-        if($module == 'app') {
+        if ($module == 'app') {
             $moduleObject = $this;
-        }
-        else {
+        } else {
             $moduleObject = App::$moduleManager->$module;
         }
-        if(!$moduleObject) {
+        if (!$moduleObject) {
             $moduleObject = $this;
         }
-        
+
         $moduleConfig = $moduleObject->Config();
         $langConfig = $moduleConfig->Query('config.texts');
         $langConfig->Set($key, $data);
@@ -299,30 +290,29 @@ class Module extends BaseModule
 
     public function Delete(string|array $keys): bool
     {
-        if(is_string($keys)) {
+        if (is_string($keys)) {
             $keys = [$keys];
         }
 
-        foreach($keys as $key) {
-            
+        foreach ($keys as $key) {
+
             $split = explode('-', $key);
             $module = reset($split);
-            if($module == 'app') {
+            if ($module == 'app') {
                 $moduleObject = $this;
-            }
-            else {
+            } else {
                 $moduleObject = App::$moduleManager->$module;
             }
-            if(!$moduleObject) {
+            if (!$moduleObject) {
                 $moduleObject = $this;
             }
-            
+
             $moduleConfig = $moduleObject->Config();
             $langConfig = $moduleConfig->Query('config.texts');
             $langConfig->Set($key, null);
             $langConfig->Save();
         }
-        
+
         $this->LoadTexts(true);
 
         return true;
@@ -348,42 +338,41 @@ class Module extends BaseModule
         return $permissions;
     }
 
-    public function CloudTranslate(string $originalLang, string $translateLang, string|array $text): string|array|null {
+    public function CloudTranslate(string $originalLang, string $translateLang, string|array $text): string|array |null
+    {
 
-        if($this->_claudApi) {
+        if ($this->_claudApi) {
             try {
 
-                if($this->claudName === 'yandex-api') {
+                if ($this->claudName === 'yandex-api') {
 
                     $translate = new TranslateSdk\Translate('', $translateLang);
                     $translate->setSourceLang($originalLang);
                     $translate->setFormat(TranslateSdk\Format::HTML);
-                    if(is_array($text)) {
-                        foreach($text as $t) {
+                    if (is_array($text)) {
+                        foreach ($text as $t) {
                             $translate->addText($t);
                         }
-                    }
-                    else {
+                    } else {
                         $translate->addText($text);
                     }
                     $result = $this->_claudApi->request($translate);
                     $result = json_decode($result);
-                    if($result && count($result?->translations ?? []) > 0) {
+                    if ($result && count($result?->translations ?? []) > 0) {
                         $res = [];
-                        foreach($result?->translations as $trans) {
-                            if($trans?->text ?? false) {
+                        foreach ($result?->translations as $trans) {
+                            if ($trans?->text ?? false) {
                                 $res[] = $trans?->text;
                             }
                         }
                         return count($res) == 1 ? reset($res) : $res;
-                    }    
-                }
-                else if($this->claudName === 'google-api') {
+                    }
+                } else if ($this->claudName === 'google-api') {
                     $result = $this->_claudApi->translate($text, [
                         'source' => $originalLang,
                         'target' => $translateLang
                     ]);
-                    if($result && ($result['text'] ?? null)) {
+                    if ($result && ($result['text'] ?? null)) {
                         return $result['text'];
                     }
                 }
@@ -398,7 +387,8 @@ class Module extends BaseModule
     }
 
 
-    public function Backup(Logger $logger, string $path) {
+    public function Backup(Logger $logger, string $path)
+    {
         // Do nothing        
 
     }

@@ -1,30 +1,13 @@
 <?php
 
-
-
 namespace App\Modules\Lang\Controllers;
 
-
-
-use Colibri\App;
-use Colibri\Events\EventsContainer;
-use Colibri\IO\FileSystem\File;
-use Colibri\Utils\Cache\Bundle;
-use Colibri\Utils\Debug;
-use Colibri\Utils\ExtendedObject;
 use Colibri\Web\RequestCollection;
 use Colibri\Web\Controller as WebController;
-use Colibri\Web\Templates\PhpTemplate;
-use Colibri\Web\View;
-use ScssPhp\ScssPhp\Compiler;
-use ScssPhp\ScssPhp\OutputStyle;
 use Colibri\Web\PayloadCopy;
 use App\Modules\Lang\Module;
 use App\Modules\Security\Module as SecurityModule;
 use Colibri\Collections\Collection;
-
-
-
 
 class LangController extends WebController
 {
@@ -36,10 +19,10 @@ class LangController extends WebController
      * @param mixed $payload данные payload обьекта переданного через POST/PUT
      * @return object
      */
-    public function Settings(RequestCollection $get, RequestCollection $post, ?PayloadCopy $payload = null): object
+    public function Settings(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload = null): object
     {
 
-        if(!SecurityModule::$instance->current) {
+        if (!SecurityModule::$instance->current) {
             return $this->Finish(403, 'Permission denied');
         }
 
@@ -47,10 +30,10 @@ class LangController extends WebController
 
     }
 
-    public function Langs(RequestCollection $get, RequestCollection $post, ?PayloadCopy $payload = null): object
+    public function Langs(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload = null): object
     {
 
-        if(!SecurityModule::$instance->current) {
+        if (!SecurityModule::$instance->current) {
             return $this->Finish(403, 'Permission denied');
         }
 
@@ -60,10 +43,10 @@ class LangController extends WebController
 
     }
 
-    public function Texts(RequestCollection $get, RequestCollection $post, ?PayloadCopy $payload = null): object
+    public function Texts(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload = null): object
     {
 
-        if(!SecurityModule::$instance->current) {
+        if (!SecurityModule::$instance->current) {
             return $this->Finish(403, 'Permission denied');
         }
 
@@ -76,14 +59,13 @@ class LangController extends WebController
         $pagesize = $post->pagesize ?: 50;
 
         $collection = new Collection($texts);
-        if($term) {
-            $collection = $collection->Filter(function($key, $value) use ($term) {
-                if(strstr($key, $term) !== false) {
+        if ($term) {
+            $collection = $collection->Filter(function ($key, $value) use ($term) {
+                if (strstr($key, $term) !== false) {
                     return true;
-                }
-                else {
-                    foreach($value as $lang => $v) {
-                        if(strstr($v, $term) !== false) {
+                } else {
+                    foreach ($value as $lang => $v) {
+                        if (strstr($v, $term) !== false) {
                             return true;
                         }
                     }
@@ -91,25 +73,25 @@ class LangController extends WebController
             });
         }
 
-        if($notfilled) {
+        if ($notfilled) {
 
-            $collection = $collection->Filter(function($key, $value) use ($langs) {
+            $collection = $collection->Filter(function ($key, $value) use ($langs) {
                 $keys = [];
-                foreach($value as $lang => $v) {
-                    if($v) {
+                foreach ($value as $lang => $v) {
+                    if ($v) {
                         $keys[] = $lang;
                     }
                 }
 
-                $ks = array_keys((array)$langs);
+                $ks = array_keys((array) $langs);
                 $intersect = array_intersect($keys, $ks);
-                if(count($intersect) != count($ks)) {
+                if (count($intersect) != count($ks)) {
                     return true;
                 }
-            });            
+            });
         }
 
-        if($page) {
+        if ($page) {
             $collection = $collection->Extract($page, $pagesize);
         }
 
@@ -117,19 +99,19 @@ class LangController extends WebController
 
     }
 
-    public function SaveLang(RequestCollection $get, RequestCollection $post, ?PayloadCopy $payload = null): object
+    public function SaveLang(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload = null): object
     {
 
-        if(!SecurityModule::$instance->current) {
+        if (!SecurityModule::$instance->current) {
             return $this->Finish(403, 'Permission denied');
         }
 
         $lang = $post->lang;
-        if(!$lang) {
+        if (!$lang) {
             return $this->Finish(400, 'Bad request');
         }
 
-        if(!SecurityModule::$instance->current->IsCommandAllowed('lang.langs.' . (!!$lang ? '.edit' : '.add'))) {
+        if (!SecurityModule::$instance->current->IsCommandAllowed('lang.langs.' . (!!$lang ? '.edit' : '.add'))) {
             return $this->Finish(403, 'Permission denied');
         }
 
@@ -148,19 +130,19 @@ class LangController extends WebController
 
     }
 
-    public function DeleteLang(RequestCollection $get, RequestCollection $post, ?PayloadCopy $payload = null): object
+    public function DeleteLang(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload = null): object
     {
 
-        if(!SecurityModule::$instance->current) {
+        if (!SecurityModule::$instance->current) {
             return $this->Finish(403, 'Permission denied');
         }
 
         $lang = $post->lang;
-        if(!$lang) {
+        if (!$lang) {
             return $this->Finish(400, 'Bad request');
         }
 
-        if(!SecurityModule::$instance->current->IsCommandAllowed('lang.langs.remove')) {
+        if (!SecurityModule::$instance->current->IsCommandAllowed('lang.langs.remove')) {
             return $this->Finish(403, 'Permission denied');
         }
 
@@ -174,19 +156,19 @@ class LangController extends WebController
 
     }
 
-    public function DeleteText(RequestCollection $get, RequestCollection $post, ?PayloadCopy $payload = null): object
+    public function DeleteText(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload = null): object
     {
 
-        if(!SecurityModule::$instance->current) {
+        if (!SecurityModule::$instance->current) {
             return $this->Finish(403, 'Permission denied');
         }
 
         $texts = $post->texts;
-        if(!$texts) {
+        if (!$texts) {
             return $this->Finish(400, 'Bad request');
         }
 
-        if(!SecurityModule::$instance->current->IsCommandAllowed('lang.texts.remove')) {
+        if (!SecurityModule::$instance->current->IsCommandAllowed('lang.texts.remove')) {
             return $this->Finish(403, 'Permission denied');
         }
 
@@ -196,19 +178,19 @@ class LangController extends WebController
 
     }
 
-    public function SaveText(RequestCollection $get, RequestCollection $post, ?PayloadCopy $payload = null): object
+    public function SaveText(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload = null): object
     {
 
-        if(!SecurityModule::$instance->current) {
+        if (!SecurityModule::$instance->current) {
             return $this->Finish(403, 'Permission denied');
         }
 
         $text = $post->text;
-        if(!$text) {
+        if (!$text) {
             return $this->Finish(400, 'Bad request');
         }
 
-        if(!SecurityModule::$instance->current->IsCommandAllowed('lang.texts.' . (!!$text ? '.edit' : '.add'))) {
+        if (!SecurityModule::$instance->current->IsCommandAllowed('lang.texts.' . (!!$text ? '.edit' : '.add'))) {
             return $this->Finish(403, 'Permission denied');
         }
 
@@ -221,23 +203,23 @@ class LangController extends WebController
 
     }
 
-    public function CloudTranslate(RequestCollection $get, RequestCollection $post, ?PayloadCopy $payload = null): object
+    public function CloudTranslate(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload = null): object
     {
 
-        if(!SecurityModule::$instance->current) {
+        if (!SecurityModule::$instance->current) {
             return $this->Finish(403, 'Permission denied');
         }
 
-        if(!Module::$instance->claudName) {
+        if (!Module::$instance->claudName) {
             return $this->Finish(400, 'Bad request');
         }
 
         $texts = $post->texts;
-        if(!$texts) {
+        if (!$texts) {
             return $this->Finish(400, 'Bad request');
         }
 
-        if(!SecurityModule::$instance->current->IsCommandAllowed('lang.texts.' . ((bool)$texts ? '.edit' : '.add'))) {
+        if (!SecurityModule::$instance->current->IsCommandAllowed('lang.texts.' . ((bool) $texts ? '.edit' : '.add'))) {
             return $this->Finish(403, 'Permission denied');
         }
 
@@ -248,23 +230,23 @@ class LangController extends WebController
         Module::$instance->InitApis();
 
         $totranslate = [];
-        foreach($texts as $text) {
+        foreach ($texts as $text) {
             $totranslate[] = $text[$langFrom];
         }
 
         $translated = Module::$instance->CloudTranslate($langFrom, $langTo, $totranslate);
-        if(!is_array($translated)) {
+        if (!is_array($translated)) {
             $translated = [$translated];
         }
 
         $ret = [];
-        foreach($texts as $index => $text) {
+        foreach ($texts as $index => $text) {
 
             $textKey = $text['key'];
             unset($text['key']);
-    
+
             $text[$langTo] = $translated[$index];
-            
+
             $ret[$textKey] = Module::$instance->Save($textKey, $text);
         }
 
