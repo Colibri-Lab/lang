@@ -897,4 +897,6 @@ app-fields-ecoloplace-numberrangepicker-text:
   ru: Выбор периода чисел (слайдер)
 app-fields-simplearray:
   ru: Массив данных
+app-fields-ecoloplace-groupb:
+  ru: Группа B (EcoloPlace)
 ...
