@@ -893,10 +893,16 @@ app-viewers-document:
   ru: Документ
 app-fields-ecoloplace-numberrangeinput-text:
   ru: Выбор периода чисел (ввод)
+  en: Number period selection (input)
+  hy: ""
 app-fields-ecoloplace-numberrangepicker-text:
   ru: Выбор периода чисел (слайдер)
+  en: Number period selection (slider)
+  hy: ""
 app-fields-simplearray:
   ru: Массив данных
 app-fields-ecoloplace-groupb:
   ru: Группа B (EcoloPlace)
+  en: Group B (EcoloPlace)
+  hy: ""
 ...

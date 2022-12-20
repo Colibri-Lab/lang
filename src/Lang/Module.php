@@ -13,6 +13,7 @@ namespace App\Modules\Lang;
 
 
 use Colibri\Modules\Module as BaseModule;
+use Colibri\Utils\Debug;
 use Colibri\Utils\Menu\Item;
 use Colibri\IO\FileSystem\File;
 use Colibri\App;
@@ -61,6 +62,11 @@ class Module extends BaseModule
 
         $this->InitCurrent();
         $this->InitHandlers();
+
+        $instance = self::$instance;
+        App::$instance->HandleEvent(EventsContainer::RpcRequestProcessed, function ($event, $args) use ($instance) {
+            $args->result['cookies'] = [$instance->GenerateCookie()];
+        });
 
     }
 
@@ -127,7 +133,7 @@ class Module extends BaseModule
             }
         }
 
-        self::$current = App::$request->cookie->lang ?: App::$request->cookie->lang ?: $default;
+        self::$current = App::$request->headers->{'Colibri-Language'} ?: App::$request->cookie->lang ?: $default;
 
     }
 
@@ -154,6 +160,12 @@ class Module extends BaseModule
         });
 
 
+    }
+
+    public function GenerateCookie(bool $secure = true): object
+    {
+        // $this->expires
+        return (object) ['name' => 'lang', 'value' => $this->current, 'expire' => time() + 365 * 86400, 'domain' => App::$request->host, 'path' => '/', 'secure' => $secure];
     }
 
     public function ParseString(string $value): string
