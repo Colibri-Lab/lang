@@ -44,15 +44,15 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
                 key: {
                     type: 'varchar',
                     component: 'Text',
-                    desc: '#{lang-langform-key;Ключ языка}',
-                    note: '#{lang-langform-key-desc;Пожалуйста, введите ключ. Внимание! должно содержать только латинские буквы и цифры без тире, дефисов и пробелов.}',
+                    desc: '#{lang-langform-key}',
+                    note: '#{lang-langform-key-desc}',
                     params: {
                         required: true,
                         validate: [{
-                            message: '#{lang-langform-key-validation-message1;Пожалуйста, введите ключ языка}',
+                            message: '#{lang-langform-key-validation-message1}',
                             method: '(field, validator) => !!field.value'
                         }, {
-                            message: '#{lang-langform-key-validation-message2;Введенный текст не соответствует требованиям}',
+                            message: '#{lang-langform-key-validation-message2}',
                             method: '(field, validator) => !/[^\\w\\d]/.test(field.value)'
                         }]
                     }
@@ -60,8 +60,8 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
                 desc: {
                     type: 'varchar',
                     component: 'Text',
-                    desc: '#{lang-langform-desc;Описание языка}',
-                    note: '#{lang-langform-desc-desc;Введите описание языка так, как вы хотите видеть язык на сайте}',
+                    desc: '#{lang-langform-desc}',
+                    note: '#{lang-langform-desc-desc}',
                     params: {
                         required: true,
                     }
@@ -69,7 +69,7 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
                 default: {
                     type: 'tinyint',
                     component: 'Checkbox',
-                    desc: '#{lang-langform-default;Язык по умолчанию}',
+                    desc: '#{lang-langform-default}',
                     params: {
                         required: true,
                     }
@@ -77,8 +77,8 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
                 icon: {
                     type: 'varchar',
                     component: 'Select',
-                    desc: '#{lang-langform-icon;Выберите иконку}',
-                    note: '#{lang-langform-icon-desc;Выберите иконку, которая будет отображаться при выборе языка}',
+                    desc: '#{lang-langform-icon}',
+                    note: '#{lang-langform-icon-desc}',
                     params: {
                         required: true,
                         readonly: true,
@@ -110,16 +110,16 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
                 key: {
                     type: 'varchar',
                     component: 'Text',
-                    desc: '#{lang-textform-key;Ключ текста}',
-                    note: '#{lang-textform-key-desc;Пожалуйста, введите ключ. Внимание! содержит только латинские буквы, цифры и тире}',
+                    desc: '#{lang-textform-key}',
+                    note: '#{lang-textform-key-desc}',
                     params: {
                         required: true,
                         readonly: edit,
                         validate: [{
-                            message: '#{lang-textform-key-validation-message1;Пожалуйста, введите ключ языка}',
+                            message: '#{lang-textform-key-validation-message1}',
                             method: '(field, validator) => !!field.value'
                         }, {
-                            message: '#{lang-textform-key-validation-message2;Введенный текст не соответствует требованиям}',
+                            message: '#{lang-textform-key-validation-message2}',
                             method: '(field, validator) => !/[^\\w\\d\\-]/.test(field.value)'
                         }]
                     }
@@ -140,9 +140,26 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
         const textChecked = this._texts.checked;
 
         this._addText.enabled = true;
-        this._editText.enabled = (!!textSelected || textChecked.length === 1);
-        this._deleteText.enabled = (!!textSelected || textChecked.length > 0);
-        this._translateText.enabled = (!!textSelected || textChecked.length > 0);
+
+        let hasReadonly = false;
+        const selection = [];
+        if(textSelected) {
+            hasReadonly = textSelected.value.readonly;
+            selection.push(textSelected);
+        }
+        else if(textChecked.length > 0) {
+            for(const sel of textChecked) {
+                console.log(sel.value);
+                if(sel.value.readonly) {
+                    hasReadonly = true;
+                }
+                selection.push(sel);
+            }
+        }
+
+        this._editText.enabled = selection.length === 1 && !hasReadonly;
+        this._deleteText.enabled = selection.length > 0 && !hasReadonly;
+        this._translateText.enabled = selection.length > 0 && !hasReadonly;
 
     }
 
@@ -177,7 +194,7 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
         
         const itemData = args.item?.tag;
         if(!itemData) {
-            contextmenu.push({name: 'new-lang', title: '#{lang-contextmenu-newlang;Новый язык}', icon: Colibri.UI.ContextMenuAddIcon});
+            contextmenu.push({name: 'new-lang', title: '#{lang-contextmenu-newlang}', icon: Colibri.UI.ContextMenuAddIcon});
 
             this._langs.contextmenu = contextmenu;
             this._langs.ShowContextMenu(args.isContextMenuEvent ? [Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.RB] : [Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.LB], '', args.isContextMenuEvent ? {left: args.domEvent.clientX, top: args.domEvent.clientY} : null);
@@ -185,8 +202,8 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
         }
         else {
             
-            contextmenu.push({name: 'edit-lang', title: '#{lang-contextmenu-editlang;Редактировать язык}', icon: Colibri.UI.ContextMenuEditIcon});
-            contextmenu.push({name: 'remove-lang', title: '#{lang-contextmenu-deletelang;Удалить язык}', icon: Colibri.UI.ContextMenuRemoveIcon});
+            contextmenu.push({name: 'edit-lang', title: '#{lang-contextmenu-editlang}', icon: Colibri.UI.ContextMenuEditIcon});
+            contextmenu.push({name: 'remove-lang', title: '#{lang-contextmenu-deletelang}', icon: Colibri.UI.ContextMenuRemoveIcon});
 
             args.item.contextmenu = contextmenu;
             args.item.ShowContextMenu(args.isContextMenuEvent ? [Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.RB] : [Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.LB], '', args.isContextMenuEvent ? {left: args.domEvent.clientX, top: args.domEvent.clientY} : null);
@@ -205,7 +222,7 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
 
         if(menuData.name == 'new-lang') {
             if(Security.IsCommandAllowed('lang.langs.add')) {
-                Manage.FormWindow.Show('#{lang-forms-newlang;Новый язык}', 650, this._langFields(), {})
+                Manage.FormWindow.Show('#{lang-forms-newlang}', 650, this._langFields(), {})
                     .then((data) => {
                         Lang.SaveLang(data);
                     })
@@ -218,7 +235,7 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
         else if(menuData.name == 'edit-lang') {
 
             if(Security.IsCommandAllowed('lang.langs.edit')) {
-                Manage.FormWindow.Show('#{lang-forms-editlang;Редактировать язык}', 650, this._langFields(), item.tag)
+                Manage.FormWindow.Show('#{lang-forms-editlang}', 650, this._langFields(), item.tag)
                     .then((data) => {
                         Lang.SaveLang(data);
                     })
@@ -230,7 +247,11 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
 
         }
         else if(menuData.name == 'remove-lang') {
-            App.Confirm.Show('#{lang-forms-deletelang;Удаление языка}', '#{lang-forms-deletelang-message;Вы уверены, что хотите удалить язык? Все текстовые данные, которые были заполнены будут безвозвратно удалены!}', '#{app-confirm-buttons-delete;Удалить!}').then(() => {
+            App.Confirm.Show(
+                '#{lang-forms-deletelang}', 
+                '#{lang-forms-deletelang-message}', 
+                '#{app-confirm-buttons-delete;Удалить!}'
+            ).then(() => {
                 Lang.DeleteLang(item.tag.key);
             });
         }
@@ -241,30 +262,37 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
         Lang.Store.AsyncQuery('lang.settings').then((settings) => {
             let contextmenu = [];
         
-            if(settings.cloud) {
-                let langs = [];
-                this._langs.nodes.ForEach((name, node) => {
-                    langs.push(node.tag.key);
-                });
+            if(this._editText.enabled) {
+                if(settings.cloud) {
+                    let langs = [];
+                    this._langs.nodes.ForEach((name, node) => {
+                        langs.push(node.tag.key);
+                    });
 
-                const children = [];
-                langs.forEach((l) => {
-                    const childs = [];
-                    langs.forEach((ll) => {
-                        if(ll != l) {
-                            children.push({name: l + '-' + ll, title: l.toUpperCase() + ' → ' + ll.toUpperCase()});
-                        }
-                    });                    
-                });
-                contextmenu.push({name: 'translate', title: '#{lang-contextmenu-translate;Перевести с помощью облака}', icon: App.Modules.Lang.Icons.ContextMenuTranslateIcon, children: children});
+                    const children = [];
+                    langs.forEach((l) => {
+                        const childs = [];
+                        langs.forEach((ll) => {
+                            if(ll != l) {
+                                children.push({name: l + '-' + ll, title: l.toUpperCase() + ' → ' + ll.toUpperCase()});
+                            }
+                        });                    
+                    });
+                    contextmenu.push({name: 'translate', title: '#{lang-contextmenu-translate}', icon: App.Modules.Lang.Icons.ContextMenuTranslateIcon, children: children});
 
+                }
+            
+                contextmenu.push({name: 'edit-text', title: '#{lang-contextmenu-edittext}', icon: Colibri.UI.ContextMenuEditIcon});
             }
 
-            contextmenu.push({name: 'edit-text', title: '#{lang-contextmenu-edittext;Редактировать тексты}', icon: Colibri.UI.ContextMenuEditIcon});
-            contextmenu.push({name: 'remove-text', title: '#{lang-contextmenu-deletetext;Удалить тексты}', icon: Colibri.UI.ContextMenuRemoveIcon});
-    
-            args.item.contextmenu = contextmenu;
-            args.item.ShowContextMenu(args.isContextMenuEvent ? [Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.RB] : [Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.LB], '', args.isContextMenuEvent ? {left: args.domEvent.clientX, top: args.domEvent.clientY} : null);
+            if(this._deleteText.enabled) {
+                contextmenu.push({name: 'remove-text', title: '#{lang-contextmenu-deletetext}', icon: Colibri.UI.ContextMenuRemoveIcon});
+            }
+            console.log(contextmenu);
+            if(contextmenu.length > 0) {
+                args.item.contextmenu = contextmenu;
+                args.item.ShowContextMenu(args.isContextMenuEvent ? [Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.RB] : [Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.LB], '', args.isContextMenuEvent ? {left: args.domEvent.clientX, top: args.domEvent.clientY} : null);
+            }
     
         });
 
@@ -281,7 +309,7 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
 
         if(menuData.name == 'edit-text') {
             if(Security.IsCommandAllowed('lang.texts.edit')) {
-                Manage.FormWindow.Show('#{lang-forms-edittext;Редактировать текст}', 850, this._textFields(true), item.value)
+                Manage.FormWindow.Show('#{lang-forms-edittext}', 850, this._textFields(true), item.value)
                     .then((data) => {
                         Lang.SaveText(data);
                     })
@@ -292,7 +320,11 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
             }
         }
         else if(menuData.name == 'remove-text') {
-            App.Confirm.Show('#{lang-forms-deletetext;Удаление текстов}', '#{lang-forms-deletetext-message;Вы уверены, что хотите удалить текст?}', '#{app-confirm-buttons-delete;Удалить!}').then(() => {
+            App.Confirm.Show(
+                '#{lang-forms-deletetext}', 
+                '#{lang-forms-deletetext-message}', 
+                '#{app-confirm-buttons-delete;Удалить!}'
+            ).then(() => {
                 Lang.DeleteText(item.value.key);
             });
         }
@@ -310,12 +342,20 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
             const textSelected = this._texts.selected;
             const textChecked = this._texts.checked;
             if(textChecked.length > 0) {
-                App.Confirm.Show('#{lang-forms-deletetexts;Удаление текстов}', '#{lang-forms-deletetexts;Вы уверены, что хотите удалить выбранные тексты?}', '#{app-confirm-buttons-delete;Удалить!}').then(() => {
+                App.Confirm.Show(
+                    '#{lang-forms-deletetexts-title}', 
+                    '#{lang-forms-deletetexts-message}', 
+                    '#{app-confirm-buttons-delete;Удалить!}'    
+                ).then(() => {
                     Lang.DeleteText(textChecked.map((v) => v.value.key));
                 });    
             }
             else  {
-                App.Confirm.Show('#{lang-forms-deletetexts;Удаление текстов}', '#{lang-forms-deletetext;Вы уверены, что хотите удалить текст?}', '#{app-confirm-buttons-delete;Удалить!}').then(() => {
+                App.Confirm.Show(
+                    '#{lang-forms-deletetext-title}', 
+                    '#{lang-forms-deletetext-message}', 
+                    '#{app-confirm-buttons-delete;Удалить!}'
+                ).then(() => {
                     Lang.DeleteText([textSelected.value.key]);
                 });    
             }
@@ -328,7 +368,7 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
 
     __addTextClicked(event, args) { 
         if(Security.IsCommandAllowed('lang.texts.add')) {
-            Manage.FormWindow.Show('#{lang-forms-newtext;Новый текст}', 850, this._textFields(), {})
+            Manage.FormWindow.Show('#{lang-forms-newtext}', 850, this._textFields(), {})
                 .then((data) => {
                     Lang.SaveText(data);
                 })
@@ -345,7 +385,7 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
             const textSelected = this._texts.selected;
             const textChecked = this._texts.checked;
             const selected = textSelected || textChecked.pop(); 
-            Manage.FormWindow.Show('#{lang-forms-edittext;Редактировать текст}', 850, this._textFields(true), selected.value)
+            Manage.FormWindow.Show('#{lang-forms-edittext}', 850, this._textFields(true), selected.value)
                 .then((data) => {
                     Lang.SaveText(data);
                 })
@@ -358,7 +398,9 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
     }
 
     __doubleClickedTextsContextMenu(event, args) {
-        this.__editTextClicked(event, args);
+        if(this._editText.enabled) {
+            this.__editTextClicked(event, args);
+        }
     }
 
     __translateTextClicked(event, args) {

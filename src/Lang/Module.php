@@ -13,12 +13,14 @@ namespace App\Modules\Lang;
 
 
 use Colibri\Modules\Module as BaseModule;
+use Colibri\Utils\Cache\Bundle;
 use Colibri\Utils\Debug;
 use Colibri\Utils\Menu\Item;
 use Colibri\IO\FileSystem\File;
 use Colibri\App;
 use Colibri\Events\EventsContainer;
 use Colibri\Utils\Config\ConfigException;
+use Colibri\Utils\Config\Config;
 use Panda\Yandex\TranslateSdk;
 use Colibri\AppException;
 use Colibri\Utils\Cache\Mem;
@@ -63,10 +65,7 @@ class Module extends BaseModule
         $this->InitCurrent();
         $this->InitHandlers();
 
-        $instance = self::$instance;
-        App::$instance->HandleEvent(EventsContainer::RpcRequestProcessed, function ($event, $args) use ($instance) {
-            $args->result['cookies'] = [$instance->GenerateCookie()];
-        });
+        
 
     }
 
@@ -139,6 +138,13 @@ class Module extends BaseModule
 
     public function InitHandlers()
     {
+        $instance = self::$instance;
+        App::$instance->HandleEvent(EventsContainer::RpcRequestProcessed, function ($event, $args) use ($instance) {
+            if(!isset($args->result->cookies)) {
+                $args->result->cookies = [];
+            }
+            $args->result->cookies = array_merge($args->result->cookies, [$instance->GenerateCookie()]);
+        });
 
         App::$instance->HandleEvent(EventsContainer::BundleFile, function ($event, $args) {
             $file = new File($args->file);
@@ -174,9 +180,9 @@ class Module extends BaseModule
         if ($res > 0) {
             foreach ($matches as $match) {
                 $parts = explode(';', $match[1]);
-                $lang = $parts[0];
+                $key = $parts[0];
                 $default = $parts[1] ?? '';
-                $replaceWith = Module::$instance->Get($lang, $default);
+                $replaceWith = Module::$instance->Get($key, $default);
                 $value = str_replace($match[0], str_replace('"', '&quot;', str_replace('\'', '`', $replaceWith)), $value);
             }
         }
@@ -211,11 +217,6 @@ class Module extends BaseModule
     public function LoadTexts($reload = false)
     {
 
-        // $cached = Mem::Exists('languages-texts');
-        // if($cached && !$reload) {
-        //     $this->_texts = Mem::Read('languages-texts');
-        // }
-
         if (!empty($this->_texts)) {
             return $this->_texts;
         }
@@ -226,11 +227,21 @@ class Module extends BaseModule
             try {
                 $langConfig = $module->Config()->Query('config.texts')->AsArray();
                 $this->_texts = array_merge($this->_texts, $langConfig);
+
+                $langFiles = Bundle::GetChildAssets($module->modulePath, ['lang']);
+                foreach($langFiles as $langFile) {
+                    $config = Config::LoadFile($langFile);
+                    $readonlyTexts = $config->AsArray();
+                    foreach($readonlyTexts as $key => $value) {
+                        $readonlyTexts[$key]['readonly'] = true;
+                    }
+                    $this->_texts = array_merge($this->_texts, $readonlyTexts);
+                }
+
             } catch (ConfigException $e) {
             }
         }
 
-        // Mem::Write('languages-texts', $this->_texts);
         return $this->_texts;
     }
 

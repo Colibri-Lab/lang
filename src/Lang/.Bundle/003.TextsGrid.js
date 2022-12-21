@@ -12,7 +12,7 @@ App.Modules.Lang.TextsGrid = class extends Colibri.UI.Grid {
         if(property.indexOf('lang.langs') !== -1) {
             let column = this.header.columns.Children('key');
             if(!column) {
-                column = this.header.columns.Add('key', '#{lang-textgrid-key;Ключ}');
+                column = this.header.columns.Add('key', '#{lang-textgrid-key}');
             }
             let found = ['key'];
             Object.forEach(data, (key, lang) => {

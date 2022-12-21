@@ -11,7 +11,7 @@ en:
   dateformat: 'en-US'
 hy:
   default: false
-  desc: Հհայերեն
+  desc: Հայերեն
   icon: App.Modules.Lang.Icons.Countries.AM
   dateformat: 'ru-RU'
 ...

@@ -35,7 +35,7 @@ App.Modules.Lang.LangChangeIcon = class extends Colibri.UI.Icon {
 
     __contextMenuItemClicked(event, args) {
         if(args.menuData) {
-            Colibri.Common.Cookie.Set('lang', args.menuData.name);
+            Colibri.Common.Cookie.Set('lang', args.menuData.name, 365, '/', location.hostname, true);
             location.reload();
         }
     }
