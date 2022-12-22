@@ -1,0 +1,37 @@
+.app-lang-textarea-field {
+    padding: 0px;
+    border: 0px;
+
+    > [data-object-name$="-title"] {
+        font-size: 14px;
+    }
+    
+    [data-object-name$="-content"] {
+        position: relative;
+        [data-object-name$="-buttons"] {
+            position: absolute;
+            right: 6px;
+            top: -30px;
+            button {
+                padding: 6px 12px 5px;
+                height: auto;
+            }
+        }
+    }
+
+    [data-object-name$="-container"] {
+        padding-top: 0px;
+        > .app-component-field {
+            > [data-object-name$="-title"] {
+                &.app-component-shown {
+                    display: none;
+                }  
+            }
+        }
+    }
+
+}
+
+.app-component-array-field .app-lang-text-field {
+    padding-right: 0px;
+}

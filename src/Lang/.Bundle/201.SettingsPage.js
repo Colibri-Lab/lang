@@ -288,7 +288,6 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
             if(this._deleteText.enabled) {
                 contextmenu.push({name: 'remove-text', title: '#{lang-contextmenu-deletetext}', icon: Colibri.UI.ContextMenuRemoveIcon});
             }
-            console.log(contextmenu);
             if(contextmenu.length > 0) {
                 args.item.contextmenu = contextmenu;
                 args.item.ShowContextMenu(args.isContextMenuEvent ? [Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.RB] : [Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.LB], '', args.isContextMenuEvent ? {left: args.domEvent.clientX, top: args.domEvent.clientY} : null);

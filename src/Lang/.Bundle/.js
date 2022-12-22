@@ -38,6 +38,27 @@ App.Modules.Lang = class extends Colibri.Modules.Module {
         console.log('Registering event handlers for Lang');
     }
 
+    get Current() {
+
+        if(this._current) {
+            return this._current;
+        }
+
+        if(Colibri.Common.Cookie.Get('lang')) {
+            this._current = Colibri.Common.Cookie.Get('lang');
+        }
+        else {
+            const langs = this._store.Query('lang.langs');
+            Object.forEach(langs, (name, value) => {
+                if(value.default) {
+                    this._current = name;
+                }
+            });    
+        }
+
+        return this._current;
+    }
+
     Texts(term, notfilled, page, pagesize, returnPromise) {
 
         const promise = this.Call('Lang', 'Texts', {term: term, notfilled: notfilled, page: page, pagesize: pagesize});
@@ -146,6 +167,10 @@ App.Modules.Lang = class extends Colibri.Modules.Module {
                 App.Notices.Add(new Colibri.UI.Notice(error.result));
                 console.error(error);
             });    
+    }
+
+    TranslateTextObject(textData, langFrom, langTo) {
+        return this.Call('Lang', 'CloudTranslateObject', {__raw: 1, text: textData, langFrom: langFrom, langTo: langTo});
     }
 
 }

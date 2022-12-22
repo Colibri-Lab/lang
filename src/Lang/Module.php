@@ -48,6 +48,8 @@ class Module extends BaseModule
 
     private static ?string $current = null;
 
+    private ?string $_default = null;
+
     private array $_texts;
 
     private $_claudApi;
@@ -111,6 +113,23 @@ class Module extends BaseModule
         }
     }
 
+    public function Default(): ?string
+    {
+        if($this->_default) {
+            return $this->_default;
+        }
+
+        $langs = $this->Langs();
+        foreach($langs as $key => $value) {
+            if($value->default) {
+                $this->_default = $key;
+                return $this->_default;
+            }
+        }
+        $this->_default = null;
+        return null;
+    }
+
     public function Langs(): object
     {
         return $this->Config()->Query('config.langs')->AsObject();
@@ -144,27 +163,22 @@ class Module extends BaseModule
                 $args->result->cookies = [];
             }
             $args->result->cookies = array_merge($args->result->cookies, [$instance->GenerateCookie()]);
+            $args->result = $instance->ParseArray($args->result, !$args->post->__raw || $args->post->__raw !== 1);
         });
 
-        App::$instance->HandleEvent(EventsContainer::BundleFile, function ($event, $args) {
+        App::$instance->HandleEvent(EventsContainer::BundleFile, function ($event, $args) use ($instance) {
             $file = new File($args->file);
             if (in_array($file->extension, ['html', 'js'])) {
                 // компилируем html в javascript
-                $args->content = App::$moduleManager->lang->ParseString($args->content);
+                $args->content = $instance->ParseString($args->content);
             }
             return true;
         });
 
-        App::$instance->HandleEvent(EventsContainer::TemplateRendered, function ($event, $args) {
-            $args->content = App::$moduleManager->lang->ParseString($args->content);
+        App::$instance->HandleEvent(EventsContainer::TemplateRendered, function ($event, $args) use ($instance) {
+            $args->content = $instance->ParseString($args->content);
             return true;
         });
-
-        App::$instance->HandleEvent(EventsContainer::RpcRequestProcessed, function ($event, $args) {
-            $args->result = App::$moduleManager->lang->ParseArray($args->result);
-            return true;
-        });
-
 
     }
 
@@ -172,6 +186,34 @@ class Module extends BaseModule
     {
         // $this->expires
         return (object) ['name' => 'lang', 'value' => $this->current, 'expire' => time() + 365 * 86400, 'domain' => App::$request->host, 'path' => '/', 'secure' => $secure];
+    }
+
+    private function _checkObject(array|object $object): bool 
+    {
+
+        $object = (array) $object;
+        if(empty($object)) {
+            return false;
+        }
+
+        $checkFor = [];
+        $langs = $this->Langs();
+        foreach ($langs as $key => $lang) {
+            $checkFor[] = $key;
+        }
+
+        foreach($object as $key => $value) {
+            // если есть хоть одно значение, НЕ СТРОКА то это не языковой обьект
+            if(!is_string($value)) {
+                return false;
+            }
+            if(!in_array($key, $checkFor)) {
+                return false;
+            }
+        }
+
+        return true;
+
     }
 
     public function ParseString(string $value): string
@@ -189,7 +231,7 @@ class Module extends BaseModule
         return $value;
     }
 
-    public function ParseArray(array |object $array): array
+    public function ParseArray(array |object $array, bool $checkInObjects = false): array
     {
         $ret = [];
         foreach ($array as $key => $value) {
@@ -198,12 +240,23 @@ class Module extends BaseModule
                 continue;
             }
             if (is_array($value)) {
-                $ret[$key] = $this->ParseArray($value);
+                if($checkInObjects && $this->_checkObject(($value))) {
+                    $ret[$key] = $value[$this->current];
+                }
+                else {
+                    $ret[$key] = $this->ParseArray($value, $checkInObjects);
+                }
             } else if (is_object($value)) {
                 if (method_exists($value, 'ToArray')) {
                     $value = $value->ToArray();
-                }
-                $ret[$key] = $this->ParseArray($value);
+                } 
+
+                if ($checkInObjects && $this->_checkObject($value)) {
+                    $ret[$key] = $value[$this->current];
+                } else {
+                    $ret[$key] = $this->ParseArray($value, $checkInObjects);
+                } 
+
             } else {
                 if (is_string($value)) {
                     $value = $this->ParseString($value);
@@ -228,7 +281,7 @@ class Module extends BaseModule
                 $langConfig = $module->Config()->Query('config.texts')->AsArray();
                 $this->_texts = array_merge($this->_texts, $langConfig);
 
-                $langFiles = Bundle::GetChildAssets($module->modulePath, ['lang']);
+                $langFiles = array_merge(Bundle::GetNamespaceAssets($module->modulePath, ['lang']), Bundle::GetChildAssets($module->modulePath, ['lang']));
                 foreach($langFiles as $langFile) {
                     $config = Config::LoadFile($langFile);
                     $readonlyTexts = $config->AsArray();
@@ -269,7 +322,6 @@ class Module extends BaseModule
         $langConfig->Save();
 
         $this->_texts = array_merge($this->_texts, [$text => [self::$current => $default]]);
-        Mem::Write('languages-texts', $this->_texts);
 
         return $default;
     }

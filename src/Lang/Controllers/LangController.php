@@ -256,5 +256,45 @@ class LangController extends WebController
 
     }
 
+    public function CloudTranslateObject(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload = null): object
+    {
 
+        if (!SecurityModule::$instance->current) {
+            return $this->Finish(403, 'Permission denied');
+        }
+
+        if (!Module::$instance->claudName) {
+            return $this->Finish(400, 'Bad request');
+        }
+
+        $text = $post->text;
+        if (!$text) {
+            return $this->Finish(400, 'Bad request');
+        }
+
+        if (!SecurityModule::$instance->current->IsCommandAllowed('lang.texts.edit')) {
+            return $this->Finish(403, 'Permission denied');
+        }
+
+
+        $langFrom = $post->langFrom;
+        $langTo = $post->langTo;
+
+        Module::$instance->InitApis();
+
+        if($langTo === '*') {
+            $langs = Module::$instance->Langs();
+            foreach($langs as $key => $langData) {
+                if($key !== $langFrom) {
+                    $text[$key] = Module::$instance->CloudTranslate($langFrom, $key, $text[$langFrom]);
+                }
+            }
+        }
+        else {
+            $text[$langTo] = Module::$instance->CloudTranslate($langFrom, $langTo, $text[$langFrom]);
+        }
+
+        return $this->Finish(200, 'ok', $text);
+
+    }
 }

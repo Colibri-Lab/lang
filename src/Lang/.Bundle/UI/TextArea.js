@@ -1,17 +1,18 @@
-App.Modules.Lang.UI.Text = class extends Colibri.UI.Forms.Object {
+App.Modules.Lang.UI.TextArea = class extends Colibri.UI.Forms.Object {
 
     RenderFieldContainer() {
-        this.AddClass('app-lang-text-field')
+        this.AddClass('app-lang-textarea-field');
 
         const childParams = Object.cloneRecursive(this._fieldData.params);
         delete childParams.condition;
-        
+
         this._fieldData.params = Object.assign(this._fieldData.params ?? {}, {
             vertical: true,
             merged: false,
             wrap: false,
             removedesc: false,
         });
+        
         
         this._links = new Colibri.UI.ButtonGroup(this.name + '-buttons', this.contentPane);
         this._links.shown = true;
@@ -29,7 +30,7 @@ App.Modules.Lang.UI.Text = class extends Colibri.UI.Forms.Object {
             Object.forEach(langs, (langKey, langDesc) => {
 
                 this._fieldData.fields[langKey] = {
-                    component: 'Text',
+                    component: 'TextArea',
                     desc: langDesc.desc,
                     params: childParams
                 };
@@ -97,7 +98,6 @@ App.Modules.Lang.UI.Text = class extends Colibri.UI.Forms.Object {
         return false;
     }
 
-
     set value(value) {
         Colibri.Common.Wait(() => Object.countKeys(this._fieldData.fields) > 0).then(() => {
             if(typeof value === 'string') {
@@ -117,4 +117,4 @@ App.Modules.Lang.UI.Text = class extends Colibri.UI.Forms.Object {
 
 }
 
-Colibri.UI.Forms.Field.RegisterFieldComponent('Lang.UI.Text', 'App.Modules.Lang.UI.Text', '#{lang-fields-text;Текст (мультиязычный)}', App.Modules.Lang.Icons.Text);
+Colibri.UI.Forms.Field.RegisterFieldComponent('Lang.UI.TextArea', 'App.Modules.Lang.UI.TextArea', '#{lang-fields-textarea;Текст большой (мультиязычный)}', App.Modules.Lang.Icons.Text);
