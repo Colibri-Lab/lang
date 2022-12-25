@@ -1,5 +1,6 @@
 .app-lang-textarea-field {
-    padding: 0px;
+    padding: 0px !important;
+    margin-right: 0px !important;
     border: 0px;
 
     > [data-object-name$="-title"] {
@@ -19,9 +20,21 @@
         }
     }
 
+    > [data-object-name$="-title"]:empty + [data-object-name$="-content"] {
+        [data-object-name$="-buttons"] {
+            top: 15px;
+            right: 10px;
+        }
+        [data-object-name$="-container"] {
+            padding-top: 0px;
+        }
+    }    
+
+
     [data-object-name$="-container"] {
         padding-top: 0px;
         > .app-component-field {
+            margin-right: 0px !important;
             > [data-object-name$="-title"] {
                 &.app-component-shown {
                     display: none;

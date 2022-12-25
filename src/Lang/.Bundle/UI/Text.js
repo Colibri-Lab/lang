@@ -5,7 +5,8 @@ App.Modules.Lang.UI.Text = class extends Colibri.UI.Forms.Object {
 
         const childParams = Object.cloneRecursive(this._fieldData.params);
         delete childParams.condition;
-        
+        delete childParams?.validate;
+
         this._fieldData.params = Object.assign(this._fieldData.params ?? {}, {
             vertical: true,
             merged: false,
@@ -31,6 +32,7 @@ App.Modules.Lang.UI.Text = class extends Colibri.UI.Forms.Object {
                 this._fieldData.fields[langKey] = {
                     component: 'Text',
                     desc: langDesc.desc,
+                    placeholder: langDesc.placeholder,
                     params: childParams
                 };
 
@@ -39,7 +41,8 @@ App.Modules.Lang.UI.Text = class extends Colibri.UI.Forms.Object {
             });
 
             super.RenderFieldContainer();
-            this._links.SelectButton(0);
+            const index = Object.keys(langs).indexOf(Lang.Current);
+            this._links.SelectButton(index ?? 0);
         });
 
         this.contentContainer.AddHandler('ContextMenu', (event, args) => this.__contextMenu(event, args));

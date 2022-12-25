@@ -216,6 +216,20 @@ class Module extends BaseModule
 
     }
 
+    public function ParseAndGetKeys(string $value): array
+    {
+        $keys = [];
+        $res = preg_match_all('/#\{(.*?)\}/sm', $value, $matches, PREG_SET_ORDER);
+        if ($res > 0) {
+            foreach ($matches as $match) {
+                $parts = explode(';', $match[1]);
+                $key = $parts[0];
+                $keys[] = $key;
+            }
+        }
+        return $keys;
+    }
+
     public function ParseString(string $value): string
     {
         $res = preg_match_all('/#\{(.*?)\}/sm', $value, $matches, PREG_SET_ORDER);
@@ -249,8 +263,8 @@ class Module extends BaseModule
             } else if (is_object($value)) {
                 if (method_exists($value, 'ToArray')) {
                     $value = $value->ToArray();
-                } 
-
+                }
+                $value = (array) $value;
                 if ($checkInObjects && $this->_checkObject($value)) {
                     $ret[$key] = $value[$this->current];
                 } else {
@@ -326,7 +340,7 @@ class Module extends BaseModule
         return $default;
     }
 
-    public function GetAsObject($text): ?object
+    public function GetAsObject($text): object|array|null
     {
 
         $langs = $this->LoadTexts();
