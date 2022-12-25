@@ -7,7 +7,6 @@ App.Modules.Lang.UI.TextArea = class extends Colibri.UI.Forms.Object {
         delete childParams.condition;
         delete childParams?.validate;
 
-        console.log(Object.cloneRecursive(this._fieldData));
         this._fieldData.params = Object.assign(this._fieldData.params ?? {}, {
             vertical: true,
             merged: false,
