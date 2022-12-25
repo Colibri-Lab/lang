@@ -250,7 +250,7 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
             App.Confirm.Show(
                 '#{lang-forms-deletelang}', 
                 '#{lang-forms-deletelang-message}', 
-                '#{app-confirm-buttons-delete;Удалить!}'
+                '#{lang-forms-deletelang-message-delete}'
             ).then(() => {
                 Lang.DeleteLang(item.tag.key);
             });
@@ -322,7 +322,7 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
             App.Confirm.Show(
                 '#{lang-forms-deletetext}', 
                 '#{lang-forms-deletetext-message}', 
-                '#{app-confirm-buttons-delete;Удалить!}'
+                '#{lang-forms-deletetext-message-delete}'
             ).then(() => {
                 Lang.DeleteText(item.value.key);
             });
@@ -344,7 +344,7 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
                 App.Confirm.Show(
                     '#{lang-forms-deletetexts-title}', 
                     '#{lang-forms-deletetexts-message}', 
-                    '#{app-confirm-buttons-delete;Удалить!}'    
+                    '#{lang-forms-deletetexts-message-delete}'    
                 ).then(() => {
                     Lang.DeleteText(textChecked.map((v) => v.value.key));
                 });    
@@ -353,7 +353,7 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
                 App.Confirm.Show(
                     '#{lang-forms-deletetext-title}', 
                     '#{lang-forms-deletetext-message}', 
-                    '#{app-confirm-buttons-delete;Удалить!}'
+                    '#{lang-forms-deletetext-message-delete}'
                 ).then(() => {
                     Lang.DeleteText([textSelected.value.key]);
                 });    

@@ -154,3 +154,14 @@ lang-buttons-delete:
 lang-buttons-translate:
   ru: Перевести
   en: Translate
+lang-forms-deletelang-message-delete:
+  ru: Удалить!
+  en: Delete
+lang-forms-deletelang-message\-delete:
+  ru: Удалить!
+lang-forms-deletetext-message-delete:
+  ru: Удалить!
+  en: Delete
+lang-forms-deletetexts-message-delete:
+  ru: Удалить!
+  en: Delete

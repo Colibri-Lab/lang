@@ -42,4 +42,4 @@ Colibri.UI.MultiLangViewer = class extends Colibri.UI.ArrayViewer {
     }
 
 }
-Colibri.UI.Viewer.Register('Colibri.UI.MultiLangViewer', '#{app-viewers-multilang;Мультиязычные данные}');
+Colibri.UI.Viewer.Register('Colibri.UI.MultiLangViewer', '#{lang-viewers-multilang}');
