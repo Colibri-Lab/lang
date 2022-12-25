@@ -289,13 +289,31 @@ class Module extends BaseModule
         }
 
         $this->_texts = [];
+
+        $uiPath = App::$appRoot . 'vendor/colibri/ui/src/';
+        $langFiles = array_merge(
+            Bundle::GetNamespaceAssets($uiPath, ['lang']), 
+            Bundle::GetChildAssets($uiPath, ['lang']
+        ));
+        foreach($langFiles as $langFile) {
+            $config = Config::LoadFile($langFile);
+            $readonlyTexts = $config->AsArray();
+            foreach($readonlyTexts as $key => $value) {
+                $readonlyTexts[$key]['readonly'] = true;
+            }
+            $this->_texts = array_merge($this->_texts, $readonlyTexts);
+        }
+
         $modules = App::$moduleManager->list;
         foreach ($modules as $module) {
             try {
                 $langConfig = $module->Config()->Query('config.texts')->AsArray();
                 $this->_texts = array_merge($this->_texts, $langConfig);
 
-                $langFiles = array_merge(Bundle::GetNamespaceAssets($module->modulePath, ['lang']), Bundle::GetChildAssets($module->modulePath, ['lang']));
+                $langFiles = array_merge(
+                    Bundle::GetNamespaceAssets($module->modulePath, ['lang']), 
+                    Bundle::GetChildAssets($module->modulePath, ['lang']
+                ));
                 foreach($langFiles as $langFile) {
                     $config = Config::LoadFile($langFile);
                     $readonlyTexts = $config->AsArray();
