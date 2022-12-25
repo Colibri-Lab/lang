@@ -74,8 +74,6 @@ lang-forms-newlang:
   ru: Новый язык
   en: New language
   hy: Նոր լեզու
-security-global-notallowed:
-  ru: Действие запрещено
 lang-forms-editlang:
   ru: Редактировать язык
   hy: Խմբագրել լեզուն
@@ -91,8 +89,6 @@ lang-forms-deletelang-message:
     լրացվել են, ընդմիշտ կջնջվեն:"
   en: Are you sure you want to remove the language? All text data that has been
     filled in will be permanently deleted!
-app-confirm-buttons-delete:
-  ru: Удалить!
 lang-contextmenu-translate:
   ru: Перевести с помощью облака
   en: Translate using the cloud
@@ -134,3 +130,27 @@ lang-forms-deletetext-title:
   ru: Удаление текста
   en: Removing text
   hy: Տեքստի հեռացում
+lang-titles-langs:
+  ru: Языки
+  en: Languages
+lang-titles-texts:
+  ru: Тексты
+  en: Language texts
+lang-search-placeholder:
+  ru: Поиск
+  en: Search
+lang-search-fullfilled-placeholder:
+  ru: Только не заполненные
+  en: Just not filled
+lang-buttons-create:
+  ru: Создать
+  en: Create
+lang-buttons-edit:
+  ru: Редактировать
+  en: Edit
+lang-buttons-delete:
+  ru: Удалить
+  en: Delete
+lang-buttons-translate:
+  ru: Перевести
+  en: Translate

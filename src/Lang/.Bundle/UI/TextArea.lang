@@ -2,6 +2,7 @@ lang-fields-text:
   ru: Текст (мультиязычный)
 lang-fields-textarea:
   ru: Текст большой (мультиязычный)
+  en: Big text (Multilangual)
 lang-contextmenu-translate:
   en: Cloud translate
   ru: Перевести

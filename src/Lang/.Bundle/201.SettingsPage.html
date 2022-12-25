@@ -3,23 +3,23 @@
     <Split name="split" shown="true" hasHandle="true" orientation="horizontal">
     
         <Pane name="ttl-pane" shown="true">
-            <H2 name="ttl" shown="true">#{lang-titles-langs;Языки}</H2>
+            <H2 name="ttl" shown="true">#{lang-titles-langs}</H2>
             <App.Modules.Lang.LangTree name="langtree" shown="true" hasContextMenu="true" hasTreeContextMenu="true" binding="app.lang.langs" />
         </Pane>
         <Pane name="texts-pane" shown="true">
-            <H2 name="ttl" shown="true">#{lang-titles-texts;Тексты}</H2>
+            <H2 name="ttl" shown="true">#{lang-titles-texts}</H2>
             <Pane name="search-pane" shown="true">
                 <FlexBox name="flex" shown="true">
-                    <Input name="search-input" enabled="true" shown="true" placeholder="#{lang-search-placeholder;Поиск}" />
-                    <Checkbox name="fullfilled" enabled="true" shown="true" placeholder="#{lang-search-fullfilled-placeholder;Только не заполненные}"  />
+                    <Input name="search-input" enabled="true" shown="true" placeholder="#{lang-search-placeholder}" />
+                    <Checkbox name="fullfilled" enabled="true" shown="true" placeholder="#{lang-search-fullfilled-placeholder}"  />
                 </FlexBox>
             </Pane>
             <App.Modules.Lang.TextsGrid name="texts" shown="true" enabled="true" hasContextMenu="true" selectionMode="fullrow" showCheckboxes="true" binding="app.lang.langs;app.lang.texts" emptyMessage="Список текстов пуст" />
             <FlexBox name="buttons-pane" shown="true">
-                <SuccessButton name="add-text" shown="true" enabled="true" sortable="true" icon="Colibri.UI.ContextMenuAddIcon">#{lang-buttons-create;Создать}</SuccessButton>
-                <SuccessButton name="edit-text" shown="true" enabled="false" sortable="true" icon="Colibri.UI.ContextMenuEditIcon">#{lang-buttons-edit;Редактировать}</SuccessButton>
-                <SuccessButton name="delete-text" shown="true" enabled="false" sortable="true" icon="Colibri.UI.ContextMenuRemoveIcon">#{lang-buttons-delete;Удалить}</SuccessButton>
-                <SuccessButton name="translate-text" shown="true" enabled="false" sortable="true" icon="App.Modules.Lang.Icons.ContextMenuTranslateIcon">#{lang-buttons-translate;Перевести}</SuccessButton>
+                <SuccessButton name="add-text" shown="true" enabled="true" sortable="true" icon="Colibri.UI.ContextMenuAddIcon">#{lang-buttons-create}</SuccessButton>
+                <SuccessButton name="edit-text" shown="true" enabled="false" sortable="true" icon="Colibri.UI.ContextMenuEditIcon">#{lang-buttons-edit}</SuccessButton>
+                <SuccessButton name="delete-text" shown="true" enabled="false" sortable="true" icon="Colibri.UI.ContextMenuRemoveIcon">#{lang-buttons-delete}</SuccessButton>
+                <SuccessButton name="translate-text" shown="true" enabled="false" sortable="true" icon="App.Modules.Lang.Icons.ContextMenuTranslateIcon">#{lang-buttons-translate}</SuccessButton>
             </FlexBox>
         </Pane>
         

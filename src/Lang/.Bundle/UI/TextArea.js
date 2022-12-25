@@ -120,4 +120,4 @@ App.Modules.Lang.UI.TextArea = class extends Colibri.UI.Forms.Object {
 
 }
 
-Colibri.UI.Forms.Field.RegisterFieldComponent('Lang.UI.TextArea', 'App.Modules.Lang.UI.TextArea', '#{lang-fields-textarea;Текст большой (мультиязычный)}', App.Modules.Lang.Icons.Text);
+Colibri.UI.Forms.Field.RegisterFieldComponent('Lang.UI.TextArea', 'App.Modules.Lang.UI.TextArea', '#{lang-fields-textarea}', App.Modules.Lang.Icons.Text);
