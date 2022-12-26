@@ -40,7 +40,7 @@ class Installer
         
         $manageIndex = 0;
         foreach($modules['entries'] as $index => $moduleEntry) {
-            if($moduleEntry['name'] === 'manage') {
+            if($moduleEntry['name'] === 'Manage') {
                 $manageIndex = $index;
                 break;
             }
