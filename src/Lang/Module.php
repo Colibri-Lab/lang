@@ -301,7 +301,7 @@ class Module extends BaseModule
             $config = Config::LoadFile($langFile);
             $readonlyTexts = $config->AsArray();
             foreach($readonlyTexts as $key => $value) {
-                $readonlyTexts[$key]['file'] = str_replace(App::$appRoot, '', $langFile);
+                $readonlyTexts[$key]['file'] = base64_encode('/'.str_replace(App::$appRoot, '', $langFile));
                 $readonlyTexts[$key]['readonly'] = $isReadonly;
             }
             $this->_texts = array_merge($this->_texts, $readonlyTexts);
@@ -310,7 +310,9 @@ class Module extends BaseModule
         $modules = App::$moduleManager->list;
         foreach ($modules as $module) {
             try {
-                $langConfig = $module->Config()->Query('config.texts')->AsArray();
+                $langConfigObject = $module->Config()->Query('config.texts');
+                $langConfig = $langConfigObject->AsArray();
+                $langConfig = array_map(function($langText) use ($langConfigObject) { $langText['file'] = base64_encode('/config/' . $langConfigObject->GetFile()); return $langText;  }, $langConfig);
                 $this->_texts = array_merge($this->_texts, $langConfig);
 
                 $langFiles = array_merge(
@@ -321,7 +323,7 @@ class Module extends BaseModule
                     $config = Config::LoadFile($langFile);
                     $readonlyTexts = $config->AsArray();
                     foreach($readonlyTexts as $key => $value) {
-                        $readonlyTexts[$key]['file'] = str_replace(App::$appRoot, '', $langFile);
+                        $readonlyTexts[$key]['file'] = base64_encode('/'.str_replace(App::$appRoot, '', $langFile));
                         $readonlyTexts[$key]['readonly'] = $isReadonly;
                     }
                     $this->_texts = array_merge($this->_texts, $readonlyTexts);
