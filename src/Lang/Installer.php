@@ -46,7 +46,7 @@ class Installer
             }
         }
 
-        array_splice($modules['entries'], $manageIndex, 0, [
+        array_splice($modules['entries'], $manageIndex, 0, [[
             'name' => 'Lang',
             'entry' => '\Lang\Module',
             'desc' => 'Языковая поддержка',
@@ -54,7 +54,7 @@ class Installer
             'visible' => false,
             'for' => [],
             'config' => 'include(/config/lang.yaml)'
-        ]);
+        ]]);
 
         self::_saveConfig($file, $modules);
 
