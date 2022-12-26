@@ -441,7 +441,7 @@ class Module extends BaseModule
     public function GetPermissions(): array
     {
         $permissions = parent::GetPermissions();
-        $permissions['lang'] = 'Доступ к модулю Lang';
+        $permissions['lang'] = '#{lang-permissions}';
         return $permissions;
     }
 

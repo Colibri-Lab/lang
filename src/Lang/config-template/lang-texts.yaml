@@ -168,3 +168,6 @@ lang-search-fullfilled-placeholder:
   ru: Только не заполненные
   en: Only not filled in
   hy: Միայն ոչ լրացված
+lang-permissions:
+  ru: Доступ к модулю Lang
+  en: Access to Lang module
