@@ -289,6 +289,8 @@ class Module extends BaseModule
         }
 
         $this->_texts = [];
+        
+        $isReadonly = !App::$isDev;
 
         $uiPath = App::$appRoot . 'vendor/colibri/ui/src/';
         $langFiles = array_merge(
@@ -299,7 +301,8 @@ class Module extends BaseModule
             $config = Config::LoadFile($langFile);
             $readonlyTexts = $config->AsArray();
             foreach($readonlyTexts as $key => $value) {
-                $readonlyTexts[$key]['readonly'] = true;
+                $readonlyTexts[$key]['file'] = str_replace(App::$appRoot, '', $langFile);
+                $readonlyTexts[$key]['readonly'] = $isReadonly;
             }
             $this->_texts = array_merge($this->_texts, $readonlyTexts);
         }
@@ -318,7 +321,8 @@ class Module extends BaseModule
                     $config = Config::LoadFile($langFile);
                     $readonlyTexts = $config->AsArray();
                     foreach($readonlyTexts as $key => $value) {
-                        $readonlyTexts[$key]['readonly'] = true;
+                        $readonlyTexts[$key]['file'] = str_replace(App::$appRoot, '', $langFile);
+                        $readonlyTexts[$key]['readonly'] = $isReadonly;
                     }
                     $this->_texts = array_merge($this->_texts, $readonlyTexts);
                 }
