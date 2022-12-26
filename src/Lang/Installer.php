@@ -36,7 +36,17 @@ class Installer
             $modules['entries'] = [];
         }
 
-        $modules['entries'][] = [
+        // надо найти manage или если не нашли то встаем первым
+        
+        $manageIndex = 0;
+        foreach($modules['entries'] as $index => $moduleEntry) {
+            if($moduleEntry['name'] === 'manage') {
+                $manageIndex = $index;
+                break;
+            }
+        }
+
+        $modules['entries'] = array_splice($modules['entries'], $manageIndex, 0, [
             'name' => 'Lang',
             'entry' => '\Lang\Module',
             'desc' => 'Языковая поддержка',
@@ -44,7 +54,7 @@ class Installer
             'visible' => false,
             'for' => [],
             'config' => 'include(/config/lang.yaml)'
-        ];
+        ]);
 
         self::_saveConfig($file, $modules);
 
