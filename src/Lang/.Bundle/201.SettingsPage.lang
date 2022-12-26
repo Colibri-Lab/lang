@@ -165,3 +165,15 @@ lang-forms-deletetext-message-delete:
 lang-forms-deletetexts-message-delete:
   ru: Удалить!
   en: Delete
+lang-langform-field:
+  ru: Свойство
+  en: Property
+lang-textform-field:
+  ru: Свойство
+  en: Property
+lang-global-notallowed:
+  ru: Действие запрещено
+  en: Operation not permitted
+lang-settingspage-notallowed:
+  ru: Действие запрещено
+  en: Operation not permitted

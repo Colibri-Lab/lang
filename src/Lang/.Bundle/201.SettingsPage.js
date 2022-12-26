@@ -39,7 +39,7 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
     _langFields() {
         return {
             name: 'Field',
-            desc: 'Свойство',
+            desc: '#{lang-langform-field}',
             fields: {
                 key: {
                     type: 'varchar',
@@ -105,7 +105,7 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
     _textFields(edit = false) {
         return {
             name: 'Field',
-            desc: 'Свойство',
+            desc: '#{lang-textform-field}',
             fields: Object.assign({
                 key: {
                     type: 'varchar',
@@ -229,7 +229,7 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
                     .catch(() => {});
             }
             else {
-                App.Notices.Add(new Colibri.UI.Notice('#{security-global-notallowed;Действие запрещено}', Colibri.UI.Notice.Error, 5000));
+                App.Notices.Add(new Colibri.UI.Notice('#{lang-settingspage-notallowed}', Colibri.UI.Notice.Error, 5000));
             }
         }
         else if(menuData.name == 'edit-lang') {
@@ -242,7 +242,7 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
                     .catch(() => {});
             }
             else {
-                App.Notices.Add(new Colibri.UI.Notice('#{security-global-notallowed;Действие запрещено}', Colibri.UI.Notice.Error, 5000));
+                App.Notices.Add(new Colibri.UI.Notice('#{lang-settingspage-notallowed}', Colibri.UI.Notice.Error, 5000));
             }
 
         }
@@ -315,7 +315,7 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
                     .catch(() => {});
             }
             else {
-                App.Notices.Add(new Colibri.UI.Notice('#{security-global-notallowed;Действие запрещено}', Colibri.UI.Notice.Error, 5000));
+                App.Notices.Add(new Colibri.UI.Notice('#{lang-settingspage-notallowed}', Colibri.UI.Notice.Error, 5000));
             }
         }
         else if(menuData.name == 'remove-text') {
@@ -360,7 +360,7 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
             }
         }
         else {
-            App.Notices.Add(new Colibri.UI.Notice('#{security-global-notallowed;Действие запрещено}', Colibri.UI.Notice.Error, 5000));
+            App.Notices.Add(new Colibri.UI.Notice('#{lang-settingspage-notallowed}', Colibri.UI.Notice.Error, 5000));
         }
         
     }
@@ -374,7 +374,7 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
                 .catch(() => {});
         }
         else {
-            App.Notices.Add(new Colibri.UI.Notice('#{security-global-notallowed;Действие запрещено}', Colibri.UI.Notice.Error, 5000));
+            App.Notices.Add(new Colibri.UI.Notice('#{lang-settingspage-notallowed}', Colibri.UI.Notice.Error, 5000));
         }
         
     }
@@ -391,7 +391,7 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
                 .catch(() => {});
         }
         else {
-            App.Notices.Add(new Colibri.UI.Notice('#{security-global-notallowed;Действие запрещено}', Colibri.UI.Notice.Error, 5000));
+            App.Notices.Add(new Colibri.UI.Notice('#{lang-settingspage-notallowed}', Colibri.UI.Notice.Error, 5000));
         }
         
     }
