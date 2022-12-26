@@ -46,7 +46,7 @@ class Installer
             }
         }
 
-        $modules['entries'] = array_splice($modules['entries'], $manageIndex, 0, [
+        array_splice($modules['entries'], $manageIndex, 0, [
             'name' => 'Lang',
             'entry' => '\Lang\Module',
             'desc' => 'Языковая поддержка',
