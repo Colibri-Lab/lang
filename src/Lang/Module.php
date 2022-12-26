@@ -290,8 +290,6 @@ class Module extends BaseModule
 
         $this->_texts = [];
         
-        $isReadonly = !App::$isDev;
-
         $uiPath = App::$appRoot . 'vendor/colibri/ui/src/';
         $langFiles = array_merge(
             Bundle::GetNamespaceAssets($uiPath, ['lang']), 
@@ -302,7 +300,6 @@ class Module extends BaseModule
             $readonlyTexts = $config->AsArray();
             foreach($readonlyTexts as $key => $value) {
                 $readonlyTexts[$key]['file'] = base64_encode('/'.str_replace(App::$appRoot, '', $langFile));
-                $readonlyTexts[$key]['readonly'] = $isReadonly;
             }
             $this->_texts = array_merge($this->_texts, $readonlyTexts);
         }
@@ -324,7 +321,6 @@ class Module extends BaseModule
                     $readonlyTexts = $config->AsArray();
                     foreach($readonlyTexts as $key => $value) {
                         $readonlyTexts[$key]['file'] = base64_encode('/'.str_replace(App::$appRoot, '', $langFile));
-                        $readonlyTexts[$key]['readonly'] = $isReadonly;
                     }
                     $this->_texts = array_merge($this->_texts, $readonlyTexts);
                 }
@@ -378,26 +374,23 @@ class Module extends BaseModule
 
     public function Save($key, $data): object|array |string|null
     {
-
-        $split = explode('-', $key);
-        $module = reset($split);
-        if ($module == 'app') {
-            $moduleObject = $this;
-        } else {
-            $moduleObject = App::$moduleManager->$module;
+        $file = null;
+        if($data['file']) {
+            $file = base64_decode($data['file']);
+            unset($data['file']);
         }
-        if (!$moduleObject) {
-            $moduleObject = $this;
+        
+        if(!$file) {
+            return null;
         }
-
-        $moduleConfig = $moduleObject->Config();
-        $langConfig = $moduleConfig->Query('config.texts');
+        
+        $langConfig = Config::LoadFile(App::$appRoot . $file);
         $langConfig->Set($key, $data);
         $langConfig->Save();
 
         $this->LoadTexts(true);
 
-        return $moduleConfig->Query('config.texts.' . $key)->AsObject();
+        return (object)$data;
 
     }
 

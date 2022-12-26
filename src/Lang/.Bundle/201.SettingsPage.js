@@ -135,31 +135,34 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
     }
 
     _enableComponents() {
+        Lang.Store.AsyncQuery('lang.settings').then((settings) => {
 
-        const textSelected = this._texts.selected;
-        const textChecked = this._texts.checked;
+            const textSelected = this._texts.selected;
+            const textChecked = this._texts.checked;
 
-        this._addText.enabled = true;
+            this._addText.enabled = true;
 
-        let hasReadonly = false;
-        const selection = [];
-        if(textSelected) {
-            hasReadonly = textSelected.value.readonly;
-            selection.push(textSelected);
-        }
-        else if(textChecked.length > 0) {
-            for(const sel of textChecked) {
-                console.log(sel.value);
-                if(sel.value.readonly) {
-                    hasReadonly = true;
-                }
-                selection.push(sel);
+            let hasReadonly = settings.readonly;
+            const selection = [];
+            if(textSelected) {
+                hasReadonly = textSelected.value.readonly;
+                selection.push(textSelected);
             }
-        }
+            else if(textChecked.length > 0) {
+                for(const sel of textChecked) {
+                    console.log(sel.value);
+                    if(sel.value.readonly) {
+                        hasReadonly = true;
+                    }
+                    selection.push(sel);
+                }
+            }
 
-        this._editText.enabled = selection.length === 1 && !hasReadonly;
-        this._deleteText.enabled = selection.length > 0 && !hasReadonly;
-        this._translateText.enabled = selection.length > 0 && !hasReadonly;
+            this._editText.enabled = selection.length === 1 && !hasReadonly;
+            this._deleteText.enabled = selection.length > 0 && !hasReadonly;
+            this._translateText.enabled = selection.length > 0 && !hasReadonly;
+        });
+        
 
     }
 
@@ -190,25 +193,31 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
 
     __renderFoldersContextMenu(event, args) {
 
-        let contextmenu = [];
-        
-        const itemData = args.item?.tag;
-        if(!itemData) {
-            contextmenu.push({name: 'new-lang', title: '#{lang-contextmenu-newlang}', icon: Colibri.UI.ContextMenuAddIcon});
+        Lang.Store.AsyncQuery('lang.settings').then((settings) => {
 
-            this._langs.contextmenu = contextmenu;
-            this._langs.ShowContextMenu(args.isContextMenuEvent ? [Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.RB] : [Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.LB], '', args.isContextMenuEvent ? {left: args.domEvent.clientX, top: args.domEvent.clientY} : null);
+            if(settings.readonly) {
+                return;
+            }
 
-        }
-        else {
+            let contextmenu = [];
             
-            contextmenu.push({name: 'edit-lang', title: '#{lang-contextmenu-editlang}', icon: Colibri.UI.ContextMenuEditIcon});
-            contextmenu.push({name: 'remove-lang', title: '#{lang-contextmenu-deletelang}', icon: Colibri.UI.ContextMenuRemoveIcon});
+            const itemData = args.item?.tag;
+            if(!itemData) {
+                contextmenu.push({name: 'new-lang', title: '#{lang-contextmenu-newlang}', icon: Colibri.UI.ContextMenuAddIcon});
 
-            args.item.contextmenu = contextmenu;
-            args.item.ShowContextMenu(args.isContextMenuEvent ? [Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.RB] : [Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.LB], '', args.isContextMenuEvent ? {left: args.domEvent.clientX, top: args.domEvent.clientY} : null);
-        }
-        
+                this._langs.contextmenu = contextmenu;
+                this._langs.ShowContextMenu(args.isContextMenuEvent ? [Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.RB] : [Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.LB], '', args.isContextMenuEvent ? {left: args.domEvent.clientX, top: args.domEvent.clientY} : null);
+
+            }
+            else {
+                
+                contextmenu.push({name: 'edit-lang', title: '#{lang-contextmenu-editlang}', icon: Colibri.UI.ContextMenuEditIcon});
+                contextmenu.push({name: 'remove-lang', title: '#{lang-contextmenu-deletelang}', icon: Colibri.UI.ContextMenuRemoveIcon});
+
+                args.item.contextmenu = contextmenu;
+                args.item.ShowContextMenu(args.isContextMenuEvent ? [Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.RB] : [Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.LB], '', args.isContextMenuEvent ? {left: args.domEvent.clientX, top: args.domEvent.clientY} : null);
+            }
+        });
 
     }
 
@@ -260,6 +269,11 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
     __renderTextsContextMenu(event, args) {
 
         Lang.Store.AsyncQuery('lang.settings').then((settings) => {
+            
+            if(settings.readonly) {
+                return;
+            }
+
             let contextmenu = [];
         
             if(this._editText.enabled) {
@@ -404,6 +418,11 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
 
     __translateTextClicked(event, args) {
         Lang.Store.AsyncQuery('lang.settings').then((settings) => {
+            
+            if(settings.readonly) {
+                return;
+            }
+            
             if(settings.cloud) {
                 let langs = [];
                 this._langs.nodes.ForEach((name, node) => {

@@ -2,6 +2,7 @@
 
 namespace App\Modules\Lang\Controllers;
 
+use Colibri\App;
 use Colibri\Web\RequestCollection;
 use Colibri\Web\Controller as WebController;
 use Colibri\Web\PayloadCopy;
@@ -26,7 +27,7 @@ class LangController extends WebController
             return $this->Finish(403, 'Permission denied');
         }
 
-        return $this->Finish(200, 'ok', ['cloud' => !!Module::$instance->claudName]);
+        return $this->Finish(200, 'ok', ['cloud' => !!Module::$instance->claudName, 'readonly' => !App::$isDev]);
 
     }
 
@@ -37,8 +38,8 @@ class LangController extends WebController
             return $this->Finish(403, 'Permission denied');
         }
 
-        $config = Module::$instance->Config();
-        $langs = $config->Query('config.langs')->AsObject();
+        $langs = Module::$instance->Langs();
+        
         return $this->Finish(200, 'ok', $langs);
 
     }
