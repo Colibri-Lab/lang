@@ -140,27 +140,38 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
             const textSelected = this._texts.selected;
             const textChecked = this._texts.checked;
 
-            this._addText.enabled = true;
 
             let hasReadonly = settings.readonly;
-            const selection = [];
-            if(textSelected) {
-                hasReadonly = textSelected.value.readonly;
-                selection.push(textSelected);
+            if(hasReadonly) {
+                this._addText.enabled = false;
+                this._editText.enabled = false;
+                this._deleteText.enabled = false;
+                this._translateText.enabled = false;
             }
-            else if(textChecked.length > 0) {
-                for(const sel of textChecked) {
-                    console.log(sel.value);
-                    if(sel.value.readonly) {
-                        hasReadonly = true;
-                    }
-                    selection.push(sel);
+            else {
+                
+                this._addText.enabled = true;
+
+                const selection = [];
+                if(textSelected) {
+                    hasReadonly = textSelected.value.readonly;
+                    selection.push(textSelected);
                 }
+                else if(textChecked.length > 0) {
+                    for(const sel of textChecked) {
+                        console.log(sel.value);
+                        if(sel.value.readonly) {
+                            hasReadonly = true;
+                        }
+                        selection.push(sel);
+                    }
+                }
+    
+                this._editText.enabled = selection.length === 1 && !hasReadonly;
+                this._deleteText.enabled = selection.length > 0 && !hasReadonly;
+                this._translateText.enabled = selection.length > 0 && !hasReadonly;    
             }
 
-            this._editText.enabled = selection.length === 1 && !hasReadonly;
-            this._deleteText.enabled = selection.length > 0 && !hasReadonly;
-            this._translateText.enabled = selection.length > 0 && !hasReadonly;
         });
         
 
