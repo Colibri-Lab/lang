@@ -61,7 +61,7 @@ App.Modules.Lang = class extends Colibri.Modules.Module {
 
     Texts(term, notfilled, page, pagesize, returnPromise) {
 
-        const promise = this.Call('Lang', 'Texts', {term: term, notfilled: notfilled, page: page, pagesize: pagesize});
+        const promise = this.Call('Lang', 'Texts', {term: term, notfilled: notfilled, page: page, pagesize: pagesize, __raw: 1});
         if(returnPromise) {
             return promise;
         }
