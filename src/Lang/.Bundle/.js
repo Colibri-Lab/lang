@@ -1,5 +1,28 @@
 
 
+// try {
+//     
+//     Object.isLangObject = function(object) {
+//         const keys = Object.keys(LangData);
+//         console.log(keys);
+//         const objectKeys = Object.keys(object);
+//         const intersect = objectKeys.filter(v => !keys.includes(v));
+//         return (intersect.length == 0);
+//     }
+
+//     Object.convertToExtended = function(object) {
+//         if(!(object instanceof Object)) {
+//             return object;
+//         }
+//         if(Object.isLangObject(object)) {
+//             return object[Lang.Current];
+//         }
+//         return object;
+//     }
+// }
+// catch(e) {
+//     console.error('can not modify Object for language support', e);
+// }
 
 App.Modules.Lang = class extends Colibri.Modules.Module {
 
@@ -14,12 +37,15 @@ App.Modules.Lang = class extends Colibri.Modules.Module {
     InitializeModule() {
         super.InitializeModule();
         console.log('Initializing module Lang');
-        
+               
         this._store = App.Store.AddChild('app.lang', {});
         this._store.AddPathLoader('lang.settings', 'Lang:Lang.Settings');
         this._store.AddPathLoader('lang.langs', 'Lang:Lang.Langs');
         this._store.AddPathLoader('lang.texts', () => this.Texts('', false, 1, 50, true));
         
+
+        
+
     }
 
     get Store() {
@@ -48,8 +74,7 @@ App.Modules.Lang = class extends Colibri.Modules.Module {
             this._current = Colibri.Common.Cookie.Get('lang');
         }
         else {
-            const langs = this._store.Query('lang.langs');
-            Object.forEach(langs, (name, value) => {
+            Object.forEach(LangData, (name, value) => {
                 if(value.default) {
                     this._current = name;
                 }
