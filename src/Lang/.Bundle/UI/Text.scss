@@ -1,6 +1,7 @@
 .app-lang-text-field {
     padding: 0px;
     border: 0px;
+    margin-top: 0px;
 
     > [data-object-name$="-title"] {
         font-size: 14px;
@@ -20,7 +21,7 @@
     }
 
     [data-object-name$="-container"] {
-        padding-top: 0px;
+        padding-top: 0px !important;
         > .app-component-field {
             > [data-object-name$="-title"] {
                 &.app-component-shown {
