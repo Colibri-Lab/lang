@@ -39,7 +39,7 @@ class LangController extends WebController
         }
 
         $langs = Module::$instance->Langs();
-        
+
         return $this->Finish(200, 'ok', $langs);
 
     }
@@ -283,15 +283,14 @@ class LangController extends WebController
 
         Module::$instance->InitApis();
 
-        if($langTo === '*') {
+        if ($langTo === '*') {
             $langs = Module::$instance->Langs();
-            foreach($langs as $key => $langData) {
-                if($key !== $langFrom) {
+            foreach ($langs as $key => $langData) {
+                if ($key !== $langFrom) {
                     $text[$key] = Module::$instance->CloudTranslate($langFrom, $key, $text[$langFrom]);
                 }
             }
-        }
-        else {
+        } else {
             $text[$langTo] = Module::$instance->CloudTranslate($langFrom, $langTo, $text[$langFrom]);
         }
 

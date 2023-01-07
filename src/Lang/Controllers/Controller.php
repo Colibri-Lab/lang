@@ -26,7 +26,7 @@ class Controller extends WebController
      * @param mixed $payload данные payload обьекта переданного через POST/PUT
      * @return object
      */
-    public function Index(RequestCollection $get, RequestCollection $post, ?PayloadCopy $payload = null): object
+    public function Index(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload = null): object
     {
 
         $module = App::$moduleManager->commerce;
@@ -47,8 +47,7 @@ class Controller extends WebController
         try {
             // пробуем запустить генерацию html
             $html = $view->Render($template, $args);
-        }
-        catch (\Throwable $e) {
+        } catch (\Throwable $e) {
             // если что то не так то выводим ошибку
             $html = $e->getMessage() . ' ' . $e->getFile() . ' ' . $e->getLine();
         }
@@ -57,15 +56,15 @@ class Controller extends WebController
         return $this->Finish(
             200,
             $html,
-        [],
+            [],
             'utf-8',
-        [
-            'tab_key' => 'commerce-list',
-            'tab_type' => 'tab',
-            'tab_title' => 'Tunnel Lang',
-            'tab_color' => 'orange',
-            'tab_header' => 'Tunnel Lang',
-        ]
+            [
+                'tab_key' => 'commerce-list',
+                'tab_type' => 'tab',
+                'tab_title' => 'Tunnel Lang',
+                'tab_color' => 'orange',
+                'tab_header' => 'Tunnel Lang',
+            ]
         );
     }
 
@@ -77,7 +76,7 @@ class Controller extends WebController
      * @param object|null $payload
      * @return object
      */
-    public function Bundle(RequestCollection $get, RequestCollection $post, ?PayloadCopy $payload): object
+    public function Bundle(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload): object
     {
 
         App::$instance->HandleEvent(EventsContainer::BundleComplete, function ($event, $args) {
@@ -86,8 +85,7 @@ class Controller extends WebController
                     $scss = new Compiler();
                     $scss->setOutputStyle(OutputStyle::EXPANDED);
                     $args->content = $scss->compileString($args->content)->getCss();
-                }
-                catch (\Exception $e) {
+                } catch (\Exception $e) {
                     Debug::Out($e->getMessage());
                 }
             }
@@ -105,7 +103,7 @@ class Controller extends WebController
                     $componentName = $matches[1];
                 }
                 $compiledContent = str_replace('\'', '\\\'', str_replace("\n", "", str_replace("\r", "", $args->content)));
-                $compiledContent = str_replace('ComponentName="'.$componentName.'"', 'namespace="'.$componentName.'"', $compiledContent);
+                $compiledContent = str_replace('ComponentName="' . $componentName . '"', 'namespace="' . $componentName . '"', $compiledContent);
                 $args->content = 'Colibri.UI.AddTemplate(\'' . $componentName . '\', \'' . $compiledContent . '\');' . "\n";
             }
 
@@ -116,15 +114,16 @@ class Controller extends WebController
         ]);
         $cssBundle = Bundle::Automate(App::$domainKey, 'assets.bundle.css', 'scss', array(
             ['path' => App::$moduleManager->commerce->modulePath . '.Bundle/'],
-        ));
+        )
+        );
 
         return $this->Finish(
             200,
             'Bundle created successfuly',
-            (object)[
-            'js' => str_replace('http://', 'https://', App::$request->address) . $jsBundle,
-            'css' => str_replace('http://', 'https://', App::$request->address) . $cssBundle
-        ],
+            (object) [
+                'js' => str_replace('http://', 'https://', App::$request->address) . $jsBundle,
+                'css' => str_replace('http://', 'https://', App::$request->address) . $cssBundle
+            ],
             'utf-8'
         );
     }

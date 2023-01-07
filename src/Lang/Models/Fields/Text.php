@@ -8,6 +8,7 @@
  * @package App\Modules\Lang\Models\Fields
  */
 namespace App\Modules\Lang\Models\Fields;
+
 use Colibri\App;
 use Colibri\Data\Storages\Fields\Field;
 use Colibri\Data\Storages\Fields\ObjectField;
@@ -16,7 +17,7 @@ use Colibri\Data\Storages\Storage;
 
 
 class Text extends ObjectField
-{ 
+{
     public const JsonSchema = [
         'type' => 'object',
         'patternProperties' => [
