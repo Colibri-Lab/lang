@@ -10,14 +10,17 @@ use App\Modules\Lang\Module;
 use App\Modules\Security\Module as SecurityModule;
 use Colibri\Collections\Collection;
 
+/**
+ * Langs controller
+ */
 class LangController extends WebController
 {
 
     /**
-     * Экшен по умолчанию
-     * @param RequestCollection $get данные GET
-     * @param RequestCollection $post данные POST
-     * @param mixed $payload данные payload обьекта переданного через POST/PUT
+     * Returns a module settings
+     * @param RequestCollection $get data from get request
+     * @param RequestCollection $post a request post data
+     * @param mixed $payload payload object in POST/PUT request
      * @return object
      */
     public function Settings(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload = null): object
@@ -31,6 +34,13 @@ class LangController extends WebController
 
     }
 
+    /**
+     * Returns a languages list
+     * @param RequestCollection $get
+     * @param RequestCollection $post
+     * @param PayloadCopy|null $payload
+     * @return object
+     */
     public function Langs(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload = null): object
     {
 
@@ -44,6 +54,13 @@ class LangController extends WebController
 
     }
 
+    /**
+     * Returns a list of texts
+     * @param RequestCollection $get
+     * @param RequestCollection $post
+     * @param PayloadCopy|null $payload
+     * @return object
+     */
     public function Texts(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload = null): object
     {
 
@@ -100,6 +117,13 @@ class LangController extends WebController
 
     }
 
+    /**
+     * Saves a language
+     * @param RequestCollection $get
+     * @param RequestCollection $post
+     * @param PayloadCopy|null $payload
+     * @return object
+     */
     public function SaveLang(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload = null): object
     {
 
@@ -131,6 +155,13 @@ class LangController extends WebController
 
     }
 
+    /**
+     * Deletes a language
+     * @param RequestCollection $get
+     * @param RequestCollection $post
+     * @param PayloadCopy|null $payload
+     * @return object
+     */
     public function DeleteLang(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload = null): object
     {
 
@@ -157,6 +188,13 @@ class LangController extends WebController
 
     }
 
+    /**
+     * Deletes a text translation
+     * @param RequestCollection $get
+     * @param RequestCollection $post
+     * @param PayloadCopy|null $payload
+     * @return object
+     */
     public function DeleteText(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload = null): object
     {
 
@@ -179,6 +217,13 @@ class LangController extends WebController
 
     }
 
+    /**
+     * Saves a text translation
+     * @param RequestCollection $get
+     * @param RequestCollection $post
+     * @param PayloadCopy|null $payload
+     * @return object
+     */
     public function SaveText(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload = null): object
     {
 
@@ -204,6 +249,13 @@ class LangController extends WebController
 
     }
 
+    /**
+     * Translates a data with integrated cloud translation api
+     * @param RequestCollection $get
+     * @param RequestCollection $post
+     * @param PayloadCopy|null $payload
+     * @return object
+     */
     public function CloudTranslate(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload = null): object
     {
 
@@ -257,6 +309,13 @@ class LangController extends WebController
 
     }
 
+    /**
+     * Translates an object with integrated cloud translation api
+     * @param RequestCollection $get
+     * @param RequestCollection $post
+     * @param PayloadCopy|null $payload
+     * @return object
+     */
     public function CloudTranslateObject(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload = null): object
     {
 

@@ -3,7 +3,7 @@
 
 
 /**
- * Search
+ * Language support module package
  *
  * @author Author Name <author.name@action-media.ru>
  * @copyright 2019 Colibri
@@ -30,10 +30,8 @@ use Colibri\Utils\Logs\Logger;
 
 
 /**
- * Описание модуля
+ * Language support module
  * @package App\Modules\Lang
- *
- *
  */
 class Module extends BaseModule
 {
@@ -54,7 +52,7 @@ class Module extends BaseModule
     private $_claudApi;
 
     /**
-     * Инициализация модуля
+     * Initializes the module
      * @return void
      */
     public function InitializeModule(): void
@@ -70,6 +68,10 @@ class Module extends BaseModule
 
     }
 
+    /**
+     * Initializes the api classes
+     * @return TranslateClient|TranslateSdk\Cloud
+     */
     public function InitApis()
     {
         if ($this->_claudApi) {
@@ -96,9 +98,14 @@ class Module extends BaseModule
                 }
             }
         }
-
+        return $this->_claudApi;
     }
 
+    /**
+     * Magic method, provides a property access
+     * @param string $prop
+     * @return mixed
+     */
     public function __get(string $prop): mixed
     {
         if (strtolower($prop) === 'current') {
@@ -112,6 +119,10 @@ class Module extends BaseModule
         }
     }
 
+    /**
+     * Returns default language
+     * @return string|null
+     */
     public function Default (): ?string
     {
         if ($this->_default) {
@@ -129,11 +140,20 @@ class Module extends BaseModule
         return null;
     }
 
+    /**
+     * Returns a languages list
+     * @return object
+     */
     public function Langs(): object
     {
         return $this->Config()->Query('config.langs')->AsObject();
     }
 
+    /**
+     * Initializes a current language
+     * @param string|null $lang
+     * @return void
+     */
     public function InitCurrent(?string $lang = null)
     {
         if ($lang) {
@@ -154,6 +174,10 @@ class Module extends BaseModule
 
     }
 
+    /**
+     * Initializes an event handlers
+     * @return void
+     */
     public function InitHandlers()
     {
         $instance = self::$instance;
@@ -181,12 +205,22 @@ class Module extends BaseModule
 
     }
 
+    /**
+     * Generates a default language cookie
+     * @param bool $secure
+     * @return object
+     */
     public function GenerateCookie(bool $secure = true): object
     {
         // $this->expires
         return (object) ['name' => 'lang', 'value' => $this->current, 'expire' => time() + 365 * 86400, 'domain' => App::$request->host, 'path' => '/', 'secure' => $secure];
     }
 
+    /**
+     * Checks an object for language data
+     * @param array|object $object
+     * @return bool
+     */
     private function _checkObject(array |object $object): bool
     {
 
@@ -215,6 +249,11 @@ class Module extends BaseModule
 
     }
 
+    /**
+     * Parses a string data and returns a language text keys
+     * @param string $value
+     * @return array
+     */
     public function ParseAndGetKeys(string $value): array
     {
         $keys = [];
@@ -229,6 +268,11 @@ class Module extends BaseModule
         return $keys;
     }
 
+    /**
+     * Parses a string and replaces the language text keys with translated data
+     * @param string $value
+     * @return string
+     */
     public function ParseString(string $value): string
     {
         $res = preg_match_all('/#\{(.*?)\}/sm', $value, $matches, PREG_SET_ORDER);
@@ -244,6 +288,12 @@ class Module extends BaseModule
         return $value;
     }
 
+    /**
+     * Parses an array or object for language text keys and replaces with translated data
+     * @param array|object $array
+     * @param bool $checkInObjects
+     * @return array
+     */
     public function ParseArray(array |object $array, bool $checkInObjects = false): array
     {
         $ret = [];
@@ -279,6 +329,11 @@ class Module extends BaseModule
         return $ret;
     }
 
+    /**
+     * Loads and returns a texts for all project
+     * @param mixed $reload
+     * @return array
+     */
     public function LoadTexts($reload = false)
     {
 
@@ -339,6 +394,12 @@ class Module extends BaseModule
         return $this->_texts;
     }
 
+    /**
+     * Returns a translated text for key or default
+     * @param mixed $text
+     * @param mixed $default
+     * @return string|null
+     */
     public function Get($text, $default): ?string
     {
         $langs = $this->LoadTexts();
@@ -367,6 +428,11 @@ class Module extends BaseModule
         return $default;
     }
 
+    /**
+     * Returns language text with translations as object
+     * @param mixed $text
+     * @return object|array|null
+     */
     public function GetAsObject($text): object|array |null
     {
 
@@ -379,6 +445,12 @@ class Module extends BaseModule
 
     }
 
+    /**
+     * Saves key and data for translation
+     * @param mixed $key
+     * @param mixed $data
+     * @return object|array|string|null
+     */
     public function Save($key, $data): object|array |string|null
     {
         $file = null;
@@ -401,6 +473,11 @@ class Module extends BaseModule
 
     }
 
+    /**
+     * Deletes a translations
+     * @param string|array $keys
+     * @return bool
+     */
     public function Delete(string|array $keys): bool
     {
         if (is_string($keys)) {
@@ -432,7 +509,7 @@ class Module extends BaseModule
     }
 
     /**
-     * Вызывается для получения Меню болванкой
+     * Returns a topmost menu for backend
      */
     public function GetTopmostMenu(bool $hideExecuteCommand = true): Item|array
     {
@@ -444,6 +521,10 @@ class Module extends BaseModule
 
     }
 
+    /**
+     * Returns a permissions for module
+     * @return array
+     */
     public function GetPermissions(): array
     {
         $permissions = parent::GetPermissions();
@@ -451,6 +532,13 @@ class Module extends BaseModule
         return $permissions;
     }
 
+    /**
+     * Translates a chunk using integrated cloud translate api
+     * @param string $originalLang
+     * @param string $translateLang
+     * @param string|array $text
+     * @return array|string
+     */
     private function _translateChunk(string $originalLang, string $translateLang, string|array $text): array |string
     {
 
@@ -478,6 +566,14 @@ class Module extends BaseModule
 
     }
 
+    /**
+     * Translates data using integrated cloud api
+     * @param string $originalLang
+     * @param string $translateLang
+     * @param string|array $text
+     * @throws AppException
+     * @return string|array|null
+     */
     public function CloudTranslate(string $originalLang, string $translateLang, string|array $text): string|array |null
     {
 
@@ -537,7 +633,12 @@ class Module extends BaseModule
 
     }
 
-
+    /**
+     * Backups module data
+     * @param Logger $logger
+     * @param string $path
+     * @return void
+     */
     public function Backup(Logger $logger, string $path)
     {
         // Do nothing        
