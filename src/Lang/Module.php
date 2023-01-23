@@ -546,8 +546,13 @@ class Module extends BaseModule
         $translate->setSourceLang($originalLang);
         $translate->setFormat(TranslateSdk\Format::HTML);
 
-        foreach ($text as $t) {
-            $translate->addText($t);
+        if(is_array($text)) {
+            foreach ($text as $t) {
+                $translate->addText($t);
+            }
+        }
+        else {
+            $translate->addText($text);
         }
 
         $result = $this->_claudApi->request($translate);
