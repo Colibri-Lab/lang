@@ -22,7 +22,7 @@ class Text extends ObjectField
         'type' => 'object',
         'patternProperties' => [
             '.*' => [
-                'type' => 'string'
+                'type' => ['string', 'null']
             ]
         ]
     ];
