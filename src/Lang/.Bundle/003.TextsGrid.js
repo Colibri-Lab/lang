@@ -35,7 +35,6 @@ App.Modules.Lang.TextsGrid = class extends Colibri.UI.Grid {
             this.rows.title = '';
 
             let found = [];
-            console.log(data);
             Object.forEach(data, (key, text) => {
                 text.key = key;
                 let row = this.FindRow(key);
