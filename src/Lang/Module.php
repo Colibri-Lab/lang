@@ -32,6 +32,11 @@ use Colibri\Utils\Logs\Logger;
 /**
  * Language support module
  * @package App\Modules\Lang
+ * 
+ * @property-read string $claudName
+ * @property-read TranslateClient|TranslateSdk\Cloud|null $claud
+ * @property-read string $current
+ * 
  */
 class Module extends BaseModule
 {

@@ -31,7 +31,7 @@ class Text extends ObjectField
     {
         parent::__construct($data, $storage, $field);
 
-        $langModule = App::$moduleManager->lang;
+        $langModule = App::$moduleManager->Get('lang');
 
         $langs = $langModule->Langs();
         foreach ($langs as $lang => $langData) {
