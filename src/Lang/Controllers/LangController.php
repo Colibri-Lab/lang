@@ -71,10 +71,10 @@ class LangController extends WebController
         $langs = Module::$instance->Config()->Query('config.langs')->AsObject();
         $texts = Module::$instance->LoadTexts();
 
-        $term = $post->term ?: '';
-        $notfilled = $post->notfilled ?: false;
-        $page = $post->page ?: 1;
-        $pagesize = $post->pagesize ?: 50;
+        $term = $post->{'term'} ?: '';
+        $notfilled = $post->{'notfilled'} ?: false;
+        $page = $post->{'page'} ?: 1;
+        $pagesize = $post->{'pagesize'} ?: 50;
 
         $collection = new Collection($texts);
         if ($term) {
@@ -131,7 +131,7 @@ class LangController extends WebController
             return $this->Finish(403, 'Permission denied');
         }
 
-        $lang = $post->lang;
+        $lang = $post->{'lang'};
         if (!$lang) {
             return $this->Finish(400, 'Bad request');
         }
@@ -169,7 +169,7 @@ class LangController extends WebController
             return $this->Finish(403, 'Permission denied');
         }
 
-        $lang = $post->lang;
+        $lang = $post->{'lang'};
         if (!$lang) {
             return $this->Finish(400, 'Bad request');
         }
@@ -202,7 +202,7 @@ class LangController extends WebController
             return $this->Finish(403, 'Permission denied');
         }
 
-        $texts = $post->texts;
+        $texts = $post->{'texts'};
         if (!$texts) {
             return $this->Finish(400, 'Bad request');
         }
@@ -231,7 +231,7 @@ class LangController extends WebController
             return $this->Finish(403, 'Permission denied');
         }
 
-        $text = $post->text;
+        $text = $post->{'text'};
         if (!$text) {
             return $this->Finish(400, 'Bad request');
         }
@@ -267,7 +267,7 @@ class LangController extends WebController
             return $this->Finish(400, 'Bad request');
         }
 
-        $texts = $post->texts;
+        $texts = $post->{'texts'};
         if (!$texts) {
             return $this->Finish(400, 'Bad request');
         }
@@ -277,8 +277,8 @@ class LangController extends WebController
         }
 
 
-        $langFrom = $post->langFrom;
-        $langTo = $post->langTo;
+        $langFrom = $post->{'langFrom'};
+        $langTo = $post->{'langTo'};
 
         Module::$instance->InitApis();
 
@@ -327,7 +327,7 @@ class LangController extends WebController
             return $this->Finish(400, 'Bad request');
         }
 
-        $text = $post->text;
+        $text = $post->{'text'};
         if (!$text) {
             return $this->Finish(400, 'Bad request');
         }
@@ -337,8 +337,8 @@ class LangController extends WebController
         }
 
 
-        $langFrom = $post->langFrom;
-        $langTo = $post->langTo;
+        $langFrom = $post->{'langFrom'};
+        $langTo = $post->{'langTo'};
 
         Module::$instance->InitApis();
 
