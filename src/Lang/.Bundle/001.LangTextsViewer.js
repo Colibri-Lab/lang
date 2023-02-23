@@ -1,7 +1,7 @@
 App.Modules.Lang.LangTextsViewer = class extends Colibri.UI.Viewer {
 
-    constructor(name, container, element = '<span />', root = null) {
-        super(name, container, element, root);
+    constructor(name, container, element = null, root = null) {
+        super(name, container, element || Element.create('span'), root);
         this.AddClass('app-langtexts-viewer-component');
 
         this._value = null;
