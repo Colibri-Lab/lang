@@ -190,21 +190,22 @@ class Module extends BaseModule
             if (!isset($args->result->cookies)) {
                 $args->result->cookies = [];
             }
-            $args->result->cookies = array_merge($args->result->cookies, [$instance->GenerateCookie()]);
-            $args->result = $instance->ParseArray($args->result, !$args->post->__raw || $args->post->__raw !== 1);
+            $args->result->cookies = array_merge($args->result->cookies, [$instance?->GenerateCookie() ?? null]);
+            $args->result = $instance?->ParseArray($args->result, !$args->post->__raw || $args->post->__raw !== 1) ?? $args->result;
+            return true;
         });
 
         App::$instance->HandleEvent(EventsContainer::BundleFile, function ($event, $args) use ($instance) {
             $file = new File($args->file);
             if (in_array($file->extension, ['html', 'js'])) {
                 // компилируем html в javascript
-                $args->content = $instance->ParseString($args->content);
+                $args->content = $instance?->ParseString($args->content) ?? $args->content;
             }
             return true;
         });
 
         App::$instance->HandleEvent(EventsContainer::TemplateRendered, function ($event, $args) use ($instance) {
-            $args->content = $instance->ParseString($args->content);
+            $args->content = $instance?->ParseString($args->content) ?? $args->content;
             return true;
         });
 
