@@ -424,10 +424,10 @@ class Module extends BaseModule
             return $default;
         }
 
-        $moduleConfig = $moduleObject->Config();
-        $langConfig = $moduleConfig->Query('config.texts', []);
-        $langConfig->Set($text, [self::$current => $default]);
-        $langConfig->Save();
+        // $moduleConfig = $moduleObject->Config();
+        // $langConfig = $moduleConfig->Query('config.texts', []);
+        // $langConfig->Set($text, [self::$current => $default]);
+        // $langConfig->Save();
 
         $this->_texts = array_merge($this->_texts, [$text => [self::$current => $default]]);
 
