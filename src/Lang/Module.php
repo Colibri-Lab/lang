@@ -451,6 +451,18 @@ class Module extends BaseModule
 
     }
 
+    public function Translate(mixed $langText): ?string 
+    {
+        if(is_string($langText)) {
+            return $langText;
+        }
+        if(is_array($langText) || is_object($langText)) {
+            $langText = (array)$langText;
+            return $langText[self::$current];
+        }
+        return null;
+    }
+
     /**
      * Saves key and data for translation
      * @param mixed $key
