@@ -202,7 +202,7 @@ App.Modules.Lang = class extends Colibri.Modules.Module {
 const Lang = new App.Modules.Lang();
 Lang.Translate = function(value) {
     if(value instanceof Object && !Array.isArray(value)) {
-        return value[Lang.Current];
+        return value[Lang.Current] ?? value;
     } else if(typeof value === 'string') {
         try {
             const v = JSON.parse(value);
@@ -225,6 +225,24 @@ Lang.Update = function(value, object) {
         return object;
     }
     return value;
+}
+Lang.ConvertObject = function(value) {
+    const newV = {};
+    let keys = [];
+    let langs = [];
+    Object.forEach(value, (lang, v) => {
+        keys = keys.concat(Object.keys(v));
+        langs.push(lang);
+    });
+    keys = Array.unique(keys);
+    
+    for(const key of keys) {
+        newV[key] = {};
+        for(const lang of langs) {
+            newV[key][lang] = value[lang][key];
+        }
+    }
+    return newV;
 }
 App.Modules.Lang.Icons = {};
 App.Modules.Lang.Icons.Text = '<svg width="29" height="27" viewBox="0 0 29 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.34378 11H9.34378V17H7.34378V11Z" fill="black"/><path d="M3.34378 7H5.34378V21H3.34378V7Z" fill="black"/><path d="M23.3438 7H25.3438V21L23.3438 21V7Z" fill="black"/><path d="M25.3438 7V9L3.34378 9L3.34378 7H25.3438Z" fill="black"/><path d="M25.3438 19V21H3.34378L3.34378 19L25.3438 19Z" fill="black"/><path d="M10.5 11H12.5V17H10.5V11Z" fill="black"/><path d="M7.5 11H15.5V12.5H7.5V11Z" fill="black"/><path d="M7.5 11H15.5V12.5H7.5V11Z" fill="black"/><path d="M13.5 11H15.5V17H13.5V11Z" fill="black"/></svg>';

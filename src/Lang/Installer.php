@@ -91,6 +91,7 @@ class Installer
     /**
      *
      * @param \Composer\Installer\PackageEvent $event
+     * @suppress PHP0418
      * @return void
      */
     public static function PostPackageInstall($event)
