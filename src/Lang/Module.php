@@ -379,11 +379,18 @@ class Module extends BaseModule
 
                 $langFiles = array_merge(
                     Bundle::GetNamespaceAssets($module->modulePath, ['lang']),
-                    Bundle::GetChildAssets(
-                        $module->modulePath,
-                        ['lang']
-                    )
+                    Bundle::GetChildAssets($module->modulePath, ['lang'])
                 );
+
+                $pathsArray = $module->Config()->Query('config.paths.ui', [])->ToArray();
+                foreach($pathsArray as $path) {
+                    $langFiles = [
+                        ...$langFiles, 
+                        ...Bundle::GetNamespaceAssets(App::$appRoot . $path, ['lang']),
+                        ...Bundle::GetChildAssets(App::$appRoot . $path, ['lang'])
+                    ];
+                }
+
                 foreach ($langFiles as $langFile) {
                     $config = Config::LoadFile($langFile);
                     $readonlyTexts = $config->AsArray();
