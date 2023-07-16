@@ -81,7 +81,8 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
                     note: '#{lang-langform-icon-desc}',
                     params: {
                         required: true,
-                        readonly: true,
+                        readonly: false,
+                        searchable: false,
                     },
                     selector: {
                         __render: (itemData) => '<div style="display: flex; align-items: center;">' + (itemData.icon ?? '<svg width="28" height="28"></svg>') + '<span style="display: block; margin-left: 10px;">' + itemData.title + '</span></div>',
