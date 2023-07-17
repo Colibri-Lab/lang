@@ -47,4 +47,10 @@ class Text extends ObjectField
 
     }
 
+    public function Translate(): string
+    {
+        $langModule = App::$moduleManager->Get('lang');
+        return $langModule->Translate($this->ToArray(true));
+    }
+
 }
