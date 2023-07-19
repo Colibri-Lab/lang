@@ -384,6 +384,11 @@ class Module extends BaseModule
 
                 $pathsArray = $module->Config()->Query('config.paths.ui', [])->ToArray();
                 foreach($pathsArray as $path) {
+                    if(is_object($path)) {
+                        $path = $path->path;
+                    } else if(is_array($path)) {
+                        $path = $path['path'];
+                    }
                     $langFiles = [
                         ...$langFiles, 
                         ...Bundle::GetNamespaceAssets(App::$appRoot . $path, ['lang']),
