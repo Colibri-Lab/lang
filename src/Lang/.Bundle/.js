@@ -43,8 +43,11 @@ App.Modules.Lang = class extends Colibri.Modules.Module {
         this._store.AddPathLoader('lang.langs', 'Lang:Lang.Langs');
         this._store.AddPathLoader('lang.texts', () => this.Texts('', false, 1, 50, true));
         
-
-        
+        this.AddHandler('CallError', (event, args) => {
+            if(args.status === 403) {
+                location.reload();
+            }
+        });
 
     }
 
