@@ -38,11 +38,15 @@ App.Modules.Lang = class extends Colibri.Modules.Module {
         super.InitializeModule();
         console.log('Initializing module Lang');
                
-        this._store = App.Store.AddChild('app.lang', {});
+        this._store = App.Store.AddChild('app.lang', {}, this);
         this._store.AddPathLoader('lang.settings', 'Lang:Lang.Settings');
         this._store.AddPathLoader('lang.langs', 'Lang:Lang.Langs');
         this._store.AddPathLoader('lang.texts', () => this.Texts('', false, 1, 50, true));
-        
+        this._store.AddHandler('StoreLoaderCrushed', (event, args) => {
+            if(args.status === 403) {
+                location.reload();
+            }
+        });
         this.AddHandler('CallError', (event, args) => {
             if(args.status === 403) {
                 location.reload();
