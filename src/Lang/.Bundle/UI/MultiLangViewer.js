@@ -21,7 +21,7 @@ Colibri.UI.MultiLangViewer = class extends Colibri.UI.ArrayViewer {
                 });
                 this._element.html(ret.join('<br />'));
             }
-            else if(this._value instanceof Object) {
+            else if(Object.isObject(this._value)) {
                 let ret = [];
                 Object.forEach(this._value, (n, v) => {
                     if(v) {

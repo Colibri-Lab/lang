@@ -2,7 +2,7 @@ App.Modules.Lang.LangTree = class extends Colibri.UI.Tree {
 
     __renderBoundedValues(data) {
 
-        if(!(data instanceof Object)) {
+        if(!Object.isObject(data)) {
             data = {};
         }
 

@@ -19,7 +19,7 @@ App.Modules.Lang.LangChangeIcon = class extends Colibri.UI.Icon {
     }
 
     __renderBoundedValues(data) {
-        if(!data || !(data instanceof Object) || !Object.countKeys(data)) {
+        if(!data || !Object.isObject(data) || !Object.countKeys(data)) {
             return;
         }
 

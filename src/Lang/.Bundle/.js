@@ -11,7 +11,7 @@
 //     }
 
 //     Object.convertToExtended = function(object) {
-//         if(!(object instanceof Object)) {
+//         if(!Object.isObject(object)) {
 //             return object;
 //         }
 //         if(Object.isLangObject(object)) {
@@ -208,12 +208,12 @@ App.Modules.Lang = class extends Colibri.Modules.Module {
 }
 const Lang = new App.Modules.Lang();
 Lang.Translate = function(value) {
-    if(value instanceof Object && !Array.isArray(value)) {
+    if(Object.isObject(value)) {
         return value[Lang.Current] ?? value;
     } else if(typeof value === 'string') {
         try {
             const v = JSON.parse(value);
-            if(v instanceof Object && !Array.isArray(v)) {
+            if(Object.isObject(v)) {
                 return v[Lang.Current];
             } else {
                 return value;
@@ -225,9 +225,9 @@ Lang.Translate = function(value) {
     return value;
 }
 Lang.Update = function(value, object) {
-    if(value instanceof Object && !Array.isArray(value)) {
+    if(Object.isObject(value)) {
         return value;
-    } else if(object instanceof Object && !Array.isArray(object)) {
+    } else if(Object.isObject(object)) {
         object[Lang.Current] = value;
         return object;
     }
