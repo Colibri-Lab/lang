@@ -320,7 +320,7 @@ class Module extends BaseModule
                 }
                 $value = (array) $value;
                 if ($checkInObjects && $this->_checkObject($value)) {
-                    $ret[$key] = $value[$this->current];
+                    $ret[$key] = $value[$this->current] ?? $value;
                 } else {
                     $ret[$key] = $this->ParseArray($value, $checkInObjects);
                 }
