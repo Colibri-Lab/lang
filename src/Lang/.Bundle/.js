@@ -71,6 +71,13 @@ App.Modules.Lang = class extends Colibri.Modules.Module {
         console.log('Registering event handlers for Lang');
     }
 
+    ChangeLanguage(lang) {
+        Colibri.Common.Cookie.Set('lang', lang, 365, '/', location.hostname);
+        Colibri.Common.Delay(100).then(() => {
+            location.reload();
+        });
+    }
+
     get Current() {
 
         if(this._current) {
