@@ -6,7 +6,7 @@ App.Modules.Lang.LangChangeIcon = class extends Colibri.UI.Icon {
         
         this._iconContextMenu = [];
         this.AddHandler('Clicked', (event, args) => {
-            const contextMenuObject = new Colibri.UI.ContextMenu(this.name + '_contextmenu', document.body, [Colibri.UI.ContextMenu.LB, Colibri.UI.ContextMenu.RB]);
+            const contextMenuObject = new Colibri.UI.ContextMenu(this.name + '_contextmenu', document.body, this._contextMenuPosition ?? [Colibri.UI.ContextMenu.LB, Colibri.UI.ContextMenu.RB]);
             contextMenuObject.parent = this;
             contextMenuObject.Show(this._iconContextMenu, this);
             contextMenuObject.AddHandler('Clicked', (event, args) => {
@@ -38,6 +38,22 @@ App.Modules.Lang.LangChangeIcon = class extends Colibri.UI.Icon {
             Colibri.Common.Cookie.Set('lang', args.menuData.name, 365, '/', location.hostname, true);
             location.reload();
         }
+    }
+    
+    /**
+     * Context menu position
+     * @type {Array}
+     */
+    get contextMenuPosition() {
+        return this._contextMenuPosition;
+    }
+    /**
+     * Context menu position
+     * @type {Array}
+     */
+    set contextMenuPosition(value) {
+        value = this._convertProperty('Array', value);
+        this._contextMenuPosition = value;
     }
 
 }
