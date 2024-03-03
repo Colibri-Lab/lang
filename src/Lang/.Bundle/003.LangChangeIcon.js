@@ -3,7 +3,8 @@ App.Modules.Lang.LangChangeIcon = class extends Colibri.UI.Icon {
         super(name, container);
 
         this.AddHandler('ContextMenuItemClicked', (event, args) => this.__contextMenuItemClicked(event, args));
-        
+        this._savePlace = 'cookie';
+
         this._iconContextMenu = [];
         this.AddHandler('Clicked', (event, args) => {
             const contextMenuObject = new Colibri.UI.ContextMenu(this.name + '_contextmenu', document.body, this._contextMenuPosition ?? [Colibri.UI.ContextMenu.LB, Colibri.UI.ContextMenu.RB]);
@@ -35,7 +36,11 @@ App.Modules.Lang.LangChangeIcon = class extends Colibri.UI.Icon {
 
     __contextMenuItemClicked(event, args) {
         if(args.menuData) {
-            Colibri.Common.Cookie.Set('lang', args.menuData.name, 365, '/', location.hostname, true);
+            if(this._savePlace === 'cookie') {
+                Colibri.Common.Cookie.Set('lang', args.menuData.name, 365, '/', location.hostname, true);
+            } else if(this._savePlace === 'storage') {
+                App.Browser.Set('lang', args.menuData.name);
+            }
             location.reload();
         }
     }
@@ -54,6 +59,21 @@ App.Modules.Lang.LangChangeIcon = class extends Colibri.UI.Icon {
     set contextMenuPosition(value) {
         value = this._convertProperty('Array', value);
         this._contextMenuPosition = value;
+    }
+
+    /**
+     * Where to save lang indicator
+     * @type {cookie,storage}
+     */
+    get savePlace() {
+        return this._savePlace;
+    }
+    /**
+     * Where to save lang indicator
+     * @type {cookie,storage}
+     */
+    set savePlace(value) {
+        this._savePlace = value;
     }
 
 }
