@@ -17,9 +17,15 @@ App.Modules.Lang.LangChangeIcon = class extends Colibri.UI.Icon {
             });
         });
 
-    }
+    } 
 
-    __renderBoundedValues(data) {
+    /**
+     * Render bounded to component data
+     * @protected
+     * @param {*} data 
+     * @param {String} path 
+     */
+    __renderBoundedValues(data, path) {
         if(!data || !Object.isObject(data) || !Object.countKeys(data)) {
             return;
         }
