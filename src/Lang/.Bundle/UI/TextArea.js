@@ -49,6 +49,11 @@ App.Modules.Lang.UI.TextArea = class extends Colibri.UI.Forms.Object {
         this.AddHandler('ContextMenuItemClicked', (event, args) => this.__contextMenuClicked(event, args));
     }
 
+    /**
+     * @private
+     * @param {Colibri.Events.Event} event event object
+     * @param {*} args event arguments
+     */ 
     __contextMenuClicked(event, args) {
         if(!args.menuData) {
             return false;
@@ -60,6 +65,11 @@ App.Modules.Lang.UI.TextArea = class extends Colibri.UI.Forms.Object {
         });
     }
 
+    /**
+     * @private
+     * @param {Colibri.Events.Event} event event object
+     * @param {*} args event arguments
+     */ 
     __contextMenu(event, args) {
         Promise.all([
             Lang.Store.AsyncQuery('lang.settings'),

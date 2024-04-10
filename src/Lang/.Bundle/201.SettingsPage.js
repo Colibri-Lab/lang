@@ -183,26 +183,56 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
         Lang.Texts(searchTerm, notfilled, page);
     }
 
+    /**
+     * @private
+     * @param {Colibri.Events.Event} event event object
+     * @param {*} args event arguments
+     */ 
     __searchInputFilled(event, args) {
         this._loadDataPage(this._searchInput.value, this._fullfiledCheckbox.checked, 1);
     }
 
+    /**
+     * @private
+     * @param {Colibri.Events.Event} event event object
+     * @param {*} args event arguments
+     */ 
     __fullfilledChanged(event, args) {
         this._loadDataPage(this._searchInput.value, this._fullfiledCheckbox.checked, 1);
     }
 
+    /**
+     * @private
+     * @param {Colibri.Events.Event} event event object
+     * @param {*} args event arguments
+     */ 
     __textsScrolledToBottom(event, args) {
         this._loadDataPage(this._searchInput.value, this._fullfiledCheckbox.checked, this._dataCurrentPage + 1);
     }
 
+    /**
+     * @private
+     * @param {Colibri.Events.Event} event event object
+     * @param {*} args event arguments
+     */ 
     __langsSelectionChanged(event, args) {
         this._enableComponents();
     }
 
+    /**
+     * @private
+     * @param {Colibri.Events.Event} event event object
+     * @param {*} args event arguments
+     */ 
     __textsSelectionChanged(event, args) {
         this._enableComponents();
     }
 
+    /**
+     * @private
+     * @param {Colibri.Events.Event} event event object
+     * @param {*} args event arguments
+     */ 
     __renderFoldersContextMenu(event, args) {
 
         Lang.Store.AsyncQuery('lang.settings').then((settings) => {
@@ -233,6 +263,11 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
 
     }
 
+    /**
+     * @private
+     * @param {Colibri.Events.Event} event event object
+     * @param {*} args event arguments
+     */ 
     __clickOnFoldersContextMenu(event, args) {
 
         const item = args?.item;
@@ -278,6 +313,11 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
         }
         
     }
+    /**
+     * @private
+     * @param {Colibri.Events.Event} event event object
+     * @param {*} args event arguments
+     */ 
     __renderTextsContextMenu(event, args) {
 
         Lang.Store.AsyncQuery('lang.settings').then((settings) => {
@@ -324,6 +364,11 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
         
     }
 
+    /**
+     * @private
+     * @param {Colibri.Events.Event} event event object
+     * @param {*} args event arguments
+     */ 
     __clickOnTextsContextMenu(event, args) {
 
         const item = args?.item;
@@ -362,6 +407,11 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
         
     }
 
+    /**
+     * @private
+     * @param {Colibri.Events.Event} event event object
+     * @param {*} args event arguments
+     */ 
     __deleteTextClicked(event, args) {
         if(Security.IsCommandAllowed('lang.texts.remove')) {
             const textSelected = this._texts.selected;
@@ -391,6 +441,11 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
         
     }
 
+    /**
+     * @private
+     * @param {Colibri.Events.Event} event event object
+     * @param {*} args event arguments
+     */ 
     __addTextClicked(event, args) { 
         if(Security.IsCommandAllowed('lang.texts.add')) {
             Manage.FormWindow.Show('#{lang-forms-newtext}', 850, this._textFields(), {})
@@ -405,6 +460,11 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
         
     }
     
+    /**
+     * @private
+     * @param {Colibri.Events.Event} event event object
+     * @param {*} args event arguments
+     */ 
     __editTextClicked(event, args) { 
         if(Security.IsCommandAllowed('lang.texts.edit')) {
             const textSelected = this._texts.selected;
@@ -422,12 +482,22 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
         
     }
 
+    /**
+     * @private
+     * @param {Colibri.Events.Event} event event object
+     * @param {*} args event arguments
+     */ 
     __doubleClickedTextsContextMenu(event, args) {
         if(this._editText.enabled) {
             this.__editTextClicked(event, args);
         }
     }
 
+    /**
+     * @private
+     * @param {Colibri.Events.Event} event event object
+     * @param {*} args event arguments
+     */ 
     __translateTextClicked(event, args) {
         Lang.Store.AsyncQuery('lang.settings').then((settings) => {
             
