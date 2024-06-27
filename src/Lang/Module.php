@@ -227,7 +227,7 @@ class Module extends BaseModule
      * @param array|object $object
      * @return bool
      */
-    private function _checkObject(array |object $object): bool
+    private function _checkObject(array|object $object): bool
     {
 
         $object = (array) $object;
