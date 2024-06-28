@@ -552,4 +552,4 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
         
     }
 
-}
+} 

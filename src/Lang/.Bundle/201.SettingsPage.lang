@@ -90,9 +90,9 @@ lang-forms-deletelang-message:
   en: Are you sure you want to remove the language? All text data that has been
     filled in will be permanently deleted!
 lang-contextmenu-translate:
-  ru: Перевести с помощью облака
-  en: Translate using the cloud
-  hy: Թարգմանեք ամպի միջոցով
+  ru: Перевести
+  en: Translate
+  hy: Թարգմանեք
 lang-contextmenu-edittext:
   ru: Редактировать тексты
   hy: Ջնջել տեքստերը
@@ -100,6 +100,7 @@ lang-contextmenu-edittext:
 lang-contextmenu-deletetext:
   ru: Удалить тексты
   en: Delete texts
+  hy: Ջնջել տեքստերը
 lang-forms-edittext:
   ru: Редактировать текст
   hy: Խմբագրել տեքստը
@@ -157,23 +158,29 @@ lang-buttons-translate:
 lang-forms-deletelang-message-delete:
   ru: Удалить!
   en: Delete
+  hy: Ջնջել
 lang-forms-deletelang-message\-delete:
   ru: Удалить!
 lang-forms-deletetext-message-delete:
   ru: Удалить!
   en: Delete
+  hy: Ջնջել
 lang-forms-deletetexts-message-delete:
   ru: Удалить!
   en: Delete
+  hy: Ջնջել
 lang-langform-field:
   ru: Свойство
   en: Property
+  hy: Դաշտ
 lang-textform-field:
   ru: Свойство
   en: Property
+  hy: Դաշտ
 lang-global-notallowed:
   ru: Действие запрещено
   en: Operation not permitted
 lang-settingspage-notallowed:
   ru: Действие запрещено
   en: Operation not permitted
+  hy: Գործողությունն արգելված է

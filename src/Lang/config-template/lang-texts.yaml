@@ -30,10 +30,12 @@ lang-menu-settings:
   ru: Настройки языков
   en: Language Settings
   hy: Լեզուների կարգավորումներ
+  it: Impostazioni della lingua
 lang-menu-settings-desc:
   ru: Настройки языков, интерфейсные тексты
   en: Language settings, interface texts
   hy: Լեզուների կարգավորումներ, ինտերֆեյսային տեքստեր
+  it: Impostazioni della lingua, testi dell'interfaccia
 lang-textgrid-key:
   ru: Ключ
   en: Key
@@ -171,3 +173,4 @@ lang-search-fullfilled-placeholder:
 lang-permissions:
   ru: Доступ к модулю Lang
   en: Access to Lang module
+  hy: Մուտք դեպի Lang մոդուլ

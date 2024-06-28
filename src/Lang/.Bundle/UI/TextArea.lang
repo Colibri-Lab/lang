@@ -3,7 +3,8 @@ lang-fields-text:
 lang-fields-textarea:
   ru: Текст большой (мультиязычный)
   en: Big text (Multilangual)
+  hy: Մեծ տեքստ (բազմալեզու)
 lang-contextmenu-translate:
-  en: Cloud translate
+  en: Translate
   ru: Перевести
   hy: Թարքմանել
