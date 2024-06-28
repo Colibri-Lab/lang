@@ -131,6 +131,7 @@ class Installer
         print_r('Копирование изображений' . "\n");
         self::_copyOrSymlink($mode, $path . '/src/Lang/web/res/img/', './' . $webRoot . '/res/img/', 'loading-icon.svg', 'loading-icon.svg');
         self::_copyOrSymlink($mode, $path . '/src/Lang/web/res/fonts/', './' . $webRoot . '/res/fonts/', 'Mardoto/', 'Mardoto/');
+        self::_copyOrSymlink($mode, $path . '/src/Lang/web/res/fonts/', './' . $webRoot . '/res/fonts/', 'ArianAMU/', 'ArianAMU/');
 
         print_r('Установка завершена' . "\n");
 
