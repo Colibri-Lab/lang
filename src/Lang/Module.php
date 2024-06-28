@@ -36,7 +36,8 @@ use Colibri\Utils\Logs\Logger;
  * @property-read string $claudName
  * @property-read TranslateClient|TranslateSdk\Cloud|null $claud
  * @property-read string $current
- * 
+ * @property-read string $userselected
+ *
  */
 class Module extends BaseModule
 {
@@ -119,6 +120,8 @@ class Module extends BaseModule
             return $this->_claudApi;
         } elseif (strtolower($prop) === 'claudname') {
             return (string) $this->Config()->Query('config.use', 'yandex-api')->GetValue();
+        } elseif (strtolower($prop) === 'userselected') {
+            return App::$request->headers->{'Colibri-Language'} ?: App::$request->cookie->{'lang'};
         } else {
             return parent::__get($prop);
         }
