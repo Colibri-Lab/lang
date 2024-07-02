@@ -216,7 +216,11 @@ App.Modules.Lang = class extends Colibri.Modules.Module {
 const Lang = new App.Modules.Lang();
 Lang.Translate = function(value) {
     if(Object.isObject(value)) {
-        return value[Lang.Current] ?? value;
+        if(Object.keys(value).indexOf(Lang.Current) !== -1) {
+            return (value[Lang.Current]) + '';
+        } else {
+            return value;
+        }
     } else if(typeof value === 'string') {
         try {
             const v = JSON.parse(value);

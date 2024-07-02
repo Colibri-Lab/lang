@@ -14,6 +14,8 @@ App.Modules.Lang.UI.TextArea = class extends Colibri.UI.Forms.Object {
             removedesc: false,
         });
         
+        const isVirtual = this._fieldData.params?.visual ?? false;
+        const isCode = this._fieldData.params?.code ?? false;
         
         this._links = new Colibri.UI.ButtonGroup(this.name + '-buttons', this.contentPane);
         this._links.shown = true;
@@ -31,7 +33,7 @@ App.Modules.Lang.UI.TextArea = class extends Colibri.UI.Forms.Object {
             Object.forEach(langs, (langKey, langDesc) => {
 
                 this._fieldData.fields[langKey] = {
-                    component: 'TextArea',
+                    component: isVirtual || isCode ? 'App.Modules.Manage.UI.TinyMCETextArea' : 'TextArea',
                     desc: langDesc.desc,
                     placeholder: this._fieldData.placeholder,
                     params: childParams
