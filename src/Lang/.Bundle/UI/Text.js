@@ -61,7 +61,7 @@ App.Modules.Lang.UI.Text = class extends Colibri.UI.Forms.Object {
         const langs = args.menuData.name.split('-');
         Lang.TranslateTextObject(this.value, langs[0], langs[1]).then((response) => {
             this.value = response.result;
-            this.Dispatch('Changed');
+            this.Dispatch('Changed', {component: this});
         });
     }
 
@@ -88,13 +88,16 @@ App.Modules.Lang.UI.Text = class extends Colibri.UI.Forms.Object {
 
                 const children = [];
                 langs.forEach((l) => {
-                    const childs = [];
+                    const childs = [
+                        {name: l + '-*', title: '*'}
+                    ];
                     langs.forEach((ll) => {
                         if(ll != l) {
-                            children.push({name: l + '-' + ll, title: l.toUpperCase() + ' → ' + ll.toUpperCase()});
+                            childs.push({name: l + '-' + ll, title: ll.toUpperCase()});
                         }
                     });                    
-                    children.push({name: l + '-*', title: l.toUpperCase() + ' → *'});
+
+                    children.push({name: l, title: l.toUpperCase(), children: childs});
                 });
                 contextmenu.push({name: 'translate', title: '#{lang-contextmenu-translate}', icon: App.Modules.Lang.Icons.ContextMenuTranslateIcon, children: children});
 

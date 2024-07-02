@@ -3,7 +3,7 @@
 langs: include(lang-langs.yaml)
 texts: include(lang-texts.yaml)
 
-use: yandex-api
+use: google-api
 
 yandex-api:
   enabled: true
@@ -14,4 +14,4 @@ yandex-api:
 
 google-api:
   enabled: true
-  token: AIzaSyAW7D_oIgh9iKTQR0qoyUcnnBsaO2AuyMk
+  token: AIzaSyD6zollo0zZg6jGeZV9A9CVtegj5mXGaIw
