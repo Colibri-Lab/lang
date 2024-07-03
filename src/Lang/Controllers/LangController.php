@@ -358,4 +358,5 @@ class LangController extends WebController
         return $this->Finish(200, 'ok', $text);
 
     }
+
 }
