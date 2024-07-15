@@ -1,5 +1,4 @@
 
-
 // try {
 //     
 //     Object.isLangObject = function(object) {
@@ -32,6 +31,7 @@ App.Modules.Lang = class extends Colibri.Modules.Module {
     constructor() {
         super('Lang');
         
+        this._langCookie = 'lang';
     }
 
     InitializeModule() {
@@ -64,18 +64,23 @@ App.Modules.Lang = class extends Colibri.Modules.Module {
     }
 
     RegisterEvents() {
+        super.RegisterEvents();
         console.log('Registering module events for Lang');
+        this.RegisterEvent('LanguageChanged', false, 'When language was changed');
     }
 
     RegisterEventHandlers() {
+        super.RegisterEventHandlers();
         console.log('Registering event handlers for Lang');
     }
 
     ChangeLanguage(lang) {
-        Colibri.Common.Cookie.Set('lang', lang, 365, '/', location.hostname);
-        Colibri.Common.Delay(100).then(() => {
-            location.reload();
-        });
+        if(Colibri.Common.Cookie.Get('lang') !== lang) {
+            Colibri.Common.Cookie.Set('lang', lang, 365, '/', location.hostname);
+            Colibri.Common.Delay(100).then(() => {
+                location.reload();
+            });
+        }
     }
 
     get Current() {
@@ -96,6 +101,13 @@ App.Modules.Lang = class extends Colibri.Modules.Module {
         }
 
         return this._current;
+    }
+
+    set langCookie(value) {
+        this._langCookie = value;
+    }
+    get langCookie() {
+        return this._langCookie;
     }
 
     Texts(term, notfilled, page, pagesize, returnPromise) {
