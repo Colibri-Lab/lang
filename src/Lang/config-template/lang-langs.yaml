@@ -6,7 +6,6 @@ ru:
   dateformat: ru-RU
   numberformat: ru-RU
 en:
-  default: false
   desc: English
   icon: App.Modules.Lang.Icons.Countries.US
   dateformat: en-US

@@ -178,7 +178,13 @@ class Module extends BaseModule
             }
         }
 
-        self::$current = App::$request->headers->{'Colibri-Language'} ?: App::$request->cookie->{'lang'} ?: $default;
+        if(App::$request->headers->{'Colibri-Language'}) {
+            self::$current = App::$request->headers->{'Colibri-Language'};
+        } elseif (App::$request->cookie->{'lang'}) {
+            self::$current = App::$request->cookie->{'lang'};
+        } else {
+            self::$current = $default;
+        }
 
     }
 
