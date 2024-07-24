@@ -8,7 +8,14 @@ Colibri.UI.MultiLangViewer = class extends Colibri.UI.ArrayViewer {
     
     _showValue() {
         
-        Lang.Store.AsyncQuery('lang.langs').then(langs => {
+        let promise = null;
+        if(LangData) {
+            promise = Promise.resolve(LangData);
+        } else {
+            promise = Lang.Store.AsyncQuery('lang.langs');
+        }
+
+        promise.then(langs => {
 
             if(Array.isArray(this._value)) {
                 let ret = [];

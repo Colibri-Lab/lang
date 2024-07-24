@@ -23,7 +23,15 @@ App.Modules.Lang.UI.Text = class extends Colibri.UI.Forms.Object {
             });
         });
 
-        Lang.Store.AsyncQuery('lang.langs').then((langs) => {
+        let promise = null;
+        if(LangData) {
+            promise = Promise.resolve(LangData);
+        } else {
+            promise = Lang.Store.AsyncQuery('lang.langs');
+        }
+
+
+        promise.then((langs) => {
             
             this._fieldData.fields = {};
             
@@ -71,6 +79,12 @@ App.Modules.Lang.UI.Text = class extends Colibri.UI.Forms.Object {
      * @param {*} args event arguments
      */ 
     __contextMenu(event, args) {
+
+        const ignore = this._fieldData.params['ignore-translation'] || false;
+        if(ignore) {
+            return;
+        }
+
         Promise.all([
             Lang.Store.AsyncQuery('lang.settings'),
             Lang.Store.AsyncQuery('lang.langs')
