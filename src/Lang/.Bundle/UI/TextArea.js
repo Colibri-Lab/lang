@@ -22,7 +22,11 @@ App.Modules.Lang.UI.TextArea = class extends Colibri.UI.Forms.Object {
         this._links.AddHandler('Changed', (event, args) => {
             const selectedKey = args.button.name;
             this.contentContainer.ForEach((name, component) => {
-                component.shown = name === selectedKey;
+                const show = name === selectedKey;
+                component.shown = show;
+                if(show) {
+                    component.Focus();
+                }
             });
         });
 
