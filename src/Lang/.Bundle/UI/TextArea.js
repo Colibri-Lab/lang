@@ -39,7 +39,6 @@ App.Modules.Lang.UI.TextArea = class extends Colibri.UI.Forms.Object {
             this._fieldData.fields = {};
             
             Object.forEach(langs, (langKey, langDesc) => {
-
                 this._fieldData.fields[langKey] = {
                     component: isVirtual || isCode ? 'App.Modules.Manage.UI.TinyMCETextArea' : 'TextArea',
                     desc: langDesc.desc,

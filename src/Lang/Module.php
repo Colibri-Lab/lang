@@ -472,14 +472,14 @@ class Module extends BaseModule
 
     }
 
-    public function Translate(mixed $langText): ?string 
+    public function Translate(mixed $langText, string $lang = null): ?string 
     {
         if(is_string($langText)) {
             return $langText;
         }
         if(is_array($langText) || is_object($langText)) {
             $langText = (array)$langText;
-            return $langText[self::$current];
+            return $langText[$lang ?: self::$current];
         }
         return null;
     }
