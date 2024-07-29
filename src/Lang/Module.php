@@ -20,6 +20,7 @@ use Colibri\App;
 use Colibri\Events\EventsContainer;
 use Colibri\Utils\Config\ConfigException;
 use Colibri\Utils\Config\Config;
+use Colibri\Web\Server;
 use Panda\Yandex\TranslateSdk;
 use Colibri\AppException;
 use DateTime;
@@ -196,6 +197,9 @@ class Module extends BaseModule
     {
         $instance = self::$instance;
         App::$instance->HandleEvent(EventsContainer::RpcRequestProcessed, function ($event, $args) use ($instance) {
+            if ($args->type === Server::Stream) {
+                return true;
+            }
             if (!isset($args->result->cookies)) {
                 $args->result->cookies = [];
             }
