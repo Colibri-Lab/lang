@@ -248,7 +248,7 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
                 contextmenu.push({name: 'new-lang', title: '#{lang-contextmenu-newlang}', icon: Colibri.UI.ContextMenuAddIcon});
 
                 this._langs.contextmenu = contextmenu;
-                this._langs.ShowContextMenu(args.isContextMenuEvent ? [Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.RB] : [Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.LB], '', args.isContextMenuEvent ? {left: args.domEvent.clientX, top: args.domEvent.clientY} : null);
+                this._langs.ShowContextMenu(args.isContextMenuEvent ? [Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.RB] : [Colibri.UI.ContextMenu.RT, Colibri.UI.ContextMenu.LT], '', args.isContextMenuEvent ? {left: args.domEvent.clientX, top: args.domEvent.clientY} : null);
 
             }
             else {
