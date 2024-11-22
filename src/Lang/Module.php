@@ -187,7 +187,7 @@ class Module extends BaseModule
             self::$current = $default;
         }
 
-        if(!self::$current || self::$current == 'null' || !isset($langs[self::$current])) {
+        if(!self::$current || self::$current == 'null' || !isset($langs->{self::$current})) {
             self::$current = 'en';
         }
 
