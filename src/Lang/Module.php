@@ -187,6 +187,10 @@ class Module extends BaseModule
             self::$current = $default;
         }
 
+        if(!self::$current) {
+            self::$current = 'en';
+        }
+
     }
 
     /**
