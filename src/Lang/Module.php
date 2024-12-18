@@ -140,7 +140,7 @@ class Module extends BaseModule
 
         $langs = $this->Langs();
         foreach ($langs as $key => $value) {
-            if ($value->default) {
+            if ($value?->default ?? false) {
                 $this->_default = $key;
                 return $this->_default;
             }
@@ -173,7 +173,7 @@ class Module extends BaseModule
         $default = '';
         $langs = $this->Langs();
         foreach ($langs as $key => $lang) {
-            if ($lang->default) {
+            if ($lang?->default ?? false) {
                 $default = $key;
                 break;
             }

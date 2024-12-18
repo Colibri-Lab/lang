@@ -226,6 +226,20 @@ App.Modules.Lang = class extends Colibri.Modules.Module {
 
 }
 const Lang = new App.Modules.Lang();
+Lang.isLangObject = function(obj) {
+    if(!LangData) {
+        throw 'Can not get LangData object';
+    }
+
+    const availableLangs = Object.keys(LangData);
+    const objectKeys = Object.keys(obj);
+    for(const key of objectKeys) {
+        if(!availableLangs.contains(key)) {
+            return false;
+        }
+    }
+    return true;
+};
 Lang.Translate = function(value, lang = null) {
     if(!lang) {
         lang = Lang.Current;
@@ -249,7 +263,24 @@ Lang.Translate = function(value, lang = null) {
         }
     }
     return value;
-}
+};
+Lang.TranslateObject = function(obj, lang = null) {
+    if(Lang.isLangObject(obj)) {
+        return Lang.Translate(obj, lang);
+    }
+    Object.forEach(obj, (name, value) => {
+        if(Object.isObject(value) && typeof value != 'function') {
+            obj[name] = Lang.TranslateObject(value, lang);
+        } else if(Array.isArray(value)) {
+            const v = [];
+            for(const v of value) {
+                v.push(Lang.TranslateObject(v, lang));
+            }
+            obj[name] = v;
+        }
+    });
+    return obj;
+};
 Lang.Update = function(value, object) {
     if(Object.isObject(value)) {
         return value;
@@ -258,7 +289,7 @@ Lang.Update = function(value, object) {
         return object;
     }
     return value;
-}
+};
 Lang.ConvertObject = function(value) {
     const newV = {};
     let keys = [];
@@ -276,7 +307,7 @@ Lang.ConvertObject = function(value) {
         }
     }
     return newV;
-}
+};
 App.Modules.Lang.Icons = {};
 App.Modules.Lang.Icons.Text = '<svg width="29" height="27" viewBox="0 0 29 27" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.34378 11H9.34378V17H7.34378V11Z" fill="black"/><path d="M3.34378 7H5.34378V21H3.34378V7Z" fill="black"/><path d="M23.3438 7H25.3438V21L23.3438 21V7Z" fill="black"/><path d="M25.3438 7V9L3.34378 9L3.34378 7H25.3438Z" fill="black"/><path d="M25.3438 19V21H3.34378L3.34378 19L25.3438 19Z" fill="black"/><path d="M10.5 11H12.5V17H10.5V11Z" fill="black"/><path d="M7.5 11H15.5V12.5H7.5V11Z" fill="black"/><path d="M7.5 11H15.5V12.5H7.5V11Z" fill="black"/><path d="M13.5 11H15.5V17H13.5V11Z" fill="black"/></svg>';
 

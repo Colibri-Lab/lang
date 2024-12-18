@@ -1,6 +1,5 @@
 ---
 ru:
-  default: true
   desc: Русский
   icon: App.Modules.Lang.Icons.Countries.RU
   dateformat: ru-RU
@@ -19,4 +18,5 @@ hy:
   icon: App.Modules.Lang.Icons.Countries.AM
   dateformat: ru-RU
   numberformat: ru-RU
+  default: true
 ...
