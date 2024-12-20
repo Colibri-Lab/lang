@@ -1,10 +1,12 @@
 ---
 ru:
+  default: true
   desc: Русский
   icon: App.Modules.Lang.Icons.Countries.RU
   dateformat: ru-RU
   numberformat: ru-RU
 en:
+  default: false
   desc: English
   icon: App.Modules.Lang.Icons.Countries.US
   dateformat: en-US
@@ -13,10 +15,12 @@ it:
   desc: Italian
   default: false
   icon: App.Modules.Lang.Icons.Countries.IT
+  dateformat: en-US
+  numberformat: en-US
 hy:
   desc: Հայերեն
+  default: false
   icon: App.Modules.Lang.Icons.Countries.AM
   dateformat: ru-RU
   numberformat: ru-RU
-  default: true
 ...
