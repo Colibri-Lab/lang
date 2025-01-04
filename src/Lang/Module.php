@@ -321,7 +321,7 @@ class Module extends BaseModule
     {
         $ret = [];
         foreach ($array as $key => $value) {
-            if ($value instanceof DateTime) {
+            if ($value instanceof DateTime || $value instanceof \UnitEnum) {
                 $ret[$key] = $value;
                 continue;
             }
