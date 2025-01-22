@@ -149,6 +149,14 @@ class Module extends BaseModule
         return null;
     }
 
+    public function Populate($value): array {
+        $ret = [];
+        foreach($this->Langs() as $langName => $langObject) {
+            $ret[$langName] = $value;
+        }
+        return $ret;
+    }
+
     /**
      * Returns a languages list
      * @return object
