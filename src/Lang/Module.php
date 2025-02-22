@@ -500,6 +500,21 @@ class Module extends BaseModule
         return null;
     }
 
+    public function AsComment(mixed $langText, string $implodeas = "\n"): ?string 
+    {
+        if(is_string($langText)) {
+            return $langText;
+        }
+        if(is_array($langText) || is_object($langText)) {
+            $ret = [];
+            foreach($langText as $key => $value) {
+                $ret[] = '@' . $key . ': ' . $value;
+            }
+            return implode($implodeas, $ret);
+        }
+        return null;
+    }
+
     /**
      * Saves key and data for translation
      * @param mixed $key
