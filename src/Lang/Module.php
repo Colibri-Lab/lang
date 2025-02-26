@@ -734,4 +734,9 @@ class Module extends BaseModule
         $this->_cookieDomain = $domain;
     }
 
+    public function GetCookieDomain(): string
+    {
+        return $this->_cookieDomain ?: App::$request->host;
+    }
+
 }
