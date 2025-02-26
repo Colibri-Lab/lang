@@ -9,8 +9,8 @@
  * @copyright 2019 Colibri
  * @package App\Modules\Lang
  */
-namespace App\Modules\Lang;
 
+namespace App\Modules\Lang;
 
 use Colibri\Modules\Module as BaseModule;
 use Colibri\Utils\Cache\Bundle;
@@ -29,11 +29,10 @@ use Panda\Yandex\TranslateSdk\Limit;
 use Throwable;
 use Colibri\Utils\Logs\Logger;
 
-
 /**
  * Language support module
  * @package App\Modules\Lang
- * 
+ *
  * @property-read string $claudName
  * @property-read TranslateClient|TranslateSdk\Cloud|null $claud
  * @property-read string $current
@@ -42,13 +41,12 @@ use Colibri\Utils\Logs\Logger;
  */
 class Module extends BaseModule
 {
-
     /**
      * Синглтон
      *
      * @var Module
      */
-    public static ? Module $instance = null;
+    public static ?Module $instance = null;
 
     private static ?string $current = null;
 
@@ -57,6 +55,8 @@ class Module extends BaseModule
     private array $_texts;
 
     private $_claudApi;
+
+    private ?string $_cookieDomain = null;
 
     /**
      * Initializes the module
@@ -132,7 +132,7 @@ class Module extends BaseModule
      * Returns default language
      * @return string|null
      */
-    public function Default (): ?string
+    public function Default(): ?string
     {
         if ($this->_default) {
             return $this->_default;
@@ -149,7 +149,8 @@ class Module extends BaseModule
         return null;
     }
 
-    public function Populate($value): array {
+    public function Populate($value): array
+    {
         $ret = [];
         foreach($this->Langs() as $langName => $langObject) {
             $ret[$langName] = $value;
@@ -243,8 +244,17 @@ class Module extends BaseModule
      */
     public function GenerateCookie(bool $secure = true): object
     {
+        $host = $this->_cookieDomain ?: App::$request->host;
+        
         // $this->expires
-        return (object) ['name' => 'lang', 'value' => $this->current, 'expire' => time() + 365 * 86400, 'domain' => App::$request->host, 'path' => '/', 'secure' => $secure];
+        return (object) [
+            'name' => 'lang',
+            'value' => $this->current,
+            'expire' => time() + 365 * 86400,
+            'domain' => $host,
+            'path' => '/',
+            'secure' => $secure
+        ];
     }
 
     /**
@@ -411,11 +421,11 @@ class Module extends BaseModule
                 foreach($pathsArray as $path) {
                     if(is_object($path)) {
                         $path = $path->path;
-                    } else if(is_array($path)) {
+                    } elseif(is_array($path)) {
                         $path = $path['path'];
                     }
                     $langFiles = [
-                        ...$langFiles, 
+                        ...$langFiles,
                         ...Bundle::GetNamespaceAssets(App::$appRoot . $path, ['lang']),
                         ...Bundle::GetChildAssets(App::$appRoot . $path, ['lang'])
                     ];
@@ -488,7 +498,7 @@ class Module extends BaseModule
 
     }
 
-    public function Translate(mixed $langText, string $lang = null): ?string 
+    public function Translate(mixed $langText, string $lang = null): ?string
     {
         if(is_string($langText)) {
             return $langText;
@@ -500,7 +510,7 @@ class Module extends BaseModule
         return null;
     }
 
-    public function AsComment(mixed $langText, string $implodeas = "\n"): ?string 
+    public function AsComment(mixed $langText, string $implodeas = "\n"): ?string
     {
         if(is_string($langText)) {
             return $langText;
@@ -620,8 +630,7 @@ class Module extends BaseModule
             foreach ($text as $t) {
                 $translate->addText($t);
             }
-        }
-        else {
+        } else {
             $translate->addText($text);
         }
 
@@ -716,8 +725,13 @@ class Module extends BaseModule
      */
     public function Backup(Logger $logger, string $path)
     {
-        // Do nothing        
+        // Do nothing
 
+    }
+
+    public function SetCookieDomain($domain)
+    {
+        $this->_cookieDomain = $domain;
     }
 
 }
