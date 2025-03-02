@@ -23,4 +23,10 @@ hy:
   icon: App.Modules.Lang.Icons.Countries.AM
   dateformat: ru-RU
   numberformat: ru-RU
+es:
+  desc: Español
+  default: false
+  icon: App.Modules.Lang.Icons.Countries.ES
+  dateformat: en-US
+  numberformat: en-US
 ...
