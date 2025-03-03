@@ -2,7 +2,11 @@ lang-fields-text:
   ru: Текст (мультиязычный)
   en: Text (Multilangual)
   hy: Տեքստ (բազմալեզու)
+  it: Testo (multilingua)
+  es: Texto (multilingüe)
 lang-contextmenu-translate:
   ru: Перевести
   en: Translate
   hy: Թարքմանել
+  it: Tradurre
+  es: Traducir

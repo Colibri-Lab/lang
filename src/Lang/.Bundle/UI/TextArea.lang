@@ -1,10 +1,18 @@
 lang-fields-text:
   ru: Текст (мультиязычный)
+  en: Text (Multilangual)
+  hy: Տեքստ (բազմալեզու)
+  it: Testo (multilingua)
+  es: Texto (multilingüe)
 lang-fields-textarea:
   ru: Текст большой (мультиязычный)
   en: Big text (Multilangual)
   hy: Մեծ տեքստ (բազմալեզու)
+  it: Grande testo (multilingua)
+  es: Gran texto (multilingüe)
 lang-contextmenu-translate:
   en: Translate
   ru: Перевести
   hy: Թարքմանել
+  it: Tradurre
+  es: Traducir

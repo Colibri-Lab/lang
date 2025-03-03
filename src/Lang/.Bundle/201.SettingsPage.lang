@@ -2,6 +2,8 @@ lang-langform-key:
   ru: Ключ языка
   hy: Լեզվի հիմնաբառ
   en: Language key
+  it: Chiave della lingua
+  es: Clave del idioma
 lang-langform-key-desc:
   ru: Пожалуйста, введите ключ. Внимание! должно содержать только латинские буквы
     и цифры без тире, дефисов и пробелов.
@@ -9,40 +11,61 @@ lang-langform-key-desc:
     լատինական տառեր և թվեր՝ առանց գծիկների, գծիկների և բացատների:"
   en: Please enter the key. Attention! must contain only Latin letters and numbers
     without dashes, hyphens and spaces.
+  it: Si prega di inserire la chiave. Attenzione! deve contenere solo lettere
+    latine e numeri senza trattini, trattini e spazi.
+  es: Por favor, ingrese la clave. ¡Atención! debe contener solo letras latinas y
+    números sin guiones ni espacios.
 lang-langform-key-validation-message1:
   ru: Пожалуйста, введите ключ языка
   en: Please enter the language key
   hy: Խնդրում ենք մուտքագրել լեզվի հիմնաբառ
+  it: Si prega di inserire la chiave della lingua
+  es: Por favor, ingrese la clave del idioma
 lang-langform-key-validation-message2:
   ru: Введенный текст не соответствует требованиям
   hy: Մուտքագրված տեքստը չի համապատասխանում պահանջներին
   en: The entered text does not match the requirements
+  it: Il testo inserito non corrisponde ai requisiti
+  es: El texto ingresado no cumple con los requisitos
 lang-langform-desc:
   ru: Описание языка
   en: Language description
   hy: եզվի նկարագրություն
+  it: Descrizione della lingua
+  es: Descripción del idioma
 lang-langform-desc-desc:
   ru: Введите описание языка так, как вы хотите видеть язык на сайте
   hy: Մուտքագրեք լեզվի նկարագրությունը այնպես, ինչպես ցանկանում եք տեսնել լեզուն
     կայքում
   en: Enter a description of the language the way you want to see the language on
     the site
+  it: Inserisci una descrizione della lingua nel modo in cui desideri vedere la
+    lingua sul sito
+  es: Ingrese una descripción del idioma tal como desea verlo en el sitio
 lang-langform-default:
   ru: Язык по умолчанию
   en: Default language
   hy: Կանխադրված լեզու
+  it: Lingua predefinita
+  es: Idioma predeterminado
 lang-langform-icon:
   ru: Выберите иконку
   hy: Ընտրեք պատկերակ
   en: Choose an icon
+  it: Scegli un'icona
+  es: Elija un icono
 lang-langform-icon-desc:
   ru: Выберите иконку, которая будет отображаться при выборе языка
   en: Select the icon to be displayed when selecting a language
   hy: Ընտրեք այն պատկերակը, որը կցուցադրվի լեզու ընտրելիս
+  it: Seleziona l'icona da visualizzare quando si seleziona una lingua
+  es: Seleccione el icono que se mostrará al seleccionar un idioma
 lang-textform-key:
   ru: Ключ текста
   hy: Տեքստի հիմնաբառ
   en: Text key
+  it: Chiave del testo
+  es: Clave del texto
 lang-textform-key-desc:
   ru: Пожалуйста, введите ключ. Внимание! содержит только латинские буквы, цифры и
     тире
@@ -50,38 +73,58 @@ lang-textform-key-desc:
     dashes
   hy: "Խնդրում ենք մուտքագրել հիմնաբառ: Ուշադրություն. պարունակում է միայն
     լատինական տառեր, թվեր և գծիկներ"
+  it: Si prega di inserire la chiave. Attenzione! contiene solo lettere latine,
+    numeri e trattini
+  es: Por favor, ingrese la clave. ¡Atención! contiene solo letras latinas,
+    números y guiones
 lang-textform-key-validation-message1:
   ru: Пожалуйста, введите ключ языка
   hy: Խնդրում ենք մուտքագրել լեզվի հիմնաբառ
   en: Please enter a language keyword
+  it: Si prega di inserire una parola chiave della lingua
+  es: Por favor, ingrese una palabra clave del idioma
 lang-textform-key-validation-message2:
   ru: Введенный текст не соответствует требованиям
   en: The entered text does not match the requirements
   hy: Մուտքագրված տեքստը չի համապատասխանում պահանջներին
+  it: Il testo inserito non corrisponde ai requisiti
+  es: El texto ingresado no cumple con los requisitos
 lang-contextmenu-newlang:
   ru: Новый язык
   hy: Նոր լեզու
   en: New language
+  it: Nuova lingua
+  es: Nuevo idioma
 lang-contextmenu-editlang:
   ru: Редактировать язык
   en: Edit language
   hy: Խմբագրել լեզուն
+  it: Modifica lingua
+  es: Editar idioma
 lang-contextmenu-deletelang:
   ru: Удалить язык
   hy: Ջնջել լեզուն
   en: Delete language
+  it: Elimina lingua
+  es: Eliminar idioma
 lang-forms-newlang:
   ru: Новый язык
   en: New language
   hy: Նոր լեզու
+  it: Nuova lingua
+  es: Nuevo idioma
 lang-forms-editlang:
   ru: Редактировать язык
   hy: Խմբագրել լեզուն
   en: Edit language
+  it: Modifica lingua
+  es: Editar idioma
 lang-forms-deletelang:
   ru: Удаление языка
   en: Removing a language
   hy: Լեզվի հեռացում
+  it: Rimozione di una lingua
+  es: Eliminación de un idioma
 lang-forms-deletelang-message:
   ru: Вы уверены, что хотите удалить язык? Все текстовые данные, которые были
     заполнены будут безвозвратно удалены!
@@ -89,98 +132,156 @@ lang-forms-deletelang-message:
     լրացվել են, ընդմիշտ կջնջվեն:"
   en: Are you sure you want to remove the language? All text data that has been
     filled in will be permanently deleted!
+  it: Sei sicuro di voler rimuovere la lingua? Tutti i dati di testo che sono
+    stati compilati saranno eliminati definitivamente!
+  es: ¿Está seguro de que desea eliminar el idioma? Todos los datos de texto que
+    se hayan completado se eliminarán permanentemente.
 lang-contextmenu-translate:
   ru: Перевести
   en: Translate
   hy: Թարգմանեք
+  it: Traduci
+  es: Traducir
 lang-contextmenu-edittext:
   ru: Редактировать тексты
   hy: Ջնջել տեքստերը
   en: Edit texts
+  it: Modifica testi
+  es: Editar textos
 lang-contextmenu-deletetext:
   ru: Удалить тексты
   en: Delete texts
   hy: Ջնջել տեքստերը
+  it: Elimina testi
+  es: Eliminar textos
 lang-forms-edittext:
   ru: Редактировать текст
   hy: Խմբագրել տեքստը
   en: Edit text
+  it: Modifica testo
+  es: Editar texto
 lang-forms-deletetext:
   ru: Вы уверены, что хотите удалить текст?
   en: Deleting texts
   hy: Տեքստերի ջնջում
+  it: Eliminazione testi
+  es: Eliminación de textos
 lang-forms-deletetext-message:
   ru: Вы уверены, что хотите удалить текст?
   hy: "Իսկապե՞ս ուզում եք ջնջել տեքստը:"
   en: Are you sure you want to delete the text?
+  it: Sei sicuro di voler eliminare il testo?
+  es: ¿Está seguro de que desea eliminar el texto?
 lang-forms-deletetexts:
-  ru: Удаление текстов
+  ru: Удаление текстов.
+  en: Deleting texts.
+  hy: "Ջնջել տեքստերը:"
+  it: Eliminazione testi.
+  es: Eliminación de textos.
 lang-forms-newtext:
   ru: Новый текст
   en: New text
   hy: Նոր տեքստ
+  it: Nuovo testo
+  es: Nuevo texto
 lang-forms-deletetexts-title:
   ru: Удаление текстов
   en: Deleting texts
   hy: Տեքստերի ջնջում
+  it: Eliminazione testi
+  es: Eliminación de textos
 lang-forms-deletetexts-message:
   ru: Вы уверены, что хотите удалить выбранные тексты?
   hy: "Իսկապե՞ս ուզում եք ջնջել ընտրված տեքստերը:"
   en: Are you sure you want to delete the selected texts?
+  it: Sei sicuro di voler eliminare i testi selezionati?
+  es: ¿Está seguro de que desea eliminar los textos seleccionados?
 lang-forms-deletetext-title:
   ru: Удаление текста
   en: Removing text
   hy: Տեքստի հեռացում
+  it: Rimozione del testo
+  es: Eliminación del texto
 lang-titles-langs:
   ru: Языки
   en: Languages
+  it: Lingue
+  es: Idiomas
 lang-titles-texts:
   ru: Тексты
   en: Language texts
+  it: Testi della lingua
+  es: Textos del idioma
 lang-search-placeholder:
   ru: Поиск
   en: Search
+  it: Cerca
+  es: Buscar
 lang-search-fullfilled-placeholder:
   ru: Только не заполненные
   en: Just not filled
+  it: Solo non compilati
+  es: Solo no completados
 lang-buttons-create:
   ru: Создать
   en: Create
+  it: Crea
+  es: Crear
 lang-buttons-edit:
   ru: Редактировать
   en: Edit
+  it: Modifica
+  es: Editar
 lang-buttons-delete:
   ru: Удалить
   en: Delete
+  it: Elimina
+  es: Eliminar
 lang-buttons-translate:
   ru: Перевести
   en: Translate
+  it: Traduci
+  es: Traducir
 lang-forms-deletelang-message-delete:
   ru: Удалить!
   en: Delete
   hy: Ջնջել
+  it: Elimina
+  es: Eliminar
 lang-forms-deletelang-message\-delete:
   ru: Удалить!
 lang-forms-deletetext-message-delete:
   ru: Удалить!
   en: Delete
   hy: Ջնջել
+  it: Elimina
+  es: Eliminar
 lang-forms-deletetexts-message-delete:
   ru: Удалить!
   en: Delete
   hy: Ջնջել
+  it: Elimina
+  es: Eliminar
 lang-langform-field:
   ru: Свойство
   en: Property
   hy: Դաշտ
+  it: Proprietà
+  es: Propiedad
 lang-textform-field:
   ru: Свойство
   en: Property
   hy: Դաշտ
+  it: Proprietà
+  es: Propiedad
 lang-global-notallowed:
   ru: Действие запрещено
   en: Operation not permitted
+  it: Operazione non consentita
+  es: Operación no permitida
 lang-settingspage-notallowed:
   ru: Действие запрещено
   en: Operation not permitted
   hy: Գործողությունն արգելված է
+  it: Operazione non consentita
+  es: Operación no permitida
