@@ -4,9 +4,13 @@ lang-fields-text:
   hy: Տեքստ (բազմալեզու)
   it: Testo (multilingua)
   es: Texto (multilingüe)
+  kk: Мәтін (көптілді)
+  uz: Matn (ko'p tilli)
 lang-contextmenu-translate:
   ru: Перевести
   en: Translate
   hy: Թարքմանել
   it: Tradurre
   es: Traducir
+  kk: Аудару
+  uz: Tarjima qilish

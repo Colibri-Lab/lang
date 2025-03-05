@@ -4,243 +4,325 @@ lang-titles-langs:
   hy: Լեզուներ
   it: Lingue
   es: Idiomas
+  kk: Тілдер
+  uz: Tillar
 lang-titles-texts:
   ru: Тексты
   en: Texts
   hy: Տեքստեր
   it: Testi
   es: Textos
+  kk: Мәтіндер
+  uz: Matnlar
 lang-search-placeholder:
   ru: Поиск переводов
   en: Search for translations
   hy: Որոնում թարգմանություններ
   it: Cerca traduzioni
   es: Buscar traducciones
+  kk: Аудармаларды іздеу
+  uz: Tarjimalarni qidirish
 lang-buttons-create:
   ru: Создать
   en: To create
   hy: Ստեղծել
   it: Creare
   es: Crear
+  kk: Жасау
+  uz: Yaratish
 lang-buttons-edit:
   ru: Редактировать
   en: Edit
   hy: Խմբագրել
   it: Modificare
   es: Editar
+  kk: Өңдеу
+  uz: Tahrirlash
 lang-buttons-delete:
   ru: Удалить
   en: Remove
   hy: Ջնջել
   it: Eliminare
   es: Eliminar
+  kk: Жою
+  uz: O'chirish
 lang-buttons-translate:
   ru: Перевести
   en: Translate
   hy: Թարգմանել
   it: Tradurre
   es: Traducir
+  kk: Аудару
+  uz: Tarjima qilish
 lang-menu-settings:
   ru: Настройки языков
   en: Language Settings
   hy: Լեզուների կարգավորումներ
   it: Impostazioni della lingua
   es: Configuración de idioma
+  kk: Тіл параметрлері
+  uz: Til sozlamalari
 lang-menu-settings-desc:
   ru: Настройки языков, интерфейсные тексты
   en: Language settings, interface texts
   hy: Լեզուների կարգավորումներ, ինտերֆեյսային տեքստեր
   it: Impostazioni della lingua, testi dell'interfaccia
   es: Configuración de idioma, textos de interfaz
+  kk: Тіл параметрлері, интерфейс мәтіндері
+  uz: Til sozlamalari, interfeys matnlari
 lang-textgrid-key:
   ru: Ключ
   en: Key
   hy: Բանալին
   it: Chiave
   es: Clave
+  kk: Кілт
+  uz: Kalit
 lang-langform-key:
   ru: Ключ языка
   en: Language key
   hy: Լեզվի բանալին
   it: Chiave della lingua
   es: Clave del idioma
+  kk: Тіл кілті
+  uz: Til kaliti
 lang-langform-key-desc:
   ru: Пожалуйста, введите ключ. Внимание! должно содержать только латинские буквы и цифры без тире, дефисов и пробелов.
   en: Please enter the key. Attention! it should contain only Latin letters and numbers without dashes, hyphens and spaces.
   hy: "Խնդրում ենք մուտքագրել բանալին. Ուշադրություն! պետք է պարունակի միայն լատինական տառեր եւ թվեր, առանց dashes, գծանկարներ եւ բացթողումներ:"
   it: Si prega di inserire la chiave. Attenzione! deve contenere solo lettere latine e numeri senza trattini, trattini e spazi.
   es: Por favor, ingrese la clave. ¡Atención! debe contener solo letras latinas y números sin guiones ni espacios.
+  kk: Кілтті енгізіңіз. Назар аударыңыз! тек латын әріптері мен сандарын қамтуы керек, сызықшалар, дефис және бос орындарсыз.
+  uz: Kalitni kiriting. Diqqat! faqat lotin harflari va raqamlarini o'z ichiga olishi kerak, chiziqlar, defis va bo'shliqlarsiz.
 lang-langform-key-validation-message1:
   ru: Пожалуйста, введите ключ языка
   en: Please enter the language key
   hy: Խնդրում ենք մուտքագրել լեզվի բանալին
   it: Si prega di inserire la chiave della lingua
   es: Por favor, ingrese la clave del idioma
+  kk: Тіл кілтін енгізіңіз
+  uz: Til kalitini kiriting
 lang-langform-key-validation-message2:
   ru: Введенный текст не соответствует требованиям
   en: The entered text does not meet the requirements
   hy: Ներկայացված տեքստը չի համապատասխանում պահանջներին
   it: Il testo inserito non soddisfa i requisiti
   es: El texto ingresado no cumple con los requisitos
+  kk: Енгізілген мәтін талаптарға сәйкес келмейді
+  uz: Kiritilgan matn talablariga javob bermaydi
 lang-langform-desc:
   ru: Описание языка
   en: Language description
   hy: Լեզվի նկարագրությունը
   it: Descrizione della lingua
   es: Descripción del idioma
+  kk: Тіл сипаттамасы
+  uz: Til tavsifi
 lang-langform-desc-desc:
   ru: Введите описание языка так, как вы хотите видеть язык на сайте
   en: Enter the language description the way you want to see the language on the site
   hy: Մուտքագրեք լեզվի նկարագրությունը, ինչպես ցանկանում եք տեսնել լեզուն կայքում
   it: Inserisci la descrizione della lingua come vuoi vedere la lingua sul sito
   es: Ingrese la descripción del idioma tal como desea ver el idioma en el sitio
+  kk: Тілдің сипаттамасын сайтта қалай көргіңіз келсе, солай енгізіңіз
+  uz: Til tavsifini saytida qanday ko'rishni xohlasangiz, shunday kiriting
 lang-langform-default:
   ru: Язык по умолчанию
   en: Default language
   hy: Լռելյայն լեզու
   it: Lingua predefinita
   es: Idioma predeterminado
+  kk: Әдепкі тіл
+  uz: Standart til
 lang-langform-icon:
   ru: Выберите иконку
   en: Select an icon
   hy: Ընտրեք պատկերակը
   it: Seleziona un'icona
   es: Seleccione un icono
+  kk: Белгіні таңдаңыз
+  uz: Belgini tanlang
 lang-langform-icon-desc:
   ru: Выберите иконку, которая будет отображаться при выборе языка
   en: Select the icon that will be displayed when you select a language
   hy: Ընտրեք պատկերակը, որը կցուցադրվի լեզվի ընտրության ժամանակ
   it: Seleziona l'icona che verrà visualizzata quando selezioni una lingua
   es: Seleccione el icono que se mostrará cuando seleccione un idioma
+  kk: Тілді таңдағанда көрсетілетін белгіні таңдаңыз
+  uz: Tilni tanlaganingizda ko'rsatiladigan belgini tanlang
 lang-textform-key:
   ru: Ключ текста
   en: Text Key
   hy: Տեքստի բանալին
   it: Chiave del testo
   es: Clave del texto
+  kk: Мәтін кілті
+  uz: Matn kaliti
 lang-textform-key-desc:
   ru: Пожалуйста, введите ключ. Внимание! содержит только латинские буквы, цифры и тире
   en: Please enter the key. Attention! contains only Latin letters, numbers and dashes
   hy: Խնդրում ենք մուտքագրել բանալին. Ուշադրություն! պարունակում է միայն լատինական տառեր, թվեր եւ dash
   it: Si prega di inserire la chiave. Attenzione! contiene solo lettere latine, numeri e trattini
   es: Por favor, ingrese la clave. ¡Atención! contiene solo letras latinas, números y guiones
+  kk: Кілтті енгізіңіз. Назар аударыңыз! тек латын әріптері, сандар және сызықшалардан тұрады
+  uz: Kalitni kiriting. Diqqat! faqat lotin harflari, raqamlar va chiziqlarni o'z ichiga oladi
 lang-textform-key-validation-message1:
   ru: Пожалуйста, введите ключ языка
   en: Please enter the language key
   hy: Խնդրում ենք մուտքագրել լեզվի բանալին
   it: Si prega di inserire la chiave della lingua
   es: Por favor, ingrese la clave del idioma
+  kk: Тіл кілтін енгізіңіз
+  uz: Til kalitini kiriting
 lang-textform-key-validation-message2:
   ru: Введенный текст не соответствует требованиям
   en: The entered text does not meet the requirements
   hy: Ներկայացված տեքստը չի համապատասխանում պահանջներին
   it: Il testo inserito non soddisfa i requisiti
   es: El texto ingresado no cumple con los requisitos
+  kk: Енгізілген мәтін талаптарға сәйкес келмейді
+  uz: Kiritilgan matn talablariga javob bermaydi
 lang-contextmenu-newlang:
   ru: Новый язык
   en: New language
   hy: Նոր լեզու
   it: Nuova lingua
   es: Nuevo idioma
+  kk: Жаңа тіл
+  uz: Yangi til
 lang-contextmenu-editlang:
   ru: Редактировать язык
   en: Edit Language
   hy: Խմբագրել լեզուն
   it: Modifica lingua
   es: Editar idioma
+  kk: Тілді өңдеу
+  uz: Tilni tahrirlash
 lang-contextmenu-deletelang:
   ru: Удалить язык
   en: Delete a language
   hy: Հեռացնել լեզուն
   it: Elimina lingua
   es: Eliminar idioma
+  kk: Тілді жою
+  uz: Tilni o'chirish
 lang-forms-newlang:
   ru: Новый язык
   en: New language
   hy: Նոր լեզու
   it: Nuova lingua
   es: Nuevo idioma
+  kk: Жаңа тіл
+  uz: Yangi til
 lang-forms-editlang:
   ru: Редактировать язык
   en: Edit Language
   hy: Խմբագրել լեզուն
   it: Modifica lingua
   es: Editar idioma
+  kk: Тілді өңдеу
+  uz: Tilni tahrirlash
 lang-forms-deletelang:
   ru: Удаление языка
   en: Language Removal
   hy: Լեզվի հեռացում
   it: Rimozione della lingua
   es: Eliminación del idioma
+  kk: Тілді жою
+  uz: Tilni olib tashlash
 lang-forms-deletelang-message:
   ru: Вы уверены, что хотите удалить язык? Все текстовые данные, которые были заполнены будут безвозвратно удалены!
   en: Are you sure you want to delete the language? All text data that has been filled in will be permanently deleted!
   hy: "Վստահ եք, որ ցանկանում եք ջնջել լեզուն: Բոլոր տեքստային տվյալները, որոնք լրացվել են անվերադարձ ջնջվել!"
   it: Sei sicuro di voler eliminare la lingua? Tutti i dati di testo che sono stati compilati verranno eliminati definitivamente!
   es: ¿Está seguro de que desea eliminar el idioma? ¡Todos los datos de texto que se hayan completado se eliminarán permanentemente!
+  kk: Тілді жойғыңыз келетініне сенімдісіз бе? Барлық толтырылған мәтіндік деректер қайтарымсыз жойылады!
+  uz: Tilni o'chirishni xohlayotganingizga ishonchingiz komilmi? To'ldirilgan barcha matn ma'lumotlari qaytarib bo'lmaydigan tarzda o'chiriladi!
 lang-contextmenu-translate:
   ru: Перевести с помощью облака
   en: Translate using the cloud
   hy: Թարգմանել միջոցով ամպի
   it: Traduci usando il cloud
   es: Traducir usando la nube
+  kk: Бұлтты пайдаланып аудару
+  uz: Bulut yordamida tarjima qilish
 lang-contextmenu-edittext:
   ru: Редактировать тексты
   en: Edit texts
   hy: Խմբագրել տեքստերը
   it: Modifica testi
   es: Editar textos
+  kk: Мәтіндерді өңдеу
+  uz: Matnlarni tahrirlash
 lang-contextmenu-deletetext:
   ru: Удалить тексты
   en: Delete Texts
   hy: Ջնջել տեքստերը
   it: Elimina testi
   es: Eliminar textos
+  kk: Мәтіндерді жою
+  uz: Matnlarni o'chirish
 lang-forms-edittext:
   ru: Редактировать текст
   en: Edit Text
   hy: Խմբագրել տեքստը
   it: Modifica testo
   es: Editar texto
+  kk: Мәтінді өңдеу
+  uz: Matnni tahrirlash
 lang-forms-deletetext:
   ru: Удаление текстов
   en: Deleting texts
   hy: Տեքստերի հեռացում
   it: Eliminazione testi
   es: Eliminación de textos
+  kk: Мәтіндерді жою
+  uz: Matnlarni o'chirish
 lang-forms-deletetext-message:
   ru: Вы уверены, что хотите удалить текст?
   en: Are you sure you want to delete the text?
   hy: "Վստահ եք, որ ցանկանում եք ջնջել տեքստը:"
   it: Sei sicuro di voler eliminare il testo?
   es: ¿Está seguro de que desea eliminar el texto?
+  kk: Мәтінді жойғыңыз келетініне сенімдісіз бе?
+  uz: Matnni o'chirishni xohlayotganingizga ishonchingiz komilmi?
 lang-forms-deletetexts:
   ru: Удаление текстов
   en: Deleting texts
   hy: Տեքստերի հեռացում
   it: Eliminazione testi
   es: Eliminación de textos
+  kk: Мәтіндерді жою
+  uz: Matnlarni o'chirish
 lang-forms-newtext:
   ru: Новый текст
   en: New text
   hy: Նոր տեքստ
   it: Nuovo testo
   es: Nuevo texto
+  kk: Жаңа мәтін
+  uz: Yangi matn
 lang-fields-text:
   ru: Текст (мультиязычный)
   en: Text (multilingual)
   hy: Տեքստը (բազմալեզու)
   it: Testo (multilingue)
   es: Texto (multilingüe)
+  kk: Мәтін (көптілді)
+  uz: Matn (ko'p tilli)
 lang-search-fullfilled-placeholder:
   ru: Только не заполненные
   en: Only not filled in
   hy: Միայն ոչ լրացված
   it: Solo non compilati
   es: Solo no completados
+  kk: Тек толтырылмағандар
+  uz: Faqat to'ldirilmaganlar
 lang-permissions:
   ru: Доступ к модулю Lang
   en: Access to Lang module
   hy: Մուտք դեպի Lang մոդուլ
   it: Accesso al modulo Lang
   es: Acceso al módulo Lang
+  kk: Lang модуліне қол жеткізу
+  uz: Lang moduliga kirish

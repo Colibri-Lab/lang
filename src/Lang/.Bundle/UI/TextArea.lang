@@ -4,15 +4,21 @@ lang-fields-text:
   hy: Տեքստ (բազմալեզու)
   it: Testo (multilingua)
   es: Texto (multilingüe)
+  kk: Мәтін (көптілді)
+  uz: Matn (ko'p tilli)
 lang-fields-textarea:
   ru: Текст большой (мультиязычный)
   en: Big text (Multilangual)
   hy: Մեծ տեքստ (բազմալեզու)
   it: Grande testo (multilingua)
   es: Gran texto (multilingüe)
+  kk: Үлкен мәтін (көптілді)
+  uz: Katta matn (ko'p tilli)
 lang-contextmenu-translate:
   en: Translate
   ru: Перевести
   hy: Թարքմանել
   it: Tradurre
   es: Traducir
+  kk: Аудару
+  uz: Tarjima qilish
