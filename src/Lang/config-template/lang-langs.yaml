@@ -29,4 +29,16 @@ es:
   icon: App.Modules.Lang.Icons.Countries.ES
   dateformat: en-US
   numberformat: en-US
+kk:
+  desc: Kazakh
+  default: false
+  icon: App.Modules.Lang.Icons.Countries.KZ
+  dateformat: en-US
+  numberformat: en-US
+uz:
+  desc: Uzbek
+  default: false
+  icon: App.Modules.Lang.Icons.Countries.UZ
+  dateformat: en-US
+  numberformat: en-US
 ...
