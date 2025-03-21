@@ -151,4 +151,4 @@ App.Modules.Lang.UI.TextArea = class extends Colibri.UI.Forms.Object {
 
 }
 
-Colibri.UI.Forms.Field.RegisterFieldComponent('Lang.UI.TextArea', 'App.Modules.Lang.UI.TextArea', '#{lang-fields-textarea}', App.Modules.Lang.Icons.Text);
+Colibri.UI.Forms.Field.RegisterFieldComponent('Lang.UI.TextArea', 'App.Modules.Lang.UI.TextArea', '#{lang-fields-textarea}', App.Modules.Lang.Icons.Text, ['required','enabled','canbeempty','readonly','list','template','greed','viewer','fieldgenerator','generator','noteClass','validate','valuegenerator','onchangehandler','visual','code']);
