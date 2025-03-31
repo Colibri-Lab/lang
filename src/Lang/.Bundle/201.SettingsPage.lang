@@ -7,13 +7,20 @@ lang-langform-key:
   kk: Тіл кілті
   uz: Til kaliti
 lang-langform-key-desc:
-  ru: Пожалуйста, введите ключ. Внимание! должно содержать только латинские буквы и цифры без тире, дефисов и пробелов.
-  hy: "Խնդրում ենք մուտքագրել բանալին: Ուշադրություն. պետք է պարունակի միայն լատինական տառեր և թվեր՝ առանց գծիկների, գծիկների և բացատների:"
-  en: Please enter the key. Attention! must contain only Latin letters and numbers without dashes, hyphens and spaces.
-  it: Si prega di inserire la chiave. Attenzione! deve contenere solo lettere latine e numeri senza trattini, trattini e spazi.
-  es: Por favor, ingrese la clave. ¡Atención! debe contener solo letras latinas y números sin guiones ni espacios.
-  kk: Кілтті енгізіңіз. Назар аударыңыз! тек латын әріптері мен сандарын ғана қамтуы керек, сызықшалар, дефистер және бос орындарсыз.
-  uz: Kalitni kiriting. Diqqat! faqat lotin harflari va raqamlarini o'z ichiga olishi kerak, chiziqlar, defislar va bo'shliqlarsiz.
+  ru: Пожалуйста, введите ключ. Внимание! должно содержать только латинские буквы
+    и цифры без тире, дефисов и пробелов.
+  hy: "Խնդրում ենք մուտքագրել բանալին: Ուշադրություն. պետք է պարունակի միայն
+    լատինական տառեր և թվեր՝ առանց գծիկների, գծիկների և բացատների:"
+  en: Please enter the key. Attention! must contain only Latin letters and numbers
+    without dashes, hyphens and spaces.
+  it: Si prega di inserire la chiave. Attenzione! deve contenere solo lettere
+    latine e numeri senza trattini, trattini e spazi.
+  es: Por favor, ingrese la clave. ¡Atención! debe contener solo letras latinas y
+    números sin guiones ni espacios.
+  kk: Кілтті енгізіңіз. Назар аударыңыз! тек латын әріптері мен сандарын ғана
+    қамтуы керек, сызықшалар, дефистер және бос орындарсыз.
+  uz: Kalitni kiriting. Diqqat! faqat lotin harflari va raqamlarini o'z ichiga
+    olishi kerak, chiziqlar, defislar va bo'shliqlarsiz.
 lang-langform-key-validation-message1:
   ru: Пожалуйста, введите ключ языка
   en: Please enter the language key
@@ -40,9 +47,12 @@ lang-langform-desc:
   uz: Til tavsifi
 lang-langform-desc-desc:
   ru: Введите описание языка так, как вы хотите видеть язык на сайте
-  hy: Մուտքագրեք լեզվի նկարագրությունը այնպես, ինչպես ցանկանում եք տեսնել լեզուն կայքում
-  en: Enter a description of the language the way you want to see the language on the site
-  it: Inserisci una descrizione della lingua nel modo in cui desideri vedere la lingua sul sito
+  hy: Մուտքագրեք լեզվի նկարագրությունը այնպես, ինչպես ցանկանում եք տեսնել լեզուն
+    կայքում
+  en: Enter a description of the language the way you want to see the language on
+    the site
+  it: Inserisci una descrizione della lingua nel modo in cui desideri vedere la
+    lingua sul sito
   es: Ingrese una descripción del idioma tal como desea verlo en el sitio
   kk: Тілдің сипаттамасын сайтта қалай көргіңіз келсе, солай енгізіңіз
   uz: Til tavsifini saytida qanday ko'rishni xohlasangiz, shunday kiriting
@@ -79,12 +89,18 @@ lang-textform-key:
   kk: Мәтін кілті
   uz: Matn kaliti
 lang-textform-key-desc:
-  ru: Пожалуйста, введите ключ. Внимание! содержит только латинские буквы, цифры и тире
-  en: Please enter the key. Attention! contains only latin letters, numbers and dashes
-  hy: "Խնդրում ենք մուտքագրել հիմնաբառ: Ուշադրություն. պարունակում է միայն լատինական տառեր, թվեր և գծիկներ"
-  it: Si prega di inserire la chiave. Attenzione! contiene solo lettere latine, numeri e trattini
-  es: Por favor, ingrese la clave. ¡Atención! contiene solo letras latinas, números y guiones
-  kk: Кілтті енгізіңіз. Назар аударыңыз! тек латын әріптері, сандар және сызықшалардан тұрады
+  ru: Пожалуйста, введите ключ. Внимание! содержит только латинские буквы, цифры и
+    тире
+  en: Please enter the key. Attention! contains only latin letters, numbers and
+    dashes
+  hy: "Խնդրում ենք մուտքագրել հիմնաբառ: Ուշադրություն. պարունակում է միայն
+    լատինական տառեր, թվեր և գծիկներ"
+  it: Si prega di inserire la chiave. Attenzione! contiene solo lettere latine,
+    numeri e trattini
+  es: Por favor, ingrese la clave. ¡Atención! contiene solo letras latinas,
+    números y guiones
+  kk: Кілтті енгізіңіз. Назар аударыңыз! тек латын әріптері, сандар және
+    сызықшалардан тұрады
   uz: Kalitni kiriting. Diqqat! faqat lotin harflari, raqamlar va chiziqlar mavjud
 lang-textform-key-validation-message1:
   ru: Пожалуйста, введите ключ языка
@@ -151,13 +167,20 @@ lang-forms-deletelang:
   kk: Тілді жою
   uz: Tilni o'chirish
 lang-forms-deletelang-message:
-  ru: Вы уверены, что хотите удалить язык? Все текстовые данные, которые были заполнены будут безвозвратно удалены!
-  hy: "Իսկապե՞ս ուզում եք հեռացնել լեզուն: Բոլոր տեքստային տվյալները, որոնք լրացվել են, ընդմիշտ կջնջվեն:"
-  en: Are you sure you want to remove the language? All text data that has been filled in will be permanently deleted!
-  it: Sei sicuro di voler rimuovere la lingua? Tutti i dati di testo che sono stati compilati saranno eliminati definitivamente!
-  es: ¿Está seguro de que desea eliminar el idioma? Todos los datos de texto que se hayan completado se eliminarán permanentemente.
-  kk: Тілді жойғыңыз келетініне сенімдісіз бе? Барлық толтырылған мәтіндік деректер біржола жойылады!
-  uz: Tilni o'chirishni xohlaysizmi? To'ldirilgan barcha matn ma'lumotlari doimiy ravishda o'chiriladi!
+  ru: Вы уверены, что хотите удалить язык? Все текстовые данные, которые были
+    заполнены будут безвозвратно удалены!
+  hy: "Իսկապե՞ս ուզում եք հեռացնել լեզուն: Բոլոր տեքստային տվյալները, որոնք
+    լրացվել են, ընդմիշտ կջնջվեն:"
+  en: Are you sure you want to remove the language? All text data that has been
+    filled in will be permanently deleted!
+  it: Sei sicuro di voler rimuovere la lingua? Tutti i dati di testo che sono
+    stati compilati saranno eliminati definitivamente!
+  es: ¿Está seguro de que desea eliminar el idioma? Todos los datos de texto que
+    se hayan completado se eliminarán permanentemente.
+  kk: Тілді жойғыңыз келетініне сенімдісіз бе? Барлық толтырылған мәтіндік
+    деректер біржола жойылады!
+  uz: Tilni o'chirishni xohlaysizmi? To'ldirilgan barcha matn ma'lumotlari doimiy
+    ravishda o'chiriladi!
 lang-contextmenu-translate:
   ru: Перевести
   en: Translate
