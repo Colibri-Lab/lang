@@ -87,13 +87,20 @@ lang-langform-key:
   kk: Тіл кілті
   uz: Til kaliti
 lang-langform-key-desc:
-  ru: Пожалуйста, введите ключ. Внимание! должно содержать только латинские буквы и цифры без тире, дефисов и пробелов.
-  en: Please enter the key. Attention! it should contain only Latin letters and numbers without dashes, hyphens and spaces.
-  hy: "Խնդրում ենք մուտքագրել բանալին. Ուշադրություն! պետք է պարունակի միայն լատինական տառեր եւ թվեր, առանց dashes, գծանկարներ եւ բացթողումներ:"
-  it: Si prega di inserire la chiave. Attenzione! deve contenere solo lettere latine e numeri senza trattini, trattini e spazi.
-  es: Por favor, ingrese la clave. ¡Atención! debe contener solo letras latinas y números sin guiones ni espacios.
-  kk: Кілтті енгізіңіз. Назар аударыңыз! тек латын әріптері мен сандарын қамтуы керек, сызықшалар, дефис және бос орындарсыз.
-  uz: Kalitni kiriting. Diqqat! faqat lotin harflari va raqamlarini o'z ichiga olishi kerak, chiziqlar, defis va bo'shliqlarsiz.
+  ru: Пожалуйста, введите ключ. Внимание! должно содержать только латинские буквы
+    и цифры без тире, дефисов и пробелов.
+  en: Please enter the key. Attention! it should contain only Latin letters and
+    numbers without dashes, hyphens and spaces.
+  hy: "Խնդրում ենք մուտքագրել բանալին. Ուշադրություն! պետք է պարունակի միայն
+    լատինական տառեր եւ թվեր, առանց dashes, գծանկարներ եւ բացթողումներ:"
+  it: Si prega di inserire la chiave. Attenzione! deve contenere solo lettere
+    latine e numeri senza trattini, trattini e spazi.
+  es: Por favor, ingrese la clave. ¡Atención! debe contener solo letras latinas y
+    números sin guiones ni espacios.
+  kk: Кілтті енгізіңіз. Назар аударыңыз! тек латын әріптері мен сандарын қамтуы
+    керек, сызықшалар, дефис және бос орындарсыз.
+  uz: Kalitni kiriting. Diqqat! faqat lotin harflari va raqamlarini o'z ichiga
+    olishi kerak, chiziqlar, defis va bo'shliqlarsiz.
 lang-langform-key-validation-message1:
   ru: Пожалуйста, введите ключ языка
   en: Please enter the language key
@@ -120,7 +127,8 @@ lang-langform-desc:
   uz: Til tavsifi
 lang-langform-desc-desc:
   ru: Введите описание языка так, как вы хотите видеть язык на сайте
-  en: Enter the language description the way you want to see the language on the site
+  en: Enter the language description the way you want to see the language on the
+    site
   hy: Մուտքագրեք լեզվի նկարագրությունը, ինչպես ցանկանում եք տեսնել լեզուն կայքում
   it: Inserisci la descrizione della lingua come vuoi vedere la lingua sul sito
   es: Ingrese la descripción del idioma tal como desea ver el idioma en el sitio
@@ -159,13 +167,20 @@ lang-textform-key:
   kk: Мәтін кілті
   uz: Matn kaliti
 lang-textform-key-desc:
-  ru: Пожалуйста, введите ключ. Внимание! содержит только латинские буквы, цифры и тире
-  en: Please enter the key. Attention! contains only Latin letters, numbers and dashes
-  hy: Խնդրում ենք մուտքագրել բանալին. Ուշադրություն! պարունակում է միայն լատինական տառեր, թվեր եւ dash
-  it: Si prega di inserire la chiave. Attenzione! contiene solo lettere latine, numeri e trattini
-  es: Por favor, ingrese la clave. ¡Atención! contiene solo letras latinas, números y guiones
-  kk: Кілтті енгізіңіз. Назар аударыңыз! тек латын әріптері, сандар және сызықшалардан тұрады
-  uz: Kalitni kiriting. Diqqat! faqat lotin harflari, raqamlar va chiziqlarni o'z ichiga oladi
+  ru: Пожалуйста, введите ключ. Внимание! содержит только латинские буквы, цифры и
+    тире
+  en: Please enter the key. Attention! contains only Latin letters, numbers and
+    dashes
+  hy: Խնդրում ենք մուտքագրել բանալին. Ուշադրություն! պարունակում է միայն լատինական
+    տառեր, թվեր եւ dash
+  it: Si prega di inserire la chiave. Attenzione! contiene solo lettere latine,
+    numeri e trattini
+  es: Por favor, ingrese la clave. ¡Atención! contiene solo letras latinas,
+    números y guiones
+  kk: Кілтті енгізіңіз. Назар аударыңыз! тек латын әріптері, сандар және
+    сызықшалардан тұрады
+  uz: Kalitni kiriting. Diqqat! faqat lotin harflari, raqamlar va chiziqlarni o'z
+    ichiga oladi
 lang-textform-key-validation-message1:
   ru: Пожалуйста, введите ключ языка
   en: Please enter the language key
@@ -231,13 +246,20 @@ lang-forms-deletelang:
   kk: Тілді жою
   uz: Tilni olib tashlash
 lang-forms-deletelang-message:
-  ru: Вы уверены, что хотите удалить язык? Все текстовые данные, которые были заполнены будут безвозвратно удалены!
-  en: Are you sure you want to delete the language? All text data that has been filled in will be permanently deleted!
-  hy: "Վստահ եք, որ ցանկանում եք ջնջել լեզուն: Բոլոր տեքստային տվյալները, որոնք լրացվել են անվերադարձ ջնջվել!"
-  it: Sei sicuro di voler eliminare la lingua? Tutti i dati di testo che sono stati compilati verranno eliminati definitivamente!
-  es: ¿Está seguro de que desea eliminar el idioma? ¡Todos los datos de texto que se hayan completado se eliminarán permanentemente!
-  kk: Тілді жойғыңыз келетініне сенімдісіз бе? Барлық толтырылған мәтіндік деректер қайтарымсыз жойылады!
-  uz: Tilni o'chirishni xohlayotganingizga ishonchingiz komilmi? To'ldirilgan barcha matn ma'lumotlari qaytarib bo'lmaydigan tarzda o'chiriladi!
+  ru: Вы уверены, что хотите удалить язык? Все текстовые данные, которые были
+    заполнены будут безвозвратно удалены!
+  en: Are you sure you want to delete the language? All text data that has been
+    filled in will be permanently deleted!
+  hy: "Վստահ եք, որ ցանկանում եք ջնջել լեզուն: Բոլոր տեքստային տվյալները, որոնք
+    լրացվել են անվերադարձ ջնջվել!"
+  it: Sei sicuro di voler eliminare la lingua? Tutti i dati di testo che sono
+    stati compilati verranno eliminati definitivamente!
+  es: ¿Está seguro de que desea eliminar el idioma? ¡Todos los datos de texto que
+    se hayan completado se eliminarán permanentemente!
+  kk: Тілді жойғыңыз келетініне сенімдісіз бе? Барлық толтырылған мәтіндік
+    деректер қайтарымсыз жойылады!
+  uz: Tilni o'chirishni xohlayotganingizga ishonchingiz komilmi? To'ldirilgan
+    barcha matn ma'lumotlari qaytarib bo'lmaydigan tarzda o'chiriladi!
 lang-contextmenu-translate:
   ru: Перевести с помощью облака
   en: Translate using the cloud
