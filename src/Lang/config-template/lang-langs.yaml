@@ -15,30 +15,30 @@ it:
   desc: Italian
   default: false
   icon: App.Modules.Lang.Icons.Countries.IT
-  dateformat: en-US
-  numberformat: en-US
+  dateformat: it-IT
+  numberformat: it-IT
 hy:
   desc: Հայերեն
   default: false
   icon: App.Modules.Lang.Icons.Countries.AM
-  dateformat: ru-RU
-  numberformat: ru-RU
+  dateformat: hy-AM
+  numberformat: hy-AM
 es:
   desc: Español
   default: false
   icon: App.Modules.Lang.Icons.Countries.ES
-  dateformat: en-US
-  numberformat: en-US
+  dateformat: es-ES
+  numberformat: es-ES
 kk:
   desc: Kazakh
   default: false
   icon: App.Modules.Lang.Icons.Countries.KZ
-  dateformat: en-US
-  numberformat: en-US
+  dateformat: kk-KK
+  numberformat: kk-KK
 uz:
   desc: Uzbek
   default: false
   icon: App.Modules.Lang.Icons.Countries.UZ
-  dateformat: en-US
-  numberformat: en-US
+  dateformat: uz-UZ
+  numberformat: uz-UZ
 ...
