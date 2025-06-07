@@ -2,7 +2,7 @@
 use App\Modules\Lang\Module;
 
 
-$langs = Module::$instance->Langs();
+$langs = Module::Instance()->Langs();
 
 ?>
 

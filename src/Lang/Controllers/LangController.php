@@ -28,11 +28,11 @@ class LangController extends WebController
     public function Settings(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload = null): object
     {
 
-        if (!SecurityModule::$instance->current) {
+        if (!SecurityModule::Instance()->current) {
             throw new PermissionDeniedException('Permission denied', 403);
         }
 
-        return $this->Finish(200, 'ok', ['cloud' => !!Module::$instance->claudName, 'readonly' => !App::$isDev]);
+        return $this->Finish(200, 'ok', ['cloud' => !!Module::Instance()->claudName, 'readonly' => !App::$isDev]);
 
     }
 
@@ -46,11 +46,11 @@ class LangController extends WebController
     public function Langs(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload = null): object
     {
 
-        if (!SecurityModule::$instance->current) {
+        if (!SecurityModule::Instance()->current) {
             throw new PermissionDeniedException('Permission denied', 403);
         }
 
-        $langs = Module::$instance->Langs();
+        $langs = Module::Instance()->Langs();
 
         return $this->Finish(200, 'ok', $langs);
 
@@ -66,12 +66,12 @@ class LangController extends WebController
     public function Texts(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload = null): object
     {
 
-        if (!SecurityModule::$instance->current) {
+        if (!SecurityModule::Instance()->current) {
             throw new PermissionDeniedException('Permission denied', 403);
         }
 
-        $langs = Module::$instance->Config()->Query('config.langs')->AsObject();
-        $texts = Module::$instance->LoadTexts();
+        $langs = Module::Instance()->Config()->Query('config.langs')->AsObject();
+        $texts = Module::Instance()->LoadTexts();
 
         $term = $post->{'term'} ?: '';
         $notfilled = $post->{'notfilled'} ?: false;
@@ -129,7 +129,7 @@ class LangController extends WebController
     public function SaveLang(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload = null): object
     {
 
-        if (!SecurityModule::$instance->current) {
+        if (!SecurityModule::Instance()->current) {
             throw new PermissionDeniedException('Permission denied', 403);
         }
 
@@ -138,20 +138,20 @@ class LangController extends WebController
             throw new BadRequestException('Bad request', 400);
         }
 
-        if (!SecurityModule::$instance->current->IsCommandAllowed('lang.langs.' . (!!$lang ? '.edit' : '.add'))) {
+        if (!SecurityModule::Instance()->current->IsCommandAllowed('lang.langs.' . (!!$lang ? '.edit' : '.add'))) {
             throw new PermissionDeniedException('Permission denied', 403);
         }
 
         $langKey = $lang['key'];
         unset($lang['key']);
 
-        $langConfig = Module::$instance->Config()->Query('config.langs');
+        $langConfig = Module::Instance()->Config()->Query('config.langs');
         $langConfig->Set($langKey, $lang);
         $langConfig->Save();
 
-        Module::$instance->LoadTexts(true);
+        Module::Instance()->LoadTexts(true);
 
-        $newLang = Module::$instance->Config()->Query('config.langs.' . $langKey)->AsObject();
+        $newLang = Module::Instance()->Config()->Query('config.langs.' . $langKey)->AsObject();
 
         return $this->Finish(200, 'ok', $newLang);
 
@@ -167,7 +167,7 @@ class LangController extends WebController
     public function DeleteLang(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload = null): object
     {
 
-        if (!SecurityModule::$instance->current) {
+        if (!SecurityModule::Instance()->current) {
             throw new PermissionDeniedException('Permission denied', 403);
         }
 
@@ -176,15 +176,15 @@ class LangController extends WebController
             throw new BadRequestException('Bad request', 400);
         }
 
-        if (!SecurityModule::$instance->current->IsCommandAllowed('lang.langs.remove')) {
+        if (!SecurityModule::Instance()->current->IsCommandAllowed('lang.langs.remove')) {
             throw new PermissionDeniedException('Permission denied', 403);
         }
 
-        $langConfig = Module::$instance->Config()->Query('config.langs');
+        $langConfig = Module::Instance()->Config()->Query('config.langs');
         $langConfig->Set($lang, null);
         $langConfig->Save();
 
-        Module::$instance->LoadTexts(true);
+        Module::Instance()->LoadTexts(true);
 
         return $this->Finish(200, 'ok');
 
@@ -200,7 +200,7 @@ class LangController extends WebController
     public function DeleteText(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload = null): object
     {
 
-        if (!SecurityModule::$instance->current) {
+        if (!SecurityModule::Instance()->current) {
             throw new PermissionDeniedException('Permission denied', 403);
         }
 
@@ -209,11 +209,11 @@ class LangController extends WebController
             throw new BadRequestException('Bad request', 400);
         }
 
-        if (!SecurityModule::$instance->current->IsCommandAllowed('lang.texts.remove')) {
+        if (!SecurityModule::Instance()->current->IsCommandAllowed('lang.texts.remove')) {
             throw new PermissionDeniedException('Permission denied', 403);
         }
 
-        Module::$instance->Delete($texts);
+        Module::Instance()->Delete($texts);
 
         return $this->Finish(200, 'ok');
 
@@ -229,7 +229,7 @@ class LangController extends WebController
     public function SaveText(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload = null): object
     {
 
-        if (!SecurityModule::$instance->current) {
+        if (!SecurityModule::Instance()->current) {
             throw new PermissionDeniedException('Permission denied', 403);
         }
 
@@ -238,14 +238,14 @@ class LangController extends WebController
             throw new BadRequestException('Bad request', 400);
         }
 
-        if (!SecurityModule::$instance->current->IsCommandAllowed('lang.texts.' . (!!$text ? '.edit' : '.add'))) {
+        if (!SecurityModule::Instance()->current->IsCommandAllowed('lang.texts.' . (!!$text ? '.edit' : '.add'))) {
             throw new PermissionDeniedException('Permission denied', 403);
         }
 
         $textKey = $text['key'];
         unset($text['key']);
 
-        $newText = Module::$instance->Save($textKey, $text);
+        $newText = Module::Instance()->Save($textKey, $text);
 
         return $this->Finish(200, 'ok', $newText);
 
@@ -261,11 +261,11 @@ class LangController extends WebController
     public function CloudTranslate(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload = null): object
     {
 
-        if (!SecurityModule::$instance->current) {
+        if (!SecurityModule::Instance()->current) {
             throw new PermissionDeniedException('Permission denied', 403);
         }
 
-        if (!Module::$instance->claudName) {
+        if (!Module::Instance()->claudName) {
             throw new BadRequestException('Bad request', 400);
         }
 
@@ -274,7 +274,7 @@ class LangController extends WebController
             throw new BadRequestException('Bad request', 400);
         }
 
-        if (!SecurityModule::$instance->current->IsCommandAllowed('lang.texts.' . ((bool) $texts ? '.edit' : '.add'))) {
+        if (!SecurityModule::Instance()->current->IsCommandAllowed('lang.texts.' . ((bool) $texts ? '.edit' : '.add'))) {
             throw new PermissionDeniedException('Permission denied', 403);
         }
 
@@ -282,14 +282,14 @@ class LangController extends WebController
         $langFrom = $post->{'langFrom'};
         $langTo = $post->{'langTo'};
 
-        Module::$instance->InitApis();
+        Module::Instance()->InitApis();
 
         $totranslate = [];
         foreach ($texts as $text) {
             $totranslate[] = $text[$langFrom];
         }
 
-        $translated = Module::$instance->CloudTranslate($langFrom, $langTo, $totranslate);
+        $translated = Module::Instance()->CloudTranslate($langFrom, $langTo, $totranslate);
         if (!is_array($translated)) {
             $translated = [$translated];
         }
@@ -302,10 +302,10 @@ class LangController extends WebController
 
             $text[$langTo] = $translated[$index];
 
-            $ret[$textKey] = Module::$instance->Save($textKey, $text);
+            $ret[$textKey] = Module::Instance()->Save($textKey, $text);
         }
 
-        Module::$instance->LoadTexts(true);
+        Module::Instance()->LoadTexts(true);
 
         return $this->Finish(200, 'ok', $ret);
 
@@ -321,11 +321,11 @@ class LangController extends WebController
     public function CloudTranslateObject(RequestCollection $get, RequestCollection $post, ? PayloadCopy $payload = null): object
     {
 
-        if (!SecurityModule::$instance->current) {
+        if (!SecurityModule::Instance()->current) {
             throw new PermissionDeniedException('Permission denied', 403);
         }
 
-        if (!Module::$instance->claudName) {
+        if (!Module::Instance()->claudName) {
             throw new BadRequestException('Bad request', 400);
         }
 
@@ -334,7 +334,7 @@ class LangController extends WebController
             throw new BadRequestException('Bad request', 400);
         }
 
-        if (!SecurityModule::$instance->current->IsCommandAllowed('lang.texts.edit')) {
+        if (!SecurityModule::Instance()->current->IsCommandAllowed('lang.texts.edit')) {
             throw new PermissionDeniedException('Permission denied', 403);
         }
 
@@ -342,17 +342,17 @@ class LangController extends WebController
         $langFrom = $post->{'langFrom'};
         $langTo = $post->{'langTo'};
 
-        Module::$instance->InitApis();
+        Module::Instance()->InitApis();
 
         if ($langTo === '*') {
-            $langs = Module::$instance->Langs();
+            $langs = Module::Instance()->Langs();
             foreach ($langs as $key => $langData) {
                 if ($key !== $langFrom) {
-                    $text[$key] = Module::$instance->CloudTranslate($langFrom, $key, $text[$langFrom]);
+                    $text[$key] = Module::Instance()->CloudTranslate($langFrom, $key, $text[$langFrom]);
                 }
             }
         } else {
-            $text[$langTo] = Module::$instance->CloudTranslate($langFrom, $langTo, $text[$langFrom]);
+            $text[$langTo] = Module::Instance()->CloudTranslate($langFrom, $langTo, $text[$langFrom]);
         }
 
         return $this->Finish(200, 'ok', $text);

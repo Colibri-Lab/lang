@@ -41,12 +41,6 @@ use Colibri\Utils\Logs\Logger;
  */
 class Module extends BaseModule
 {
-    /**
-     * Синглтон
-     *
-     * @var Module
-     */
-    public static ?Module $instance = null;
 
     private static ?string $current = null;
 
@@ -64,8 +58,6 @@ class Module extends BaseModule
      */
     public function InitializeModule(): void
     {
-        self::$instance = $this;
-
         $this->_claudApi = null;
 
         $this->InitCurrent();
@@ -208,8 +200,8 @@ class Module extends BaseModule
      */
     public function InitHandlers()
     {
-        $instance = self::$instance;
-        App::$instance->HandleEvent(EventsContainer::RpcRequestProcessed, function ($event, $args) use ($instance) {
+        $instance = self::Instance();
+        App::Instance()->HandleEvent(EventsContainer::RpcRequestProcessed, function ($event, $args) use ($instance) {
             if ($args->type === Server::Stream) {
                 return true;
             }
@@ -221,7 +213,7 @@ class Module extends BaseModule
             return true;
         });
 
-        App::$instance->HandleEvent(EventsContainer::BundleFile, function ($event, $args) use ($instance) {
+        App::Instance()->HandleEvent(EventsContainer::BundleFile, function ($event, $args) use ($instance) {
             $file = new File($args->file);
             if (in_array($file->extension, ['html', 'js'])) {
                 // компилируем html в javascript
@@ -230,7 +222,7 @@ class Module extends BaseModule
             return true;
         });
 
-        App::$instance->HandleEvent(EventsContainer::TemplateRendered, function ($event, $args) use ($instance) {
+        App::Instance()->HandleEvent(EventsContainer::TemplateRendered, function ($event, $args) use ($instance) {
             $args->content = $instance?->ParseString($args->content) ?? $args->content;
             return true;
         });
@@ -322,7 +314,7 @@ class Module extends BaseModule
                 $parts = explode(';', $match[1]);
                 $key = $parts[0];
                 $default = $parts[1] ?? '';
-                $replaceWith = Module::$instance->Get($key, $default);
+                $replaceWith = Module::Instance()->Get($key, $default);
                 $value = str_replace($match[0], str_replace('"', '&quot;', str_replace('\'', '`', $replaceWith)), $value);
             }
         }
