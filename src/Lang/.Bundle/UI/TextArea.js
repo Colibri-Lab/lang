@@ -58,8 +58,8 @@ App.Modules.Lang.UI.TextArea = class extends Colibri.UI.Forms.Object {
             this._links.SelectButton(index ?? 0);
         });
 
-        this.contentContainer.AddHandler('ContextMenu', (event, args) => this.__contextMenu(event, args));
-        this.AddHandler('ContextMenuItemClicked', (event, args) => this.__contextMenuClicked(event, args));
+        this.contentContainer.AddHandler('ContextMenu', this.__contextMenu, false, this);
+        this.AddHandler('ContextMenuItemClicked', this.__contextMenuClicked);
     }
 
     /**

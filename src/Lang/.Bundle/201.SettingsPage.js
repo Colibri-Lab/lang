@@ -14,23 +14,23 @@ App.Modules.Lang.SettingsPage = class extends Colibri.UI.Component {
         this._deleteText = this.Children('split/texts-pane/buttons-pane/delete-text');
         this._translateText = this.Children('split/texts-pane/buttons-pane/translate-text');
 
-        this._langs.AddHandler('ContextMenuIconClicked', (event, args) => this.__renderFoldersContextMenu(event, args));
-        this._langs.AddHandler('ContextMenuItemClicked', (event, args) => this.__clickOnFoldersContextMenu(event, args));        
-        this._langs.AddHandler('SelectionChanged', (event, args) => this.__langsSelectionChanged(event, args));
+        this._langs.AddHandler('ContextMenuIconClicked', this.__renderFoldersContextMenu, false, this);
+        this._langs.AddHandler('ContextMenuItemClicked', this.__clickOnFoldersContextMenu, false, this);        
+        this._langs.AddHandler('SelectionChanged', this.__langsSelectionChanged, false, this);
 
-        this._texts.AddHandler(['SelectionChanged', 'CheckChanged'], (event, args) => this.__textsSelectionChanged(event, args));
-        this._texts.AddHandler('ScrolledToBottom', (event, args) => this.__textsScrolledToBottom(event, args));
-        this._texts.AddHandler('ContextMenuIconClicked', (event, args) => this.__renderTextsContextMenu(event, args));
-        this._texts.AddHandler('ContextMenuItemClicked', (event, args) => this.__clickOnTextsContextMenu(event, args));        
-        this._texts.AddHandler('DoubleClicked', (event, args) => this.__doubleClickedTextsContextMenu(event, args));        
+        this._texts.AddHandler(['SelectionChanged', 'CheckChanged'], this.__textsSelectionChanged, false, this);
+        this._texts.AddHandler('ScrolledToBottom', this.__textsScrolledToBottom, false, this);
+        this._texts.AddHandler('ContextMenuIconClicked', this.__renderTextsContextMenu, false, this);
+        this._texts.AddHandler('ContextMenuItemClicked', this.__clickOnTextsContextMenu, false, this);        
+        this._texts.AddHandler('DoubleClicked', this.__doubleClickedTextsContextMenu, false, this);        
 
-        this._addText.AddHandler('Clicked', (event, args) => this.__addTextClicked(event, args));
-        this._deleteText.AddHandler('Clicked', (event, args) => this.__deleteTextClicked(event, args));
-        this._editText.AddHandler('Clicked', (event, args) => this.__editTextClicked(event, args));
-        this._translateText.AddHandler('Clicked', (event, args) => this.__translateTextClicked(event, args));
+        this._addText.AddHandler('Clicked', this.__addTextClicked, false, this);
+        this._deleteText.AddHandler('Clicked', this.__deleteTextClicked, false, this);
+        this._editText.AddHandler('Clicked', this.__editTextClicked, false, this);
+        this._translateText.AddHandler('Clicked', this.__translateTextClicked, false, this);
 
-        this._searchInput.AddHandler(['Filled', 'Cleared'], (event, args) => this.__searchInputFilled(event, args));
-        this._fullfiledCheckbox.AddHandler('Changed', (event, args) => this.__fullfilledChanged(event, args));
+        this._searchInput.AddHandler(['Filled', 'Cleared'], this.__searchInputFilled, false, this);
+        this._fullfiledCheckbox.AddHandler('Changed', this.__fullfilledChanged, false, this);
 
         this._dataCurrentPage = 1;
 

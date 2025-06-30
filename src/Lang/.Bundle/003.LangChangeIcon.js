@@ -2,22 +2,24 @@ App.Modules.Lang.LangChangeIcon = class extends Colibri.UI.Icon {
     constructor(name, container) {
         super(name, container);
 
-        this.AddHandler('ContextMenuItemClicked', (event, args) => this.__contextMenuItemClicked(event, args));
+        this.AddHandler('ContextMenuItemClicked', this.__contextMenuItemClicked);
         this._savePlace = 'cookie';
 
         this._iconContextMenu = [];
-        this.AddHandler('Clicked', (event, args) => {
-            const contextMenuObject = new Colibri.UI.ContextMenu(this.name + '_contextmenu', document.body, this._contextMenuPosition ?? [Colibri.UI.ContextMenu.LB, Colibri.UI.ContextMenu.LT]);
-            contextMenuObject.parent = this;
-            contextMenuObject.Show(this._iconContextMenu, this);
-            contextMenuObject.AddHandler('Clicked', (event, args) => {
-                contextMenuObject.Hide();
-                this.Dispatch('ContextMenuItemClicked', Object.assign(args, {item: this}));
-                contextMenuObject.Dispose();   
-            });
-        });
+        this.AddHandler('Clicked', this.__thisClicked);
 
     } 
+
+    __thisClicked(event, args) {
+        const contextMenuObject = new Colibri.UI.ContextMenu(this.name + '_contextmenu', document.body, this._contextMenuPosition ?? [Colibri.UI.ContextMenu.LB, Colibri.UI.ContextMenu.LT]);
+        contextMenuObject.parent = this;
+        contextMenuObject.Show(this._iconContextMenu, this);
+        contextMenuObject.AddHandler('Clicked', (event, args) => {
+            contextMenuObject.Hide();
+            this.Dispatch('ContextMenuItemClicked', Object.assign(args, {item: this}));
+            contextMenuObject.Dispose();   
+        });
+    }
 
     /**
      * Render bounded to component data
