@@ -13,22 +13,13 @@ App.Modules.Lang.UI.Text = class extends Colibri.UI.Forms.Object {
             wrap: false,
             removedesc: false,
         });
-        
+
         this._links = new Colibri.UI.ButtonGroup(this.name + '-buttons', this.contentPane);
         this._links.shown = true;
-        this._links.AddHandler('Changed', (event, args) => {
-            const selectedKey = args.button.name;
-            this.contentContainer.ForEach((name, component) => {
-                const show = name === selectedKey;
-                component.shown = show;
-                if(show) {
-                    component.Focus();
-                }
-            });
-        });
+        this._links.AddHandler('Changed', this.__linksChanged, false, this);
 
         let promise = null;
-        if(LangData) {
+        if (LangData) {
             promise = Promise.resolve(LangData);
         } else {
             promise = Lang.Store.AsyncQuery('lang.langs');
@@ -36,9 +27,9 @@ App.Modules.Lang.UI.Text = class extends Colibri.UI.Forms.Object {
 
 
         promise.then((langs) => {
-            
+
             this._fieldData.fields = {};
-            
+
             Object.forEach(langs, (langKey, langDesc) => {
 
                 this._fieldData.fields[langKey] = {
@@ -61,19 +52,14 @@ App.Modules.Lang.UI.Text = class extends Colibri.UI.Forms.Object {
         this.AddHandler('ContextMenuItemClicked', this.__contextMenuClicked);
     }
 
-    /**
-     * @private
-     * @param {Colibri.Events.Event} event event object
-     * @param {*} args event arguments
-     */ 
-    __contextMenuClicked(event, args) {
-        if(!args.menuData) {
-            return false;
-        }
-        const langs = args.menuData.name.split('-');
-        Lang.TranslateTextObject(this.value, langs[0], langs[1]).then((response) => {
-            this.value = response.result;
-            this.Dispatch('Changed', {component: this});
+    __linksChanged(event, args) {
+        const selectedKey = args.button.name;
+        this.contentContainer.ForEach((name, component) => {
+            const show = name === selectedKey;
+            component.shown = show;
+            if (show) {
+                component.Focus();
+            }
         });
     }
 
@@ -81,11 +67,27 @@ App.Modules.Lang.UI.Text = class extends Colibri.UI.Forms.Object {
      * @private
      * @param {Colibri.Events.Event} event event object
      * @param {*} args event arguments
-     */ 
+     */
+    __contextMenuClicked(event, args) {
+        if (!args.menuData) {
+            return false;
+        }
+        const langs = args.menuData.name.split('-');
+        Lang.TranslateTextObject(this.value, langs[0], langs[1]).then((response) => {
+            this.value = response.result;
+            this.Dispatch('Changed', { component: this });
+        });
+    }
+
+    /**
+     * @private
+     * @param {Colibri.Events.Event} event event object
+     * @param {*} args event arguments
+     */
     __contextMenu(event, args) {
 
         const ignore = this._fieldData.params['ignore-translation'] || false;
-        if(ignore) {
+        if (ignore) {
             return;
         }
 
@@ -95,10 +97,10 @@ App.Modules.Lang.UI.Text = class extends Colibri.UI.Forms.Object {
         ]).then((responses) => {
             const settings = responses[0];
             const languages = responses[1];
-            
+
             let contextmenu = [];
-        
-            if(settings.cloud) {
+
+            if (settings.cloud) {
                 let langs = [];
                 Object.forEach(languages, (name, lang) => {
                     langs.push(name);
@@ -107,23 +109,23 @@ App.Modules.Lang.UI.Text = class extends Colibri.UI.Forms.Object {
                 const children = [];
                 langs.forEach((l) => {
                     const childs = [
-                        {name: l + '-*', title: '*'}
+                        { name: l + '-*', title: '*' }
                     ];
                     langs.forEach((ll) => {
-                        if(ll != l) {
-                            childs.push({name: l + '-' + ll, title: ll.toUpperCase()});
+                        if (ll != l) {
+                            childs.push({ name: l + '-' + ll, title: ll.toUpperCase() });
                         }
-                    });                    
+                    });
 
-                    children.push({name: l, title: l.toUpperCase(), children: childs});
+                    children.push({ name: l, title: l.toUpperCase(), children: childs });
                 });
-                contextmenu.push({name: 'translate', title: '#{lang-contextmenu-translate}', icon: App.Modules.Lang.Icons.ContextMenuTranslateIcon, children: children});
+                contextmenu.push({ name: 'translate', title: '#{lang-contextmenu-translate}', icon: App.Modules.Lang.Icons.ContextMenuTranslateIcon, children: children });
 
-                if(contextmenu.length > 0) {
+                if (contextmenu.length > 0) {
                     this.contextmenu = contextmenu;
-                    this.ShowContextMenu([Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.RB], '', {left: args.domEvent.clientX, top: args.domEvent.clientY});
+                    this.ShowContextMenu([Colibri.UI.ContextMenu.RB, Colibri.UI.ContextMenu.RB], '', { left: args.domEvent.clientX, top: args.domEvent.clientY });
                 }
-    
+
             }
         });
         args.domEvent.stopPropagation();
@@ -134,7 +136,7 @@ App.Modules.Lang.UI.Text = class extends Colibri.UI.Forms.Object {
 
     set value(value) {
         Colibri.Common.Wait(() => Object.countKeys(this._fieldData.fields) > 0).then(() => {
-            if(typeof value === 'string') {
+            if (typeof value === 'string') {
                 const v = {};
                 Object.keys(this._fieldData.fields).forEach(k => v[k] = value);
                 super.value = v;
@@ -151,4 +153,4 @@ App.Modules.Lang.UI.Text = class extends Colibri.UI.Forms.Object {
 
 }
 
-Colibri.UI.Forms.Field.RegisterFieldComponent('Lang.UI.Text', 'App.Modules.Lang.UI.Text', '#{lang-fields-text}', App.Modules.Lang.Icons.Text, ['required','enabled','canbeempty','readonly','list','template','greed','viewer','fieldgenerator','generator','noteClass','validate','valuegenerator','onchangehandler']);
+Colibri.UI.Forms.Field.RegisterFieldComponent('Lang.UI.Text', 'App.Modules.Lang.UI.Text', '#{lang-fields-text}', App.Modules.Lang.Icons.Text, ['required', 'enabled', 'canbeempty', 'readonly', 'list', 'template', 'greed', 'viewer', 'fieldgenerator', 'generator', 'noteClass', 'validate', 'valuegenerator', 'onchangehandler']);
