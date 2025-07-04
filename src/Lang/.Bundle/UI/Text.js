@@ -18,38 +18,40 @@ App.Modules.Lang.UI.Text = class extends Colibri.UI.Forms.Object {
         this._links.shown = true;
         this._links.AddHandler('Changed', this.__linksChanged, false, this);
 
-        let promise = null;
+        let langs = null;
         if (LangData) {
-            promise = Promise.resolve(LangData);
+            langs = LangData;
         } else {
-            promise = Lang.Store.AsyncQuery('lang.langs');
+            langs = Lang.Store.Query('lang.langs');
         }
 
 
-        promise.then((langs) => {
+        if(this.isConnected) {
+            return;
+        }
 
-            this._fieldData.fields = {};
+        this._fieldData.fields = {};
 
-            Object.forEach(langs, (langKey, langDesc) => {
+        Object.forEach(langs, (langKey, langDesc) => {
 
-                this._fieldData.fields[langKey] = {
-                    component: 'Text',
-                    desc: langDesc.desc,
-                    placeholder: langDesc.placeholder,
-                    params: childParams
-                };
+            this._fieldData.fields[langKey] = {
+                component: 'Text',
+                desc: langDesc.desc,
+                placeholder: langDesc.placeholder,
+                params: childParams
+            };
 
-                this._links.AddButton(langKey, langDesc.desc);
+            this._links.AddButton(langKey, langDesc.desc);
 
-            });
-
-            super.RenderFieldContainer();
-            const index = Object.keys(langs).indexOf(Lang.Current);
-            this._links.SelectButton(index ?? 0);
         });
+
+        super.RenderFieldContainer();
+        const index = Object.keys(langs).indexOf(Lang.Current);
+        this._links.SelectButton(index ?? 0);
 
         this.contentContainer.AddHandler('ContextMenu', this.__contextMenu, false, this);
         this.AddHandler('ContextMenuItemClicked', this.__contextMenuClicked);
+
     }
 
     __linksChanged(event, args) {

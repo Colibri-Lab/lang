@@ -53,6 +53,8 @@ App.Modules.Lang = class extends Colibri.Modules.Module {
             }
         });
 
+        this.Reload('lang.langs', false);
+
     }
 
     get Store() {
