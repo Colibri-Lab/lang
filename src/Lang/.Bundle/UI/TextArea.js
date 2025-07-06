@@ -30,6 +30,8 @@ App.Modules.Lang.UI.TextArea = class extends Colibri.UI.Forms.Object {
 
 
         promise.then((langs) => {
+            
+            // TODO: решить проблему, когда быстро закрываешь окно появляется ошибка, что нет элемента
 
             this._fieldData.fields = {};
 

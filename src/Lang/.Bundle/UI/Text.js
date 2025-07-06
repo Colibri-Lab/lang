@@ -28,10 +28,7 @@ App.Modules.Lang.UI.Text = class extends Colibri.UI.Forms.Object {
 
         promise.then((langs) => {
 
-            if(this.isConnected) {
-                return;
-            }
-
+            // TODO: решить проблему, когда быстро закрываешь окно появляется ошибка, что нет элемента
             this._fieldData.fields = {};
 
             Object.forEach(langs, (langKey, langDesc) => {
