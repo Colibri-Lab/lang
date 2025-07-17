@@ -25,7 +25,7 @@ App.Modules.Lang.TextsGrid = class extends Colibri.UI.Grid {
             });
 
             this.header.columns.ForEach((name, column) => {
-                if(name !== 'button-container-for-row-selection' && found.indexOf(name) === -1) {
+                if(name !== 'checkbox-column' && found.indexOf(name) === -1) {
                     column.Dispose();
                 }
             });
