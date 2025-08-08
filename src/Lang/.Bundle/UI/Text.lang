@@ -6,6 +6,7 @@ lang-fields-text:
   es: Texto (multilingüe)
   kk: Мәтін (көптілді)
   uz: Matn (ko'p tilli)
+  cz: Text (vícejazyčný)
 lang-contextmenu-translate:
   ru: Перевести
   en: Translate
@@ -14,3 +15,4 @@ lang-contextmenu-translate:
   es: Traducir
   kk: Аудару
   uz: Tarjima qilish
+  cz: Přeložit

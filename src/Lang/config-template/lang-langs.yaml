@@ -41,4 +41,10 @@ uz:
   icon: App.Modules.Lang.Icons.Countries.UZ
   dateformat: uz-UZ
   numberformat: uz-UZ
+cz:
+  desc: Chzech
+  default: false
+  icon: App.Modules.Lang.Icons.Countries.CZ
+  dateformat: cs-CZ
+  numberformat: cs-CZ
 ...
