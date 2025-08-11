@@ -7,6 +7,7 @@ lang-langform-key:
   kk: Тіл кілті
   uz: Til kaliti
   cz: Klíč jazyka
+  de: Language-Schlüssel
 lang-langform-key-desc:
   ru: Пожалуйста, введите ключ. Внимание! должно содержать только латинские буквы
     и цифры без тире, дефисов и пробелов.
@@ -22,7 +23,10 @@ lang-langform-key-desc:
     қамтуы керек, сызықшалар, дефистер және бос орындарсыз.
   uz: Kalitni kiriting. Diqqat! faqat lotin harflari va raqamlarini o'z ichiga
     olishi kerak, chiziqlar, defislar va bo'shliqlarsiz.
-  cz: Zadejte klíč. Pozor! Musí obsahovat pouze latinská písmena a čísla bez pomlček a mezer.
+  cz: Zadejte klíč. Pozor! Musí obsahovat pouze latinská písmena a čísla bez
+    pomlček a mezer.
+  de: Bitte geben Sie den Schlüssel ein. Achtung! darf nur lateinische Buchstaben
+    und Zahlen ohne Bindestriche, Bindestriche und Leerzeichen enthalten.
 lang-langform-key-validation-message1:
   ru: Пожалуйста, введите ключ языка
   en: Please enter the language key
@@ -32,6 +36,7 @@ lang-langform-key-validation-message1:
   kk: Тіл кілтін енгізіңіз
   uz: Til kalitini kiriting
   cz: Zadejte klíč jazyka
+  de: Please geben Sie den Language-Schlüssel ein
 lang-langform-key-validation-message2:
   ru: Введенный текст не соответствует требованиям
   hy: Մուտքագրված տեքստը չի համապատասխանում պահանջներին
@@ -41,6 +46,7 @@ lang-langform-key-validation-message2:
   kk: Енгізілген мәтін талаптарға сәйкес келмейді
   uz: Kiritilgan matn talablariga mos kelmaydi
   cz: Zadaný text neodpovídá požadavkům
+  de: Der eingegebene Text entspricht nicht den Anforderungen
 lang-langform-desc:
   ru: Описание языка
   en: Language description
@@ -50,6 +56,7 @@ lang-langform-desc:
   kk: Тіл сипаттамасы
   uz: Til tavsifi
   cz: Popis jazyka
+  de: Beschreibung der Sprache
 lang-langform-desc-desc:
   ru: Введите описание языка так, как вы хотите видеть язык на сайте
   hy: Մուտքագրեք լեզվի նկարագրությունը այնպես, ինչպես ցանկանում եք տեսնել լեզուն
@@ -62,6 +69,8 @@ lang-langform-desc-desc:
   kk: Тілдің сипаттамасын сайтта қалай көргіңіз келсе, солай енгізіңіз
   uz: Til tavsifini saytida qanday ko'rishni xohlasangiz, shunday kiriting
   cz: Zadejte popis jazyka tak, jak chcete, aby se zobrazoval na webu
+  de: Geben Sie eine Beschreibung der Sprache ein, wie Sie die Sprache auf der
+    Website sehen möchten
 lang-langform-default:
   ru: Язык по умолчанию
   en: Default language
@@ -71,6 +80,7 @@ lang-langform-default:
   kk: Әдепкі тіл
   uz: Standart til
   cz: Výchozí jazyk
+  de: Standard-Sprache
 lang-langform-icon:
   ru: Выберите иконку
   hy: Ընտրեք պատկերակ
@@ -80,6 +90,7 @@ lang-langform-icon:
   kk: Белгіні таңдаңыз
   uz: Belgini tanlang
   cz: Vyberte ikonu
+  de: Wählen Sie ein Symbol
 lang-langform-icon-desc:
   ru: Выберите иконку, которая будет отображаться при выборе языка
   en: Select the icon to be displayed when selecting a language
@@ -89,6 +100,8 @@ lang-langform-icon-desc:
   kk: Тілді таңдағанда көрсетілетін белгіні таңдаңыз
   uz: Tilni tanlashda ko'rsatiladigan belgini tanlang
   cz: Vyberte ikonu, která se zobrazí při výběru jazyka
+  de: Wählen Sie das Symbol, das angezeigt werden soll, wenn Sie eine Sprache
+    auswählen
 lang-textform-key:
   ru: Ключ текста
   hy: Տեքստի հիմնաբառ
@@ -98,6 +111,7 @@ lang-textform-key:
   kk: Мәтін кілті
   uz: Matn kaliti
   cz: Klíč textu
+  de: Text-Schlüssel
 lang-textform-key-desc:
   ru: Пожалуйста, введите ключ. Внимание! содержит только латинские буквы, цифры и
     тире
@@ -113,6 +127,8 @@ lang-textform-key-desc:
     сызықшалардан тұрады
   uz: Kalitni kiriting. Diqqat! faqat lotin harflari, raqamlar va chiziqlar mavjud
   cz: Zadejte klíč. Pozor! obsahuje pouze latinská písmena, čísla a pomlčky
+  de: Bitte geben Sie den Schlüssel ein. Achtung! enthält nur lateinische
+    Buchstaben, Zahlen und Bindestriche
 lang-textform-key-validation-message1:
   ru: Пожалуйста, введите ключ языка
   hy: Խնդրում ենք մուտքագրել լեզվի հիմնաբառ
@@ -122,6 +138,7 @@ lang-textform-key-validation-message1:
   kk: Тіл кілтін енгізіңіз
   uz: Til kalitini kiriting
   cz: Zadejte klíč jazyka
+  de: Bitte geben Sie ein Language-Schlüsselwort ein
 lang-textform-key-validation-message2:
   ru: Введенный текст не соответствует требованиям
   en: The entered text does not match the requirements
@@ -131,6 +148,7 @@ lang-textform-key-validation-message2:
   kk: Енгізілген мәтін талаптарға сәйкес келмейді
   uz: Kiritilgan matn talablariga mos kelmaydi
   cz: Zadaný text neodpovídá požadavkům
+  de: Der eingegebene Text entspricht nicht den Anforderungen
 lang-contextmenu-newlang:
   ru: Новый язык
   hy: Նոր լեզու
@@ -140,6 +158,7 @@ lang-contextmenu-newlang:
   kk: Жаңа тіл
   uz: Yangi til
   cz: Nový jazyk
+  de: Neue Sprache
 lang-contextmenu-editlang:
   ru: Редактировать язык
   en: Edit language
@@ -149,6 +168,7 @@ lang-contextmenu-editlang:
   kk: Тілді өңдеу
   uz: Tilni tahrirlash
   cz: Upravit jazyk
+  de: Editiere Sprache
 lang-contextmenu-deletelang:
   ru: Удалить язык
   hy: Ջնջել լեզուն
@@ -158,6 +178,7 @@ lang-contextmenu-deletelang:
   kk: Тілді жою
   uz: Tilni o'chirish
   cz: Smazat jazyk
+  de: Delete Sprache
 lang-forms-newlang:
   ru: Новый язык
   en: New language
@@ -167,6 +188,7 @@ lang-forms-newlang:
   kk: Жаңа тіл
   uz: Yangi til
   cz: Nový jazyk
+  de: Neue Sprache
 lang-forms-editlang:
   ru: Редактировать язык
   hy: Խմբագրել լեզուն
@@ -176,6 +198,7 @@ lang-forms-editlang:
   kk: Тілді өңдеу
   uz: Tilni tahrirlash
   cz: Upravit jazyk
+  de: Bearbeite Sprache
 lang-forms-deletelang:
   ru: Удаление языка
   en: Removing a language
@@ -185,6 +208,7 @@ lang-forms-deletelang:
   kk: Тілді жою
   uz: Tilni o'chirish
   cz: Odstranění jazyka
+  de: Entfernen einer Sprache
 lang-forms-deletelang-message:
   ru: Вы уверены, что хотите удалить язык? Все текстовые данные, которые были
     заполнены будут безвозвратно удалены!
@@ -200,7 +224,10 @@ lang-forms-deletelang-message:
     деректер біржола жойылады!
   uz: Tilni o'chirishni xohlaysizmi? To'ldirilgan barcha matn ma'lumotlari doimiy
     ravishda o'chiriladi!
-  cz: Opravdu chcete odstranit jazyk? Všechna vyplněná textová data budou trvale smazána!
+  cz: Opravdu chcete odstranit jazyk? Všechna vyplněná textová data budou trvale
+    smazána!
+  de: Sind Sie sicher, dass Sie die Sprache entfernen möchten? Alle Textdaten, die
+    ausgefüllt wurden, werden dauerhaft gelöscht!
 lang-contextmenu-translate:
   ru: Перевести
   en: Translate
@@ -210,6 +237,7 @@ lang-contextmenu-translate:
   kk: Аудару
   uz: Tarjima qilish
   cz: Přeložit
+  de: Übersetzen
 lang-contextmenu-edittext:
   ru: Редактировать тексты
   hy: Ջնջել տեքստերը
@@ -219,6 +247,7 @@ lang-contextmenu-edittext:
   kk: Мәтіндерді өңдеу
   uz: Matnlarni tahrirlash
   cz: Upravit texty
+  de: Bearbeite Texte
 lang-contextmenu-deletetext:
   ru: Удалить тексты
   en: Delete texts
@@ -228,6 +257,7 @@ lang-contextmenu-deletetext:
   kk: Мәтіндерді жою
   uz: Matnlarni o'chirish
   cz: Smazat texty
+  de: Lösche Texte
 lang-forms-edittext:
   ru: Редактировать текст
   hy: Խմբագրել տեքստը
@@ -237,6 +267,7 @@ lang-forms-edittext:
   kk: Мәтінді өңдеу
   uz: Matnni tahrirlash
   cz: Upravit text
+  de: Bearbeite Text
 lang-forms-deletetext:
   ru: Вы уверены, что хотите удалить текст?
   en: Deleting texts
@@ -246,6 +277,7 @@ lang-forms-deletetext:
   kk: Мәтіндерді жою
   uz: Matnlarni o'chirish
   cz: Mazání textů
+  de: Delete Texte
 lang-forms-deletetext-message:
   ru: Вы уверены, что хотите удалить текст?
   hy: "Իսկապե՞ս ուզում եք ջնջել տեքստը:"
@@ -255,6 +287,7 @@ lang-forms-deletetext-message:
   kk: Мәтінді жойғыңыз келетініне сенімдісіз бе?
   uz: Matnni o'chirishni xohlaysizmi?
   cz: Opravdu chcete smazat text?
+  de: Sind Sie sicher, dass Sie den Text löschen möchten?
 lang-forms-deletetexts:
   ru: Удаление текстов.
   en: Deleting texts.
@@ -264,6 +297,7 @@ lang-forms-deletetexts:
   kk: Мәтіндерді жою.
   uz: Matnlarni o'chirish.
   cz: Mazání textů.
+  de: Löschen von Texten.
 lang-forms-newtext:
   ru: Новый текст
   en: New text
@@ -273,6 +307,7 @@ lang-forms-newtext:
   kk: Жаңа мәтін
   uz: Yangi matn
   cz: Nový text
+  de: Neuer Text
 lang-forms-deletetexts-title:
   ru: Удаление текстов
   en: Deleting texts
@@ -282,6 +317,7 @@ lang-forms-deletetexts-title:
   kk: Мәтіндерді жою
   uz: Matnlarni o'chirish
   cz: Mazání textů
+  de: Delete Texte
 lang-forms-deletetexts-message:
   ru: Вы уверены, что хотите удалить выбранные тексты?
   hy: "Իսկապե՞ս ուզում եք ջնջել ընտրված տեքստերը:"
@@ -291,6 +327,7 @@ lang-forms-deletetexts-message:
   kk: Таңдалған мәтіндерді жойғыңыз келетініне сенімдісіз бе?
   uz: Tanlangan matnlarni o'chirishni xohlaysizmi?
   cz: Opravdu chcete smazat vybrané texty?
+  de: Sind Sie sicher, dass Sie die ausgewählten Texte löschen möchten?
 lang-forms-deletetext-title:
   ru: Удаление текста
   en: Removing text
@@ -300,6 +337,7 @@ lang-forms-deletetext-title:
   kk: Мәтінді жою
   uz: Matnni o'chirish
   cz: Odstranění textu
+  de: Entfernen von Text
 lang-titles-langs:
   ru: Языки
   en: Languages
@@ -308,6 +346,7 @@ lang-titles-langs:
   kk: Тілдер
   uz: Tillar
   cz: Jazyky
+  de: Sprachen
 lang-titles-texts:
   ru: Тексты
   en: Language texts
@@ -316,6 +355,7 @@ lang-titles-texts:
   kk: Мәтіндер
   uz: Matnlar
   cz: Jazykové texty
+  de: Sprachtexte
 lang-search-placeholder:
   ru: Поиск
   en: Search
@@ -324,6 +364,7 @@ lang-search-placeholder:
   kk: Іздеу
   uz: Qidirish
   cz: Hledat
+  de: Suche
 lang-search-fullfilled-placeholder:
   ru: Только не заполненные
   en: Just not filled
@@ -332,6 +373,7 @@ lang-search-fullfilled-placeholder:
   kk: Тек толтырылмағандар
   uz: Faqat to'ldirilmaganlar
   cz: Pouze nevyplněné
+  de: Nur nicht ausgefüllt
 lang-buttons-create:
   ru: Создать
   en: Create
@@ -340,6 +382,7 @@ lang-buttons-create:
   kk: Жасау
   uz: Yaratish
   cz: Vytvořit
+  de: Erstellen
 lang-buttons-edit:
   ru: Редактировать
   en: Edit
@@ -348,6 +391,7 @@ lang-buttons-edit:
   kk: Өңдеу
   uz: Tahrirlash
   cz: Upravit
+  de: Bearbeiten
 lang-buttons-delete:
   ru: Удалить
   en: Delete
@@ -356,6 +400,7 @@ lang-buttons-delete:
   kk: Жою
   uz: O'chirish
   cz: Smazat
+  de: Löschen
 lang-buttons-translate:
   ru: Перевести
   en: Translate
@@ -364,6 +409,7 @@ lang-buttons-translate:
   kk: Аудару
   uz: Tarjima qilish
   cz: Přeložit
+  de: Übersetzen
 lang-forms-deletelang-message-delete:
   ru: Удалить!
   en: Delete
@@ -373,6 +419,7 @@ lang-forms-deletelang-message-delete:
   kk: Жою
   uz: O'chirish
   cz: Smazat!
+  de: Löschen
 lang-forms-deletetext-message-delete:
   ru: Удалить!
   en: Delete
@@ -382,6 +429,7 @@ lang-forms-deletetext-message-delete:
   kk: Жою
   uz: O'chirish
   cz: Smazat!
+  de: Löschen
 lang-forms-deletetexts-message-delete:
   ru: Удалить!
   en: Delete
@@ -391,6 +439,7 @@ lang-forms-deletetexts-message-delete:
   kk: Жою
   uz: O'chirish
   cz: Smazat!
+  de: Löschen
 lang-langform-field:
   ru: Свойство
   en: Property
@@ -400,6 +449,7 @@ lang-langform-field:
   kk: Қасиет
   uz: Mulk
   cz: Vlastnost
+  de: Eigenschaft
 lang-textform-field:
   ru: Свойство
   en: Property
@@ -409,6 +459,7 @@ lang-textform-field:
   kk: Қасиет
   uz: Mulk
   cz: Vlastnost
+  de: Eigenschaft
 lang-global-notallowed:
   ru: Действие запрещено
   en: Operation not permitted
@@ -417,6 +468,7 @@ lang-global-notallowed:
   kk: Операцияға рұқсат етілмейді
   uz: Operatsiyaga ruxsat berilmagan
   cz: Operace není povolena
+  de: Operation nicht erlaubt
 lang-settingspage-notallowed:
   ru: Действие запрещено
   en: Operation not permitted
@@ -426,3 +478,4 @@ lang-settingspage-notallowed:
   kk: Операцияға рұқсат етілмейді
   uz: Operatsiyaga ruxsat berilmagan
   cz: Operace není povolena
+  de: Operation nicht erlaubt

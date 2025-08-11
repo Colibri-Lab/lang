@@ -7,6 +7,7 @@ lang-fields-text:
   kk: Мәтін (көптілді)
   uz: Matn (ko'p tilli)
   cz: Text (vícejazyčný)
+  de: Text (Mehrsprachig)
 lang-fields-textarea:
   ru: Текст большой (мультиязычный)
   en: Big text (Multilangual)
@@ -16,6 +17,7 @@ lang-fields-textarea:
   kk: Үлкен мәтін (көптілді)
   uz: Katta matn (ko'p tilli)
   cz: Velký text (vícejazyčný)
+  de: Großer Text (Mehrsprachig)
 lang-contextmenu-translate:
   en: Translate
   ru: Перевести
@@ -25,3 +27,4 @@ lang-contextmenu-translate:
   kk: Аудару
   uz: Tarjima qilish
   cz: Přeložit
+  de: Übersetzen
