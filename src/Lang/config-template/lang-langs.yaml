@@ -53,4 +53,16 @@ de:
   icon: App.Modules.Lang.Icons.Countries.DE
   dateformat: de-DE
   numberformat: de-DE
+tr:
+  desc: Türkçe
+  default: false
+  icon: App.Modules.Lang.Icons.Countries.TR
+  dateformat: tr-TR
+  numberformat: tr-TR
+zh:
+  desc: 中文
+  default: false
+  icon: App.Modules.Lang.Icons.Countries.ZH
+  dateformat: zh-CN
+  numberformat: zh-CN
 ...
