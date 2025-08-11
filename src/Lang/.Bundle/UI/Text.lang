@@ -9,6 +9,7 @@ lang-fields-text:
   cz: Text (vícejazyčný)
   de: Text (Mehrsprachig)
   tr: Metin (Çok dilli)
+  zh: 文本（多语言）
 lang-contextmenu-translate:
   ru: Перевести
   en: Translate
@@ -20,3 +21,4 @@ lang-contextmenu-translate:
   cz: Přeložit
   de: Übersetzen
   tr: Çevir
+  zh: 翻译

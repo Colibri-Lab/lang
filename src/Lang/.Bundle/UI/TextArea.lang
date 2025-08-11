@@ -9,6 +9,7 @@ lang-fields-text:
   cz: Text (vícejazyčný)
   de: Text (Mehrsprachig)
   tr: Metin (Çok dilli)
+  zh: 文本（多语言）
 lang-fields-textarea:
   ru: Текст большой (мультиязычный)
   en: Big text (Multilangual)
@@ -20,6 +21,7 @@ lang-fields-textarea:
   cz: Velký text (vícejazyčný)
   de: Großer Text (Mehrsprachig)
   tr: Büyük metin (Çok dilli)
+  zh: 大文本（多语言）
 lang-contextmenu-translate:
   en: Translate
   ru: Перевести
@@ -31,3 +33,4 @@ lang-contextmenu-translate:
   cz: Přeložit
   de: Übersetzen
   tr: Çevir
+  zh: 翻译
