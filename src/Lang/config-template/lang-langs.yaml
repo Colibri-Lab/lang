@@ -47,4 +47,10 @@ cz:
   icon: App.Modules.Lang.Icons.Countries.CZ
   dateformat: cs-CZ
   numberformat: cs-CZ
+de:
+  desc: Deutsch
+  default: false
+  icon: App.Modules.Lang.Icons.Countries.DE
+  dateformat: de-DE
+  numberformat: de-DE
 ...
