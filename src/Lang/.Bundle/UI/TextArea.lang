@@ -8,6 +8,7 @@ lang-fields-text:
   uz: Matn (ko'p tilli)
   cz: Text (vícejazyčný)
   de: Text (Mehrsprachig)
+  tr: Metin (Çok dilli)
 lang-fields-textarea:
   ru: Текст большой (мультиязычный)
   en: Big text (Multilangual)
@@ -18,6 +19,7 @@ lang-fields-textarea:
   uz: Katta matn (ko'p tilli)
   cz: Velký text (vícejazyčný)
   de: Großer Text (Mehrsprachig)
+  tr: Büyük metin (Çok dilli)
 lang-contextmenu-translate:
   en: Translate
   ru: Перевести
@@ -28,3 +30,4 @@ lang-contextmenu-translate:
   uz: Tarjima qilish
   cz: Přeložit
   de: Übersetzen
+  tr: Çevir

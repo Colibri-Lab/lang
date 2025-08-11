@@ -8,6 +8,7 @@ lang-fields-text:
   uz: Matn (ko'p tilli)
   cz: Text (vícejazyčný)
   de: Text (Mehrsprachig)
+  tr: Metin (Çok dilli)
 lang-contextmenu-translate:
   ru: Перевести
   en: Translate
@@ -18,3 +19,4 @@ lang-contextmenu-translate:
   uz: Tarjima qilish
   cz: Přeložit
   de: Übersetzen
+  tr: Çevir
