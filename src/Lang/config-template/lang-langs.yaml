@@ -62,7 +62,7 @@ tr:
 zh:
   desc: 中文
   default: false
-  icon: App.Modules.Lang.Icons.Countries.CN
+  icon: App.Modules.Lang.Icons.Countries.CN 
   dateformat: zh-CN
   numberformat: zh-CN
 ...
