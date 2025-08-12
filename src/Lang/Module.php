@@ -24,7 +24,7 @@ use Colibri\Web\Server;
 use Panda\Yandex\TranslateSdk;
 use Colibri\AppException;
 use DateTime;
-use Google\Cloud\Translate\V2\TranslateClient;
+use Google\Cloud\Translate\V3\Client\TranslationServiceClient as TranslateClient;
 use Panda\Yandex\TranslateSdk\Limit;
 use Throwable;
 use Colibri\Utils\Logs\Logger;
