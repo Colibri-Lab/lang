@@ -14,7 +14,7 @@ App.Modules.Lang.LangChangeIcon = class extends Colibri.UI.Icon {
         const contextMenuObject = new Colibri.UI.ContextMenu(this.name + '_contextmenu', document.body, this._contextMenuPosition ?? [Colibri.UI.ContextMenu.LB, Colibri.UI.ContextMenu.LT]);
         contextMenuObject.parent = this;
         contextMenuObject.Show(this._iconContextMenu, this);
-        contextMenuObject.AddHandler('Clicked', this.__contextMenuObjectClicked, false, tnis);
+        contextMenuObject.AddHandler('Clicked', this.__contextMenuObjectClicked, false, this);
     }
 
     __contextMenuObjectClicked(event, args) {
