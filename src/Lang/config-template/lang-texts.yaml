@@ -112,7 +112,8 @@ lang-langform-key-desc:
     керек, сызықшалар, дефис және бос орындарсыз.
   uz: Kalitni kiriting. Diqqat! faqat lotin harflari va raqamlarini o'z ichiga
     olishi kerak, chiziqlar, defis va bo'shliqlarsiz.
-  cz: Zadejte klíč. Pozor! Měl by obsahovat pouze latinská písmena a čísla bez pomlček a mezer.
+  cz: Zadejte klíč. Pozor! Měl by obsahovat pouze latinská písmena a čísla bez
+    pomlček a mezer.
 lang-langform-key-validation-message1:
   ru: Пожалуйста, введите ключ языка
   en: Please enter the language key
@@ -289,7 +290,8 @@ lang-forms-deletelang-message:
     деректер қайтарымсыз жойылады!
   uz: Tilni o'chirishni xohlayotganingizga ishonchingiz komilmi? To'ldirilgan
     barcha matn ma'lumotlari qaytarib bo'lmaydigan tarzda o'chiriladi!
-  cz: Opravdu chcete jazyk odstranit? Všechna vyplněná textová data budou trvale smazána!
+  cz: Opravdu chcete jazyk odstranit? Všechna vyplněná textová data budou trvale
+    smazána!
 lang-contextmenu-translate:
   ru: Перевести с помощью облака
   en: Translate using the cloud

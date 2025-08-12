@@ -313,7 +313,7 @@ class Module extends BaseModule
             foreach ($matches as $match) {
                 $parts = explode(';', $match[1]);
                 $key = $parts[0];
-                $default = $parts[1] ?? '';
+                $default = $parts[1] ?? null;
                 $replaceWith = Module::Instance()->Get($key, $default);
                 $value = str_replace($match[0], str_replace('"', '&quot;', str_replace('\'', '`', $replaceWith)), $value);
             }
@@ -445,11 +445,19 @@ class Module extends BaseModule
      * @param mixed $default
      * @return string|null
      */
-    public function Get($text, $default): ?string
+    public function Get(string $text, ?string $default = null): ?string
     {
         $langs = $this->LoadTexts();
         if (isset($langs[$text])) {
-            return $langs[$text][self::$current] ?? $default;
+            if(isset($langs[$text][self::$current])) {
+                return $langs[$text][self::$current];
+            } else if($default !== null) {
+                return $default;
+            } else if(isset($langs[$text][$this->Default()])) {
+                return $langs[$text][$this->Default()];
+            } else {
+                return null;
+            }
         }
 
         $split = explode('-', $text);
@@ -490,7 +498,7 @@ class Module extends BaseModule
 
     }
 
-    public function Translate(mixed $langText, string $lang = null): ?string
+    public function Translate(mixed $langText, ?string $lang = null): ?string
     {
         if(is_string($langText)) {
             return $langText;
